@@ -1,0 +1,35 @@
+{
+  "name": "Kintone Device Preview",
+  "description": "Show kintone device preview",
+  "version": "1.03",
+  "content_scripts": [{
+    "css": ["css/style.css"],
+    "js": ["js/index.js"],
+    "matches": [
+      "https://*.cybozu.com/k/*", 
+      "https://*.cybozu-dev.com/k/*", 
+      "https://*.kintone.com/k/*",
+      "https://*.kintone-dev.com/k/*"
+    ]
+  }],
+  "icons": { 
+    "16": "img/chrome_extension_icon_16x16.png",
+    "48": "img/chrome_extension_icon_64x64.png",
+    "128": "img/chrome_extension_icon_128x128.png"
+  },
+  "permissions": [
+    "tabs",
+    "webRequest",
+    "webRequestBlocking",
+    "https://*.cybozu.com/k/*", 
+    "https://*.cybozu-dev.com/k/*", 
+    "https://*.kintone.com/k/*",
+    "https://*.kintone-dev.com/k/*"
+  ],
+  "background": {
+    "scripts": ["js/bg.js"],
+    "persistent": true
+  },
+  "web_accessible_resources": ["img/*"],
+  "manifest_version": 2
+}
