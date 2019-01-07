@@ -1,6 +1,6 @@
 {
-  "name": "Kintone Device Preview",
-  "description": "Show kintone device preview",
+  "name": "Kintone Portal Customizer",
+  "description": "Customize Kintone portal",
   "version": "1.03",
   "content_scripts": [{
     "css": ["css/style.css"],
@@ -18,18 +18,12 @@
     "128": "img/chrome_extension_icon_128x128.png"
   },
   "permissions": [
-    "tabs",
-    "webRequest",
-    "webRequestBlocking",
+    "storage",
     "https://*.cybozu.com/k/*", 
     "https://*.cybozu-dev.com/k/*", 
     "https://*.kintone.com/k/*",
     "https://*.kintone-dev.com/k/*"
   ],
-  "background": {
-    "scripts": ["js/bg.js"],
-    "persistent": true
-  },
-  "web_accessible_resources": ["img/*"],
+  "web_accessible_resources": ["img/*", "html/*", "css/*"],
   "manifest_version": 2
 }

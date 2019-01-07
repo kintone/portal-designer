@@ -1,0 +1,27 @@
+html {
+    font-size: 16px;
+}
+
+.editors {
+    display: flex;
+}
+
+.editor {
+    margin: 16px;
+}
+
+.editor label,
+.editor textarea {
+    font-size: 1rem;
+}
+
+.label {
+    display: block;
+}
+
+.html-input,
+.css-input,
+.js-input {
+    width: 400px;
+    height: 300px;
+}
