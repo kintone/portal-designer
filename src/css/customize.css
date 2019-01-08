@@ -2,16 +2,37 @@ html {
     font-size: 16px;
 }
 
-.editors {
+.tablist {
     display: flex;
+    font-size: 16px;
 }
 
-.editor {
+.tab {
+    height: 48px;
+    line-height: 48px;
+    min-width: 200px;
+    cursor: pointer;
+    background-color: #d4d7d7;
+    border-style: solid;
+    border-color: #c4c7c7;
+    box-shadow: 1px 0 3px #c4c7c7 inset;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.tab[aria-selected="true"] {
+    background-color: #fff;
+    box-shadow: none;
+    border-left: solid 1px #c4c7c7;
+}
+
+
+.tabpanel {
     margin: 16px;
 }
 
-.editor label,
-.editor textarea {
+.tabpanel label,
+.tabpanel textarea {
     font-size: 1rem;
 }
 

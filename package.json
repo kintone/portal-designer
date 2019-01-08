@@ -12,7 +12,9 @@
     "webpack-cli": "^3.1.2",
     "webpack": "^4.27.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "uglifyjs-webpack-plugin": "^2.1.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

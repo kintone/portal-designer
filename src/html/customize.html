@@ -5,12 +5,16 @@
     <link rel="stylesheet" type="text/css" href="../css/customize.css">
   </head>
   <body>
-        <div class="editors">
-            <div class="editor">
+        <div class="tablist" role="tablist">
+            <button class="tab html-tab" role="tab" aria-controls="html-tabpanel">HTML</button>
+            <button class="tab css-tab" role="tab" aria-controls="css-tabpanel">CSS</button>
+        </div>
+        <div>
+            <div class="tabpanel" id="html-tabpanel" role="tabpanel">
                 <label class="label" for="html-input">HTML:</label>
                 <textarea class="html-input" id="html-input"></textarea>
             </div>
-            <div class="editor">
+            <div class="tabpanel" id="css-tabpanel" role="tabpanel">
                 <label class="label" for="css-input">CSS:</label>
                 <textarea class="css-input" id="css-input"></textarea>
             </div>

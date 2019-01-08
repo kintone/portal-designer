@@ -18,4 +18,35 @@
     loadTextAreaValue(); 
     var saveEl = document.querySelector('.action-save');
     saveEl.addEventListener('click', saveTextAreaValue);
+
+
+
+    function unSelectedAllTabs() {
+        const tabs = document.querySelectorAll('.tab');
+        Array.prototype.forEach.call(tabs, (tabEl) => {
+            tabEl.setAttribute('aria-selected', false);
+        });
+
+        const panels = document.querySelectorAll('.tabpanel');
+        Array.prototype.forEach.call(panels, (panelEl) => {
+            panelEl.setAttribute('hidden', 'hidden');
+        });
+    }
+
+    function selectTab(tabEl) {
+        tabEl.setAttribute('aria-selected', true);
+        const tabPanel = document.getElementById(tabEl.getAttribute('aria-controls'));
+        tabPanel.removeAttribute('hidden');
+    }
+
+    unSelectedAllTabs();
+    selectTab(document.querySelector('.html-tab'));
+    const tabs = document.querySelectorAll('.tab');
+    Array.prototype.forEach.call(tabs, (tabEl) => {
+        tabEl.addEventListener('click', (event) => {
+            unSelectedAllTabs();
+            selectTab(event.target);
+        });
+    });
+
 })();
