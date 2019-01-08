@@ -6,8 +6,10 @@ module.exports = {
     entry: {
         'js/index': './src/js/index.js',
         'js/customize': './src/js/customize.js',
+        'js/popup': './src/js/popup.js',
         'css/style': './src/css/style.css',
-        'css/customize': './src/css/customize.css'
+        'css/customize': './src/css/customize.css',
+        'css/popup': './src/css/popup.css'
     },
     output: {
         path: path.join(__dirname, 'dist')

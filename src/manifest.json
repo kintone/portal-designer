@@ -17,6 +17,15 @@
     "48": "img/chrome_extension_icon_64x64.png",
     "128": "img/chrome_extension_icon_128x128.png"
   },
+  "browser_action":{
+    "default_icon":{
+      "16": "img/chrome_extension_icon_16x16.png",
+      "48": "img/chrome_extension_icon_64x64.png",
+      "128": "img/chrome_extension_icon_128x128.png"
+    },
+    "default_title": "拡張のボタン上ででるツールチップ",
+    "default_popup": "html/popup.html"
+  },
   "permissions": [
     "storage",
     "https://*.cybozu.com/k/*", 
