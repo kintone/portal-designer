@@ -41,7 +41,7 @@ export class CustomizedPortal {
 
     _renderCustomizeTo(entryPointEl) {
         const styleEl = document.createElement('style');
-        styleEl.innerText = this.css;
+        styleEl.innerHTML = this.css;
         entryPointEl.appendChild(styleEl);
 
         const innerEl = document.createElement('div');
