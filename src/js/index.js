@@ -6,7 +6,9 @@ function isPortalPage() {
 }
 
 function renderCustomizedPortal() {
-
+    if (!isPortalPage()) {
+        return;
+    }
     chrome.storage.local.get(['type', 'html', 'css'], function(value) {
         if (value.type && value.type === 'default') {
             return;
