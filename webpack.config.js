@@ -8,9 +8,9 @@ module.exports = {
         'js/index': './src/js/index.js',
         'js/editorpage': './src/js/editorpage.js',
         'js/popup': './src/js/popup.js',
-        'css/style': './src/css/style.css',
-        'css/editorpage': './src/css/editorpage.css',
-        'css/popup': './src/css/popup.css'
+        'css/style': './src/scss/style.scss',
+        'css/editorpage': './src/scss/editorpage.scss',
+        'css/popup': './src/scss/popup.scss'
     },
     output: {
         path: path.join(__dirname, 'dist')
@@ -36,10 +36,11 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader'
+                    'css-loader',
+                    'sass-loader'
                 ]
             }
         ]
