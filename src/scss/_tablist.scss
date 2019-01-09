@@ -16,10 +16,10 @@
     box-sizing: border-box;
     text-align: center;
     font-size: 1rem;
-}
-
-.tab[aria-selected="true"] {
-    background-color: #fff;
-    box-shadow: none;
-    border-left: solid 1px #c4c7c7;
+    
+    &[aria-selected="true"] {
+        background-color: #fff;
+        box-shadow: none;
+        border-left: solid 1px #c4c7c7;
+    }
 }

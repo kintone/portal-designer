@@ -10,13 +10,9 @@
     padding: 16px;
 }
 
-.tabpanel label,
-.tabpanel textarea {
-    font-size: 1rem;
-}
-
-.label {
+.tabpanel-inputlabel {
     display: block;
+    font-size: 1rem;
 }
 
 .tabpanel-input {

@@ -15,4 +15,8 @@
     box-shadow: 1px 1px 1px #8ccbee inset;
     color: #fff;
     font-size: 1rem;
+
+    &:active {
+        background-color: #1d6fa5;
+    }
 }

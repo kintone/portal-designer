@@ -18,9 +18,6 @@ function renderCustomizedPortal() {
 }
 
 function renderHeaderLink() {
-    if (!isPortalPage()) {
-        return;
-    }
     new HeaderLink().render();
 }
 
