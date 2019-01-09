@@ -6,9 +6,7 @@ function isPortalPage() {
 }
 
 function renderCustomizedPortal() {
-    if (!isPortalPage()) {
-        return;
-    }
+
     chrome.storage.local.get(['type', 'html', 'css'], function(value) {
         if (value.type && value.type === 'default') {
             return;
@@ -23,6 +21,4 @@ function renderHeaderLink() {
 
 renderHeaderLink();
 renderCustomizedPortal();
-window.addEventListener('hashchange', () => {
-    renderCustomizedPortal();
-});
+window.addEventListener('hashchange', renderCustomizedPortal);
