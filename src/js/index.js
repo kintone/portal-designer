@@ -17,6 +17,14 @@ function renderCustomizedPortal() {
     });
 }
 
+function renderHeaderLink() {
+    if (!isPortalPage()) {
+        return;
+    }
+    new HeaderLink().render();
+}
+
+renderHeaderLink();
 renderCustomizedPortal();
 window.addEventListener('hashchange', () => {
     renderCustomizedPortal();
