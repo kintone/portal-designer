@@ -6,10 +6,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 module.exports = {
     entry: {
         'js/index': './src/js/index.js',
-        'js/customize': './src/js/customize.js',
+        'js/editorpage': './src/js/editorpage.js',
         'js/popup': './src/js/popup.js',
         'css/style': './src/css/style.css',
-        'css/customize': './src/css/customize.css',
+        'css/editorpage': './src/css/editorpage.css',
         'css/popup': './src/css/popup.css'
     },
     output: {
