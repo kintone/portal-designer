@@ -1,8 +1,8 @@
 export class CustomizedPortal {
 
     constructor(html, css) {
-        this.html = html;
-        this.css = css;
+        this.html = html || '';
+        this.css = css || '';
     }
 
     _getPortalIndexElementDirectly() {
@@ -45,7 +45,7 @@ export class CustomizedPortal {
         entryPointEl.appendChild(styleEl);
 
         const innerEl = document.createElement('div');
-        innerEl.innerHTML = this.html
+        innerEl.innerHTML = this.html;
         entryPointEl.appendChild(innerEl);
     }
 
