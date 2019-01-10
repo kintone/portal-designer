@@ -17,7 +17,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "build": "webpack --config webpack.prod.js && zip -r extension.zip dist/",
     "watch": "webpack --watch --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

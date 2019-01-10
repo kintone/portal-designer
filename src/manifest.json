@@ -1,38 +1,48 @@
 {
   "name": "Kintone Portal Customizer",
   "description": "Customize Kintone portal",
-  "version": "1.0",
-  "content_scripts": [{
-    "css": ["css/style.css"],
-    "js": ["js/index.js"],
-    "matches": [
-      "https://*.cybozu.com/k/*", 
-      "https://*.cybozu-dev.com/k/*", 
-      "https://*.kintone.com/k/*",
-      "https://*.kintone-dev.com/k/*"
-    ]
-  }],
-  "icons": { 
+  "version": "1.1",
+  "content_scripts": [
+    {
+      "css": [
+        "css/style.css"
+      ],
+      "js": [
+        "js/index.js"
+      ],
+      "matches": [
+        "https://*.cybozu.com/k/*",
+        "https://*.cybozu-dev.com/k/*",
+        "https://*.kintone.com/k/*",
+        "https://*.kintone-dev.com/k/*"
+      ]
+    }
+  ],
+  "icons": {
     "16": "img/chrome_extension_icon_16x16.png",
     "48": "img/chrome_extension_icon_64x64.png",
     "128": "img/chrome_extension_icon_128x128.png"
   },
-  "browser_action":{
-    "default_icon":{
+  "browser_action": {
+    "default_icon": {
       "16": "img/chrome_extension_icon_16x16.png",
       "48": "img/chrome_extension_icon_64x64.png",
       "128": "img/chrome_extension_icon_128x128.png"
     },
-    "default_title": "拡張のボタン上ででるツールチップ",
+    "default_title": "Kintone Portal Customizer",
     "default_popup": "html/popup.html"
   },
   "permissions": [
     "storage",
-    "https://*.cybozu.com/k/*", 
-    "https://*.cybozu-dev.com/k/*", 
+    "https://*.cybozu.com/k/*",
+    "https://*.cybozu-dev.com/k/*",
     "https://*.kintone.com/k/*",
     "https://*.kintone-dev.com/k/*"
   ],
-  "web_accessible_resources": ["img/*", "html/*", "css/*"],
+  "web_accessible_resources": [
+    "img/*",
+    "html/*",
+    "css/*"
+  ],
   "manifest_version": 2
 }

@@ -14,7 +14,7 @@ function renderCustomizedPortal() {
         return;
     }
     chrome.storage.local.get(['type', 'html', 'css'], function (value) {
-        if (value.type && value.type === 'default') {
+        if (!value.type || value.type === 'default') {
             addDefaultClassToBody();
             return;
         }
