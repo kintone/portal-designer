@@ -1,6 +1,6 @@
 export class HeaderLink {
 
-    constructor(){};
+    constructor() { };
 
     render() {
         const anchorEl = document.createElement('a');

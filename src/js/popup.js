@@ -10,6 +10,6 @@
 
     const formEl = document.querySelector('.popup-form');
     formEl.addEventListener('change', (evt) => {
-        chrome.storage.local.set({'type': evt.target.value});
+        chrome.storage.local.set({ 'type': evt.target.value });
     });
 })();

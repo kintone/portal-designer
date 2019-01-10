@@ -26,7 +26,7 @@ export class CustomizedPortal {
     }
 
     _createEntryPoint(portalIndexEl) {
-        const shadowEl = portalIndexEl.attachShadow({mode: 'closed'});
+        const shadowEl = portalIndexEl.attachShadow({ mode: 'closed' });
         const entryEl = document.createElement('div');
         entryEl.classList.add('kintone-portal-customize');
         shadowEl.appendChild(entryEl);
@@ -43,7 +43,7 @@ export class CustomizedPortal {
         entryPointEl.appendChild(innerEl);
     }
 
-   async render() {
+    async render() {
         const portalIndexEl = await this._getPortalIndexElement();
         this._renderCustomizeTo(this._createEntryPoint(portalIndexEl));
     }

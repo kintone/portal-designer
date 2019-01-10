@@ -9,10 +9,10 @@ export class TextArea {
 
     _saveValue() {
         const htmlString = document.querySelector('.html-input').value;
-        chrome.storage.local.set({'html': htmlString});
+        chrome.storage.local.set({ 'html': htmlString });
 
         const cssString = document.querySelector('.css-input').value;
-        chrome.storage.local.set({'css': cssString});
+        chrome.storage.local.set({ 'css': cssString });
     }
 
     init() {
