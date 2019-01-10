@@ -25,12 +25,6 @@ export class CustomizedPortal {
         }));
     }
 
-    _hideDefaultPortal(portalIndexEl) {
-        Array.prototype.forEach.call(portalIndexEl.children, (el) => {
-            el.style.display = 'none';
-        });
-    }
-
     _createEntryPoint(portalIndexEl) {
         const shadowEl = portalIndexEl.attachShadow({mode: 'closed'});
         const entryEl = document.createElement('div');
@@ -51,7 +45,6 @@ export class CustomizedPortal {
 
    async render() {
         const portalIndexEl = await this._getPortalIndexElement();
-        this._hideDefaultPortal(portalIndexEl);
         this._renderCustomizeTo(this._createEntryPoint(portalIndexEl));
     }
 }
