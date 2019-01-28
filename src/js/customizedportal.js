@@ -1,8 +1,9 @@
 export class CustomizedPortal {
 
-    constructor(html, css) {
+    constructor(html, css, js) {
         this.html = html || '';
         this.css = css || '';
+        this.js = js || '';
     }
 
     _getPortalIndexElementDirectly() {
@@ -25,11 +26,9 @@ export class CustomizedPortal {
         }));
     }
 
-    _createEntryPoint(portalIndexEl) {
-        const shadowEl = portalIndexEl.attachShadow({ mode: 'closed' });
+    _createEntryPointElement() {
         const entryEl = document.createElement('div');
         entryEl.classList.add('kintone-portal-customize');
-        shadowEl.appendChild(entryEl);
         return entryEl;
     }
 
@@ -41,10 +40,16 @@ export class CustomizedPortal {
         const innerEl = document.createElement('div');
         innerEl.innerHTML = this.html;
         entryPointEl.appendChild(innerEl);
+
+        const scriptEl = document.createElement('script');
+        scriptEl.innerHTML = this.js;
+        entryPointEl.appendChild(scriptEl);
     }
 
     async render() {
         const portalIndexEl = await this._getPortalIndexElement();
-        this._renderCustomizeTo(this._createEntryPoint(portalIndexEl));
+        const entryPointEl = this._createEntryPointElement();
+        portalIndexEl.appendChild(entryPointEl);
+        this._renderCustomizeTo(entryPointEl);
     }
 }

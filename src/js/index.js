@@ -13,12 +13,12 @@ function renderCustomizedPortal() {
     if (!isPortalPage()) {
         return;
     }
-    chrome.storage.local.get(['type', 'html', 'css'], function (value) {
+    chrome.storage.local.get(['type', 'html', 'css', 'js'], function (value) {
         if (!value.type || value.type === 'default') {
             addDefaultClassToBody();
             return;
         }
-        new CustomizedPortal(value.html, value.css).render();
+        new CustomizedPortal(value.html, value.css, value.js).render();
     });
 }
 

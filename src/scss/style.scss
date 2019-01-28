@@ -11,6 +11,6 @@
     font-size: 0;
 }
 
-body:not(.kintone-portal-default) .ocean-portal-index>* {
+body:not(.kintone-portal-default) .ocean-portal-index>*:not(.kintone-portal-customize) {
     display: none;
 }

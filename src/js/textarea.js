@@ -1,9 +1,10 @@
 export class TextArea {
 
     _loadValue() {
-        chrome.storage.local.get(['html', 'css'], (value) => {
+        chrome.storage.local.get(['html', 'css', 'js'], (value) => {
             document.querySelector('.html-input').value = value.html || '';
             document.querySelector('.css-input').value = value.css || '';
+            document.querySelector('.js-input').value = value.js || '';
         });
     }
 
@@ -13,6 +14,9 @@ export class TextArea {
 
         const cssString = document.querySelector('.css-input').value;
         chrome.storage.local.set({ 'css': cssString });
+
+        const jsString = document.querySelector('.js-input').value;
+        chrome.storage.local.set({ 'js': jsString });
     }
 
     init() {
