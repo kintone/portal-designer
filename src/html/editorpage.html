@@ -15,6 +15,7 @@
             <button class="tab html-tab" role="tab" aria-controls="html-tabpanel">HTML</button>
             <button class="tab css-tab" role="tab" aria-controls="css-tabpanel">CSS</button>
             <button class="tab js-tab" role="tab" aria-controls="js-tabpanel">JS</button>
+            <button class="tab config-tab" role="tab" aria-controls="config-tabpanel">Config</button>
         </div>
         <div class="tabpanelwrapper">
             <div class="tabpanel" id="html-tabpanel" role="tabpanel">
@@ -28,6 +29,20 @@
             <div class="tabpanel" id="js-tabpanel" role="tabpanel">
                 <label class="tabpanel-inputlabel" for="js-input">JS:</label>
                 <textarea class="tabpanel-input js-input" id="js-input"></textarea>
+            </div>
+            <div class="tabpanel" id="config-tabpanel" role="tabpanel">
+                <div class="config-tabpanel-row">
+                    <label>
+                        Header Color:
+                        <input type="text" class="config-input" placeholder="Example: #ffcc00">
+                    </label>
+                </div>
+                <div class="config-tabpanel-row">
+                    <label>
+                        Toolbar Color:
+                        <input type="text" class="config-input">
+                    </label>
+                </div>
             </div>
         </div>
     </main>
