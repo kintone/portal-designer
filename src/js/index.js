@@ -10,11 +10,19 @@ function addDefaultClassToBody(type) {
 }
 
 function _updateHeaderColor(headerColor) {
-    document.querySelector('.gaia-header-header').style = 'background-color: ' + headerColor;
+    const headerEl = document.querySelector('.gaia-header-header');
+    headerEl.style.visibility = 'visible';
+    if (headerColor) {
+        headerEl.style.backgroundColor = headerColor;
+    }
 }
 
 function _updateToolbarColor(toolbarColor) {
-    document.querySelector('.gaia-header-toolbar').style = 'background-color: ' + toolbarColor;
+    const toolbarEl = document.querySelector('.gaia-header-toolbar');
+    toolbarEl.style.visibility = 'visible';
+    if (toolbarColor) {
+        toolbarEl.style.backgroundColor = toolbarColor;
+    }
 }
 
 function renderCustomizedPortal() {
