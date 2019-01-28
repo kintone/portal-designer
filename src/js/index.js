@@ -26,17 +26,17 @@ function _updateToolbarColor(toolbarColor) {
 }
 
 function renderCustomizedPortal() {
-    if (!isPortalPage()) {
-        return;
-    }
     chrome.storage.local.get(['type', 'html', 'css', 'js', 'headerColor', 'toolbarColor'], (value) => {
-        if (!value.type || value.type === 'default') {
-            addDefaultClassToBody();
-            return;
-        }
-        new CustomizedPortal(value.html, value.css, value.js).render();
         _updateHeaderColor(value.headerColor);
         _updateToolbarColor(value.toolbarColor);
+
+        if (isPortalPage()) {
+            if (value.type && value.type === 'customize') {
+                new CustomizedPortal(value.html, value.css, value.js).render();
+            } else {
+                addDefaultClassToBody();
+            }
+        }
     });
 }
 
