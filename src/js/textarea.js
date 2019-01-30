@@ -6,14 +6,14 @@ export class TextArea {
         document.querySelector('.js-input').value = value.js || '';
     }
 
-    saveValue() {
+    getValue() {
         const htmlString = document.querySelector('.html-input').value;
-        chrome.storage.local.set({ 'html': htmlString });
-
         const cssString = document.querySelector('.css-input').value;
-        chrome.storage.local.set({ 'css': cssString });
-
         const jsString = document.querySelector('.js-input').value;
-        chrome.storage.local.set({ 'js': jsString });
+        return {
+            'html': htmlString,
+            'css': cssString,
+            'js': jsString
+        };
     }
 }
