@@ -47,7 +47,7 @@ import { ConfigInput } from './configinput.js';
 
         const exportEl = document.querySelector('.action-export');
         exportEl.addEventListener('click', () => {
-            const values = Object.assign(textarea.getValue(), configInput.getValue());
+            const values = Object.assign(textarea.getValue(), configInput.getValue(), { 'customize_version': 1 });
             chrome.storage.local.set(values); // 必ずsaveする.
             download('customize.json', JSON.stringify(values));
         });
