@@ -21,15 +21,28 @@ import { ConfigInput } from './configinput.js';
         tab.init();
 
         const textarea = new TextArea();
-        textarea.init(value);
+        textarea.setValue(value);
 
         const configInput = new ConfigInput();
-        configInput.init(value);
+        configInput.setValue(value);
 
         const saveEl = document.querySelector('.action-save');
         saveEl.addEventListener('click', () => {
             const values = Object.assign(textarea.getValue(), configInput.getValue());
             chrome.storage.local.set(values);
+        });
+
+        const importEl = document.querySelector('.action-import');
+        const reader = new FileReader();
+        reader.addEventListener('load', (evt) => {
+            const value = JSON.parse(evt.target.result);
+            textarea.setValue(value);
+            configInput.setValue(value);
+            importEl.value = '';
+        });
+
+        importEl.addEventListener('change', () => {
+            reader.readAsText(event.target.files[0]);
         });
 
         const exportEl = document.querySelector('.action-export');

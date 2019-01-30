@@ -1,6 +1,6 @@
 export class TextArea {
 
-    init(value) {
+    setValue(value) {
         document.querySelector('.html-input').value = value.html || '';
         document.querySelector('.css-input').value = value.css || '';
         document.querySelector('.js-input').value = value.js || '';
