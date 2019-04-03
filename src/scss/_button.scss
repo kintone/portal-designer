@@ -1,3 +1,7 @@
+.globalnav-buttonset {
+    text-align: right;
+    margin-bottom: 16px;
+}
 .buttonset {
     text-align: right;
     margin-bottom: 16px;
@@ -72,5 +76,10 @@
 
 .action-save {
     @extend %button-default;
+    margin-left: 8px;
+}
+
+.action-cancel {
+    @extend %button-normal;
     margin-left: 8px;
 }
