@@ -1,3 +1,4 @@
+@import "checkbox";
 @import "button";
 @import "tablist";
 @import "tabpanel";
@@ -13,7 +14,6 @@ html {
 
 .global-nav {
     display: flex;
-    justify-content: flex-end;
     margin-bottom: 16px;
 }
 
