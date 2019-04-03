@@ -1,4 +1,5 @@
 import { Tab } from './tab.js';
+import { NameInput } from './nameinput.js';
 import { TextArea } from './textarea.js';
 import { ConfigInput } from './configinput.js';
 
@@ -16,9 +17,12 @@ import { ConfigInput } from './configinput.js';
         document.body.removeChild(element);
     };
 
-    chrome.storage.local.get(['html', 'css', 'js', 'headerColor', 'toolbarColor'], (value) => {
+    chrome.storage.local.get(['name', 'html', 'css', 'js', 'headerColor', 'toolbarColor'], (value) => {
         const tab = new Tab();
         tab.init();
+
+        const nameInput = new NameInput();
+        nameInput.setValue(value);
 
         const textarea = new TextArea();
         textarea.setValue(value);
@@ -28,7 +32,7 @@ import { ConfigInput } from './configinput.js';
 
         const saveEl = document.querySelector('.action-save');
         saveEl.addEventListener('click', () => {
-            const values = Object.assign(textarea.getValue(), configInput.getValue());
+            const values = Object.assign(nameInput.getValue(), textarea.getValue(), configInput.getValue());
             chrome.storage.local.set(values);
         });
 
@@ -41,6 +45,7 @@ import { ConfigInput } from './configinput.js';
         const reader = new FileReader();
         reader.addEventListener('load', (evt) => {
             const value = JSON.parse(evt.target.result);
+            nameInput.setValue(value);
             textarea.setValue(value);
             configInput.setValue(value);
             importEl.value = '';
@@ -52,7 +57,7 @@ import { ConfigInput } from './configinput.js';
 
         const exportEl = document.querySelector('.action-export');
         exportEl.addEventListener('click', () => {
-            const values = Object.assign(textarea.getValue(), configInput.getValue(), { 'customize_version': 1 });
+            const values = Object.assign(nameInput.value, textarea.getValue(), configInput.getValue(), { 'customize_version': 1 });
             chrome.storage.local.set(values); // 必ずsaveする.
             download('customize.json', JSON.stringify(values));
         });

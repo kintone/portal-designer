@@ -1,12 +1,3 @@
-.globalnav-buttonset {
-    text-align: right;
-    margin-bottom: 16px;
-}
-.buttonset {
-    text-align: right;
-    margin-bottom: 16px;
-}
-
 %visually-hidden {
     position: absolute;
     white-space: nowrap;
@@ -62,24 +53,25 @@
     }
 }
 
-.action-import-label {
-    @extend %button-normal;
-    input {
-        @extend %visually-hidden;
-    }
-}
-
-.action-export {
-    @extend %button-normal;
-    margin-left: 8px;
-}
-
 .action-save {
     @extend %button-default;
     margin-left: 8px;
 }
 
 .action-cancel {
+    @extend %button-normal;
+    margin-left: 8px;
+}
+
+.action-import-label {
+    @extend %button-normal;
+    input {
+        @extend %visually-hidden;
+    }
+    margin-left: 8px;
+}
+
+.action-export {
     @extend %button-normal;
     margin-left: 8px;
 }
