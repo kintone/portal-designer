@@ -32,6 +32,11 @@ import { ConfigInput } from './configinput.js';
             chrome.storage.local.set(values);
         });
 
+        const cancelEl = document.querySelector('.action-cancel');
+        cancelEl.addEventListener('click', () => {
+            window.open('about:blank','_self').close();
+        });
+
         const importEl = document.querySelector('.action-import');
         const reader = new FileReader();
         reader.addEventListener('load', (evt) => {
