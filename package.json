@@ -15,7 +15,9 @@
     "webpack-cli": "^3.1.2",
     "webpack-merge": "^4.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "file-loader": "^3.0.1"
+  },
   "scripts": {
     "build": "webpack --config webpack.prod.js && zip -r extension.zip dist/",
     "dev": "webpack --config webpack.dev.js",
