@@ -14,7 +14,9 @@ html {
 
 .global-nav {
     display: flex;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e3e7e8;
 }
 
 .local-nav {

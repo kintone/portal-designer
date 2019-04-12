@@ -53,6 +53,22 @@
     }
 }
 
+%button-text {
+    background-size: 30px;
+    background-position: 0 4px;
+    padding: 2px 4px 0 36px;
+    line-height: 48px;
+    font-size: 1rem;
+    border: 0;
+    cursor: pointer;
+    &:hover {
+        text-decoration: underline;
+    }
+    &:focus-within {
+        outline: 1px solid #3498db;
+    }
+}
+
 .action-save {
     @extend %button-default;
     margin-left: 8px;
@@ -64,14 +80,17 @@
 }
 
 .action-import-label {
-    @extend %button-normal;
-    input {
-        @extend %visually-hidden;
-    }
+    @extend %button-text;
+    background: 0 4px/30px no-repeat url(../img/import.svg);
     margin-left: 8px;
 }
 
+.action-import-label input {
+    @extend %visually-hidden;
+}
+
 .action-export {
-    @extend %button-normal;
+    @extend %button-text;
+    background: 0 4px/30px no-repeat url(../img/export.svg);
     margin-left: 8px;
 }
