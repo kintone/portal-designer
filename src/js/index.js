@@ -27,8 +27,10 @@ function _updateToolbarColor(toolbarColor) {
 
 function renderCustomizedPortal() {
     chrome.storage.local.get(['type', 'html', 'css', 'js', 'headerColor', 'toolbarColor'], (value) => {
-        _updateHeaderColor(value.headerColor);
-        _updateToolbarColor(value.toolbarColor);
+        if (value.type && value.type === 'customize') {
+            _updateHeaderColor(value.headerColor);
+            _updateToolbarColor(value.toolbarColor);
+        }
 
         if (isPortalPage()) {
             if (value.type && value.type === 'customize') {
