@@ -11,7 +11,6 @@ function addDefaultClassToBody(type) {
 
 function _updateHeaderColor(headerColor) {
     const headerEl = document.querySelector('.gaia-header-header');
-    headerEl.style.visibility = 'visible';
     if (headerColor) {
         headerEl.style.backgroundColor = headerColor;
     }
@@ -19,10 +18,19 @@ function _updateHeaderColor(headerColor) {
 
 function _updateToolbarColor(toolbarColor) {
     const toolbarEl = document.querySelector('.gaia-header-toolbar');
-    toolbarEl.style.visibility = 'visible';
     if (toolbarColor) {
         toolbarEl.style.backgroundColor = toolbarColor;
     }
+}
+
+function _setHeaderVisible() {
+    const headerEl = document.querySelector('.gaia-header-header');
+    headerEl.style.visibility = 'visible';
+}
+
+function _setToolbarVisible() {
+    const toolbarEl = document.querySelector('.gaia-header-toolbar');
+    toolbarEl.style.visibility = 'visible';
 }
 
 function renderCustomizedPortal() {
@@ -31,6 +39,8 @@ function renderCustomizedPortal() {
             _updateHeaderColor(value.headerColor);
             _updateToolbarColor(value.toolbarColor);
         }
+        _setHeaderVisible();
+        _setToolbarVisible();
 
         if (isPortalPage()) {
             if (value.type && value.type === 'customize') {
