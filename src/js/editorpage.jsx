@@ -3,33 +3,33 @@ import ReactDOM from 'react-dom';
 import NameInput from './components/NameInput';
 
 class EditorPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+    };
+  }
 
-    constructor(props) {
-      super(props)
-      this.state = {
-        name: ''
-      };
-    }
+  handleNameInputChange(name) {
+    this.setState({ name });
+  }
 
-    handleNameInputChange(name) {
-      this.setState({ name: name });
-    }
+  handleSave() {
+    const { name } = this.state;
+    console.log(name);
+  }
 
-    handleSave() {
-      console.log(this.state.name);
-    }
-
-    render() {
-        return (
-          <div>
-            <NameInput onChange={name => this.handleNameInputChange(name)} />
-            <button type="button" className="action-save" onClick={() => this.handleSave()}>save</button>
-          </div>
-        );
-    }
+  render() {
+    return (
+      <div>
+        <NameInput onChange={name => this.handleNameInputChange(name)} />
+        <button type="button" className="action-save" onClick={() => this.handleSave()}>save</button>
+      </div>
+    );
+  }
 }
 
 ReactDOM.render(
   <EditorPage />,
-  document.querySelector('.wrapper')
+  document.querySelector('.wrapper'),
 );
