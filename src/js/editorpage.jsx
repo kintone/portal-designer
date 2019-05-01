@@ -1,15 +1,31 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import NameInput from './nameinput';
+import NameInput from './components/NameInput';
 
 class EditorPage extends Component {
 
+    constructor(props) {
+      super(props)
+      this.state = {
+        name: ''
+      };
+    }
+
     handleNameInputChange(name) {
-      this.setState({ name });
+      this.setState({ name: name });
+    }
+
+    handleSave() {
+      console.log(this.state.name);
     }
 
     render() {
-        return (<NameInput onChange={this.handleNameInputChange} />);
+        return (
+          <div>
+            <NameInput onChange={name => this.handleNameInputChange(name)} />
+            <button type="button" className="action-save" onClick={() => this.handleSave()}>save</button>
+          </div>
+        );
     }
 }
 
