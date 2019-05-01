@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: {
         'js/index': './src/js/index.js',
-        'js/editorpage': './src/js/editorpage.js',
+        'js/editorpage': './src/js/editorpage.jsx',
         'js/popup': './src/js/popup.js',
         'css/style': './src/scss/style.scss',
         'css/editorpage': './src/scss/editorpage.scss',
@@ -50,6 +50,17 @@ module.exports = {
                         options: {
                             name: '../img/[name].[ext]',
                             outputPath: '../dist/img'
+                        }
+                    }
+                ]
+            },
+            {
+                test: /\.jsx$/,
+                use: [
+                    {
+                        loader: 'babel-loader',
+                        query: {
+                            presets: ['react', 'es2015']
                         }
                     }
                 ]
