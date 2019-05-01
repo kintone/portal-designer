@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Activator from './components/Activator';
 import NameInput from './components/NameInput';
 
 class EditorPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      enabled: false,
       name: '',
     };
   }
@@ -14,16 +16,29 @@ class EditorPage extends Component {
     this.setState({ name });
   }
 
+  handleActivatorChange(enabled) {
+    this.setState({ enabled });
+  }
+
   handleSave() {
-    const { name } = this.state;
-    console.log(name);
+    console.log(this.state);
   }
 
   render() {
     return (
       <div>
-        <NameInput onChange={name => this.handleNameInputChange(name)} />
-        <button type="button" className="action-save" onClick={() => this.handleSave()}>save</button>
+        <div className="global-nav">
+          <div className="global-nav-name">
+            <Activator
+              onChange={enabled => this.handleActivatorChange(enabled)}
+              enabled={this.state.enabled}
+            />
+          </div>
+          <button type="button" className="action-save" onClick={() => this.handleSave()}>Save</button>
+        </div>
+        <div className="local-nav">
+          <NameInput onChange={name => this.handleNameInputChange(name)} name={this.state.name} />
+        </div>
       </div>
     );
   }

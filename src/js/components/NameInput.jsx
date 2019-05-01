@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class NameInput extends Component {
   handleChange(evt) {
-    console.log(evt.target.value);
     this.props.onChange(evt.target.value);
   }
 
@@ -12,6 +11,8 @@ class NameInput extends Component {
       <input
         className="name-input"
         type="text"
+        placeholder="Customized portal name"
+        aria-label="Customized portal name"
         value={this.props.name}
         onChange={evt => this.handleChange(evt)}
       />
