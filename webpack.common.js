@@ -32,6 +32,9 @@ module.exports = {
             to: 'manifest.json'
         }]),
     ],
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
     module: {
         rules: [
             {
@@ -65,6 +68,6 @@ module.exports = {
                     }
                 ]
             }
-        ]
+        ],
     }
 }
