@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 class EditorPage extends Component {
 
@@ -9,5 +10,5 @@ class EditorPage extends Component {
 
 ReactDOM.render(
   <EditorPage />,
-  document.querySelector(document.querySelector('.wrapper'))
+  document.querySelector('.wrapper')
 );
