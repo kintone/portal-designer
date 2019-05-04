@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Activator from './components/Activator';
 import NameInput from './components/NameInput';
+import EditorTabs from './components/Tabs';
 
 class EditorPage extends Component {
   constructor(props) {
@@ -39,6 +40,7 @@ class EditorPage extends Component {
         <div className="local-nav">
           <NameInput onChange={name => this.handleNameInputChange(name)} name={this.state.name} />
         </div>
+        <EditorTabs />
       </div>
     );
   }
