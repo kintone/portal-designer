@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import Activator from './components/Activator';
 import NameInput from './components/NameInput';
 import Tabs from './components/Tabs';
+import Storage from './domain/Storage';
+import { convertStateToStorage, convertStorageToState } from './domain/StorageConverter';
 
 class EditorPage extends Component {
   constructor(props) {
@@ -12,16 +14,16 @@ class EditorPage extends Component {
       name: '',
       editor: {
         html: {
-          value: '<div class="sample"></div>',
+          value: '',
         },
         css: {
-          value: '.sample { color: red; }',
+          value: '',
         },
         js: {
-          value: 'console.log(\'hello, portal.\')',
+          value: '',
         },
-        headerColor: '#000000',
-        toolbarColor: '#ffffff',
+        headerColor: '',
+        toolbarColor: '',
       },
     };
     this.editorHandler = {
@@ -31,6 +33,17 @@ class EditorPage extends Component {
       onHeaderColorChange: this.handleHeaderColorChange.bind(this),
       onToolbarColorChange: this.handleToolbarColorChange.bind(this),
     };
+  }
+
+  async componentDidMount() {
+    const storageValue = await Storage.getAll();
+    const newState = convertStorageToState(storageValue);
+    this.setState(newState);
+  }
+
+  async handleSave() {
+    const storageValue = convertStateToStorage(this.state);
+    await Storage.set(storageValue);
   }
 
   handleNameInputChange(name) {
@@ -82,10 +95,6 @@ class EditorPage extends Component {
       editor.toolbarColor = value;
       return { editor };
     });
-  }
-
-  handleSave() {
-    console.log(this.state);
   }
 
   render() {
