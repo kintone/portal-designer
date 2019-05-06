@@ -1,5 +1,5 @@
-const TYPE_CUSTOMIZE = 'CUSTOMIZE';
-const TYPE_DEFAULT = 'DEFAULT';
+const TYPE_CUSTOMIZE = 'customize';
+const TYPE_DEFAULT = 'default';
 
 export const convertStateToStorage = state => ({
   type: state.enabled ? TYPE_CUSTOMIZE : TYPE_DEFAULT,
