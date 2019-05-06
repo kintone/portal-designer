@@ -6,8 +6,9 @@ import Importer from './components/Importer';
 import Exporter from './components/Exporter';
 import Tabs from './components/Tabs';
 import Storage from './domain/Storage';
-import { convertStateToText } from './domain/TextConverter';
+import { convertStateToText, convertTextToStateFragment } from './domain/TextConverter';
 import { convertStateToStorage, convertStorageToState } from './domain/StorageConverter';
+import { exportFile } from './domain/FileExporter';
 
 class EditorPage extends Component {
   constructor(props) {
@@ -57,22 +58,12 @@ class EditorPage extends Component {
     this.setState({ enabled });
   }
 
-  handleImport(stateFragment) {
-    this.setState(stateFragment);
+  handleImport(text) {
+    this.setState(convertTextToStateFragment(text));
   }
 
   handleExport() {
-    const filename = 'customize.json';
-    const text = convertStateToText(this.state);
-
-    const element = document.createElement('a');
-    element.setAttribute('href', `data:text/plain;charset=utf-8,${text}`);
-    element.setAttribute('download', filename);
-    element.setAttribute('hidden', 'hidden');
-
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
+    exportFile(convertStateToText(this.state));
   }
 
   handleHtmlChange(value) {
