@@ -6,10 +6,6 @@ class TabPanel extends React.Component {
     return this.props.selectedTab === this.props.name;
   }
 
-  renderContent() {
-    return <div>{this.props.name}</div>;
-  }
-
   render() {
     return (
       <div
@@ -17,7 +13,7 @@ class TabPanel extends React.Component {
         role="tabpanel"
         hidden={(this.isSelectedTab()) ? '' : 'hidden'}
       >
-        {this.renderContent()}
+        {this.props.children}
       </div>
     );
   }
@@ -26,6 +22,11 @@ class TabPanel extends React.Component {
 TabPanel.propTypes = {
   name: PropTypes.string.isRequired,
   selectedTab: PropTypes.string.isRequired,
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+};
+
+TabPanel.defaultProps = {
+  children: null,
 };
 
 export default TabPanel;
