@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Activator from './components/Activator';
 import NameInput from './components/NameInput';
+import Importer from './components/Importer';
+import Exporter from './components/Exporter';
 import Tabs from './components/Tabs';
 import Storage from './domain/Storage';
+import { convertStateToText } from './domain/TextConverter';
 import { convertStateToStorage, convertStorageToState } from './domain/StorageConverter';
 
 class EditorPage extends Component {
@@ -52,6 +55,24 @@ class EditorPage extends Component {
 
   handleActivatorChange(enabled) {
     this.setState({ enabled });
+  }
+
+  handleImport(stateFragment) {
+    this.setState(stateFragment);
+  }
+
+  handleExport() {
+    const filename = 'customize.json';
+    const text = convertStateToText(this.state);
+
+    const element = document.createElement('a');
+    element.setAttribute('href', `data:text/plain;charset=utf-8,${text}`);
+    element.setAttribute('download', filename);
+    element.setAttribute('hidden', 'hidden');
+
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
   }
 
   handleHtmlChange(value) {
@@ -114,6 +135,8 @@ class EditorPage extends Component {
             onChange={name => this.handleNameInputChange(name)}
             name={this.state.name}
           />
+          <Importer onImport={stateFragment => this.handleImport(stateFragment)} />
+          <Exporter onExport={() => this.handleExport()} />
         </div>
         <Tabs
           editor={this.state.editor}
