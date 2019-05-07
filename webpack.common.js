@@ -7,7 +7,7 @@ module.exports = {
     'js/index': './src/js/index.js',
     'js/editorpage': './src/js/editorpage.jsx',
     'js/popup': './src/js/popup.js',
-    'css/style': './src/scss/style.scss',
+    'css/index': './src/scss/index.scss',
     'css/editorpage': './src/scss/editorpage.scss',
     'css/popup': './src/scss/popup.scss',
   },

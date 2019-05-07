@@ -5,7 +5,7 @@
   "content_scripts": [
     {
       "css": [
-        "css/style.css"
+        "css/index.css"
       ],
       "js": [
         "js/index.js"
