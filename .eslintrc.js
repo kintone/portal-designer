@@ -22,5 +22,6 @@ module.exports = {
   ],
   rules: {
     'react/destructuring-assignment': [0, 'never'],
+    'no-param-reassign': ["error", { "props": false }],
   },
 };

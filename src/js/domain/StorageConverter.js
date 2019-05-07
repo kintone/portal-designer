@@ -1,5 +1,11 @@
-const TYPE_CUSTOMIZE = 'customize';
-const TYPE_DEFAULT = 'default';
+import { TYPE_CUSTOMIZE, TYPE_DEFAULT } from './Storage';
+
+export const convertStorageToType = (storage) => {
+  if (storage.type && storage.type === TYPE_CUSTOMIZE) {
+    return TYPE_CUSTOMIZE;
+  }
+  return TYPE_DEFAULT;
+};
 
 export const convertStateToStorage = state => ({
   type: state.enabled ? TYPE_CUSTOMIZE : TYPE_DEFAULT,
@@ -12,7 +18,7 @@ export const convertStateToStorage = state => ({
 });
 
 export const convertStorageToState = storage => ({
-  enabled: storage.type && storage.type === TYPE_CUSTOMIZE,
+  enabled: convertStorageToType(storage) === TYPE_CUSTOMIZE,
   name: storage.name || '',
   editor: {
     html: {

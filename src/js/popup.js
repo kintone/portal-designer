@@ -1,15 +1,13 @@
-(() => {
-  const DEFAULT = 'default';
-  const CUSTOMIZE = 'customize';
+import Storage from './domain/Storage';
+import { convertStorageToType } from './domain/StorageConverter';
 
-  chrome.storage.local.get('type', (value) => {
-    const type = value.type || DEFAULT;
-    const checkedRadioEl = document.querySelector(`.popup-radio-input[value=${type}]`);
-    checkedRadioEl.checked = true;
-  });
-
+const initialize = async () => {
+  const type = convertStorageToType(await Storage.getAll());
+  const checkedRadioEl = document.querySelector(`.popup-radio-input[value=${type}]`);
+  checkedRadioEl.checked = true;
   const formEl = document.querySelector('.popup-form');
   formEl.addEventListener('change', (evt) => {
-    chrome.storage.local.set({ type: evt.target.value });
+    Storage.set({ type: evt.target.value });
   });
-})();
+};
+initialize();
