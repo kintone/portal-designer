@@ -4,10 +4,8 @@ import KintoneUrl from '../lib/KintoneUrl';
 import waitPortalShow from '../lib/waitPortalShow';
 
 const hideWidgets = () => {
-  const widgetEls = KintonePortalElements.getPortalWidgetElements();
-  widgetEls.forEach((widgetEl) => {
-    widgetEl.style.display = 'none';
-  });
+  const bodyEl = KintonePortalElements.getPortalBodyElement();
+  bodyEl.style.display = 'none';
 };
 
 const hidePortalIndexHeader = () => {

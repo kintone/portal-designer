@@ -22,6 +22,6 @@
 }
 
 // カスタマイズポータルを描画する前にデフォルトのポータルが表示されるのを防ぐ
-#contents-body-ocean:not(.kintone-portal-ready) {
+.getPortalIndexElement:not(.kintone-portal-ready) {
   display: none;
 }

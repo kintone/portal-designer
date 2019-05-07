@@ -7,14 +7,18 @@ import updateToolbarColor from './domain/updateToolbarColor';
 import KintonePortalElements from './lib/KintonePortalElements';
 
 const addReadyClass = () => {
-  KintonePortalElements.getOceanBodyElement().classList.add('kintone-portal-ready');
+  const portalIndexEl = KintonePortalElements.getPortalIndexElement();
+  if (portalIndexEl) {
+    portalIndexEl.classList.add('kintone-portal-ready');
+  }
 };
 
 const initialize = async () => {
+  renderToolbarLink();
+
   const value = convertForRenderingPortal(await Storage.getAll());
   updateHeaderColor(value);
   updateToolbarColor(value);
-  renderToolbarLink();
 
   window.addEventListener('hashchange', () => renderCustomize(value));
   await renderCustomize(value);
