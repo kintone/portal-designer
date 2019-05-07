@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Activator from './components/Activator';
+import SaveButton from './components/SaveButton';
+import CancelButton from './components/CancelButton';
 import NameInput from './components/NameInput';
 import Importer from './components/Importer';
 import Exporter from './components/Exporter';
 import Tabs from './components/Tabs';
 import Storage from './domain/Storage';
 import { convertStateToText, convertTextToStateFragment } from './domain/TextConverter';
-import { convertStateToStorage, convertStorageToState } from './domain/StorageConverter';
+import { convertStorageToState } from './domain/StorageConverter';
 import { exportFile } from './domain/FileExporter';
 
 class EditorPage extends Component {
@@ -43,11 +45,6 @@ class EditorPage extends Component {
     const storageValue = await Storage.getAll();
     const newState = convertStorageToState(storageValue);
     this.setState(newState);
-  }
-
-  async handleSave() {
-    const storageValue = convertStateToStorage(this.state);
-    await Storage.set(storageValue);
   }
 
   handleNameInputChange(name) {
@@ -119,7 +116,8 @@ class EditorPage extends Component {
               enabled={this.state.enabled}
             />
           </div>
-          <button type="button" className="action-save" onClick={() => this.handleSave()}>Save</button>
+          <CancelButton />
+          <SaveButton state={this.state} />
         </div>
         <div className="local-nav">
           <NameInput
