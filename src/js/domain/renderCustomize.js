@@ -23,8 +23,6 @@ const removeStyleElement = () => {
 };
 
 const renderCustomizeTo = ({ html, css, js }, entryPointEl) => {
-  removeStyleElement();
-
   const headEl = document.querySelector('head');
   const styleEl = document.createElement('style');
   styleEl.innerHTML = css;
@@ -46,6 +44,8 @@ const renderCustomize = async ({
   if (!Storage.isCustomizeType(type)) {
     return;
   }
+
+  removeStyleElement();
   if (!KintoneUrl.isPortal()) {
     return;
   }
