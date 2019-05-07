@@ -1,9 +1,11 @@
+@import "lib/chromeExtensionUrl";
+
 .customize-portal {
     display: inline-block;
     width: 48px;
     height: 48px;
     cursor: pointer;
-    background-image: url("chrome-extension://__MSG_@@extension_id__/img/button.svg");
+    background-image: chromeExtensionUrl("button.svg");
     background-repeat: no-repeat;
     background-position: center;
     border: 0;

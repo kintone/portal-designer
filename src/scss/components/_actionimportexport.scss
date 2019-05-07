@@ -1,13 +1,14 @@
+@import "../lib/chromeExtensionUrl";
 @import "../lib/text-button";
 
 .action-import-label {
     @extend %text-button;
-    background: 0 4px/30px no-repeat url("chrome-extension://__MSG_@@extension_id__/img/import.svg");
+    background: 0 4px/30px no-repeat chromeExtensionUrl("import.svg");
     margin-left: 8px;
 }
 
 .action-export {
     @extend %text-button;
-    background: 0 4px/30px no-repeat url("chrome-extension://__MSG_@@extension_id__/img/export.svg");
+    background: 0 4px/30px no-repeat chromeExtensionUrl("export.svg");
     margin-left: 8px;
 }
