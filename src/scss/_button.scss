@@ -81,7 +81,7 @@
 
 .action-import-label {
     @extend %button-text;
-    background: 0 4px/30px no-repeat url(../img/import.svg);
+    background: 0 4px/30px no-repeat url("chrome-extension://__MSG_@@extension_id__/img/import.svg");
     margin-left: 8px;
 }
 
@@ -91,6 +91,6 @@
 
 .action-export {
     @extend %button-text;
-    background: 0 4px/30px no-repeat url(../img/export.svg);
+    background: 0 4px/30px no-repeat url("chrome-extension://__MSG_@@extension_id__/img/export.svg");
     margin-left: 8px;
 }
