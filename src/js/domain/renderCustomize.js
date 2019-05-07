@@ -1,7 +1,7 @@
-import Storage from './domain/Storage';
-import KintonePortalElements from './lib/KintonePortalElements';
-import KintoneUrl from './lib/KintoneUrl';
-import waitPortalShow from './lib/waitPortalShow';
+import Storage from './Storage';
+import KintonePortalElements from '../lib/KintonePortalElements';
+import KintoneUrl from '../lib/KintoneUrl';
+import waitPortalShow from '../lib/waitPortalShow';
 
 const hideWidgets = () => {
   const widgetEls = KintonePortalElements.getPortalWidgetElements();

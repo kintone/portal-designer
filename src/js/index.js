@@ -1,4 +1,5 @@
 import Storage from './domain/Storage';
+import { convertForRenderingPortal } from './domain/StorageConverter';
 import renderToolbarLink from './domain/renderToolbarLink';
 import renderCustomize from './domain/renderCustomize';
 import updateHeaderColor from './domain/updateHeaderColor';
@@ -10,7 +11,7 @@ const addReadyClass = () => {
 };
 
 const initialize = async () => {
-  const value = await Storage.getAll();
+  const value = convertForRenderingPortal(await Storage.getAll());
   updateHeaderColor(value);
   updateToolbarColor(value);
   renderToolbarLink();

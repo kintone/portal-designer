@@ -34,3 +34,13 @@ export const convertStorageToState = storage => ({
     toolbarColor: storage.toolbarColor || '',
   },
 });
+
+export const convertForRenderingPortal = storage => ({
+  type: convertStorageToType(storage),
+  name: storage.name || '',
+  html: storage.html || '',
+  css: storage.css || '',
+  js: storage.js || '',
+  headerColor: storage.headerColor || '',
+  toolbarColor: storage.toolbarColor || '',
+});
