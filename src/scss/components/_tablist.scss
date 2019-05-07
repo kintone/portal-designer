@@ -1,0 +1,9 @@
+@import "../lib/tablist";
+
+.tablist {
+  @extend %tablist;
+}
+
+.tab {
+  @extend %tab;
+}

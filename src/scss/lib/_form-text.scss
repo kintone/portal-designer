@@ -1,0 +1,20 @@
+@mixin form-text-input-shadow {
+  box-shadow: 2px 2px 4px #f5f5f5 inset, -2px -2px 4px #f5f5f5 inset;
+}
+
+%form-text {
+  @include form-text-input-shadow;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #e3e7e8;
+  background-color: #fff;
+  color: #888;
+  font-size: 14px;
+
+  &:focus {
+    background-color: #e2f2fe;
+    box-shadow: none;
+    color: #000;
+  }
+}

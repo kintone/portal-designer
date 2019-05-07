@@ -23,7 +23,7 @@ class Importer extends React.Component {
         <input
           type="file"
           accept=".json"
-          className="action-import"
+          className="action-import visually-hidden"
           value=""
           onChange={evt => this.handleChange(evt)}
           id="action-import-label"

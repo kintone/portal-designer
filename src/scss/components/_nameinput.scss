@@ -1,0 +1,9 @@
+@import "../lib/form-text";
+
+.name-input {
+  @extend %form-text;
+  height: 48px;
+  padding: 8px;
+  vertical-align: top;
+  flex: 1;
+}

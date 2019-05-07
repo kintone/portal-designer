@@ -1,0 +1,11 @@
+@import "../lib/button";
+
+.action-save {
+    @extend %button-default;
+    margin-left: 8px;
+}
+
+.action-cancel {
+    @extend %button-normal;
+    margin-left: 8px;
+}

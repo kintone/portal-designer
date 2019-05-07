@@ -1,8 +1,10 @@
-@import "checkbox";
-@import "button";
-@import "tablist";
-@import "tabpanel";
-@import "input";
+@import "lib/visually-hidden";
+@import "components/actionsave";
+@import "components/actionimportexport";
+@import "components/activator";
+@import "components/nameinput";
+@import "components/tablist";
+@import "components/tabpanel";
 
 html {
     font-size: 16px;
@@ -17,6 +19,10 @@ html {
     margin-bottom: 32px;
     padding-bottom: 32px;
     border-bottom: 1px solid #e3e7e8;
+}
+
+.global-nav-name {
+    flex: 1;
 }
 
 .local-nav {

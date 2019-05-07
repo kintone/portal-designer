@@ -1,0 +1,41 @@
+%button-base {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 16px;
+    min-width: 163px;
+    height: 48px;
+    text-align: center;
+    line-height: 48px;
+    &:active,
+    &:hover,
+    &:focus {
+        cursor: pointer;
+    }
+    &:focus-within {
+        outline: 1px solid #3498db;
+    }
+}
+
+%button-default {
+    @extend %button-base;
+    border: 1px solid #e3e7e8;
+    background-color: #3498db;
+    box-shadow: 1px 1px 1px #8ccbee inset;
+    color: #fff;
+    font-size: 1rem;
+    &:active {
+        background-color: #1d6fa5;
+    }
+}
+
+%button-normal {
+    @extend %button-base;
+    border: 1px solid #e3e7e8;
+    background-color: #f7f9fa;
+    box-shadow: 1px 1px 1px #ffffff inset;
+    color: #3498db;
+    font-size: 1rem;
+    &:active {
+        background-color: #c8d6dd;
+    }
+}
