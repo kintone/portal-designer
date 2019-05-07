@@ -1,3 +1,5 @@
+const CUSTOMIZE_VERSION = 1;
+
 export const convertStateToText = (state) => {
   const json = {
     name: state.name || '',
@@ -6,6 +8,7 @@ export const convertStateToText = (state) => {
     js: state.editor.js.value || '',
     headerColor: state.editor.headerColor || '',
     toolbarColor: state.editor.toolbarColor || '',
+    customize_version: CUSTOMIZE_VERSION,
   };
   return encodeURIComponent(JSON.stringify(json));
 };
