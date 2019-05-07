@@ -1,9 +1,9 @@
 import Storage from './domain/Storage';
+import renderToolbarLink from './domain/renderToolbarLink';
+import renderCustomize from './domain/renderCustomize';
 import updateHeaderColor from './domain/updateHeaderColor';
 import updateToolbarColor from './domain/updateToolbarColor';
 import KintonePortalElements from './lib/KintonePortalElements';
-import renderToolbarLink from './renderToolbarLink';
-import renderCustomize from './renderCustomize';
 
 const addReadyClass = () => {
   KintonePortalElements.getOceanBodyElement().classList.add('kintone-portal-ready');
