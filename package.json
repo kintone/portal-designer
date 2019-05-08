@@ -25,6 +25,8 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "babel-register": "^6.26.0",
+    "enzyme": "^3.9.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-standard": "^12.0.0",
@@ -33,7 +35,9 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "power-assert": "^1.6.1",
+    "sinon": "^7.3.2"
   },
   "scripts": {
     "build": "webpack --config webpack.prod.js && zip -r extension.zip dist/",
