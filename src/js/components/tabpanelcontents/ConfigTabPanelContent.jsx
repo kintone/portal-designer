@@ -15,8 +15,9 @@ class ConfigTabPanelContent extends React.Component {
       <div>
         <div className="config-tabpanel-row">
           <label>
-            HeaderColor
+            <span className="config-tabpanel-color-input-label-text">HeaderColor</span>
             <input
+              className="config-tabpanel-color-input"
               type="text"
               value={this.props.headerColor}
               onChange={evt => this.handleHeaderColorChange(evt)}
@@ -24,16 +25,20 @@ class ConfigTabPanelContent extends React.Component {
             />
           </label>
         </div>
-        <div className="config-tabpanel-row">
-          <label>
-            ToolbarColor
-            <input
-              type="text"
-              value={this.props.toolbarColor}
-              onChange={evt => this.handleToolbarColorChange(evt)}
-            />
-          </label>
-        </div>
+        <details className="config-tabpanel-group">
+          <summary className="config-tabpanel-group-label">Unofficial Features</summary>
+          <div className="config-tabpanel-group-content">
+            <label>
+              <span className="config-tabpanel-color-input-label-text">ToolbarColor</span>
+              <input
+                className="config-tabpanel-color-input"
+                type="text"
+                value={this.props.toolbarColor}
+                onChange={evt => this.handleToolbarColorChange(evt)}
+              />
+            </label>
+          </div>
+        </details>
       </div>
     );
   }

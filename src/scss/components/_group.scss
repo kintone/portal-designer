@@ -1,0 +1,40 @@
+.config-tabpanel-group {
+  padding: 12px 8px;
+  border: 1px solid #e3e7e8;
+}
+
+.config-tabpanel-group-label {
+  display: inline-block;
+  margin: 12px 0;
+  padding: 4px;
+  height: 24px;
+  line-height: 24px;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:focus {
+    outline: 1px solid #3498db;
+  }
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+.config-tabpanel-group-label:before {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  .config-tabpanel-group & {
+    content: chromeExtensionUrl('group.png');
+  }
+
+  .config-tabpanel-group[open] & {
+    content: chromeExtensionUrl('group-active.png');
+  }
+}
+
+.config-tabpanel-group-content {
+  font-size: 1rem;
+  padding: 16px;
+}

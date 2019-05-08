@@ -1,0 +1,18 @@
+@import "../lib/form-text";
+
+.config-tabpanel-color-input {
+  @extend %form-text;
+  font-size: 1rem;
+  height: 40px;
+  padding: 0 8px;
+
+  &:focus {
+    outline: 1px solid #3498db;
+  }
+}
+
+.config-tabpanel-color-input-label-text {
+  display: block;
+  margin: 8px 0;
+  font-size: 1rem;
+}

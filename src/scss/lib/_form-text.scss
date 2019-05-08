@@ -9,12 +9,16 @@
   margin: 0;
   border: 1px solid #e3e7e8;
   background-color: #fff;
-  color: #888;
+  color: #333;
   font-size: 14px;
 
   &:focus {
     background-color: #e2f2fe;
     box-shadow: none;
     color: #000;
+  }
+
+  &::placeholder {
+    color: #888;
   }
 }
