@@ -11,8 +11,18 @@ describe('StorageConverter', () => {
       expect(actual).eql(TYPE_CUSTOMIZE);
     });
 
-    it('TYPE_CUSTOMIZEには、TYPE_DEFAULTを返す', () => {
+    it('TYPE_DEFAULTには、TYPE_DEFAULTを返す', () => {
       const actual = convertStorageToType({ type: TYPE_DEFAULT });
+      expect(actual).eql(TYPE_DEFAULT);
+    });
+
+    it('typeが空文字なら、TYPE_DEFAULTを返す', () => {
+      const actual = convertStorageToType({ type: '' });
+      expect(actual).eql(TYPE_DEFAULT);
+    });
+
+    it('typeプロパティがないなら、TYPE_DEFAULTを返す', () => {
+      const actual = convertStorageToType({});
       expect(actual).eql(TYPE_DEFAULT);
     });
   });

@@ -28,6 +28,7 @@
     "babel-eslint": "^10.0.1",
     "chai": "^4.2.0",
     "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-standard": "^12.0.0",
@@ -44,7 +45,7 @@
     "build": "webpack --config webpack.prod.js && zip -r extension.zip dist/",
     "dev": "webpack --config webpack.dev.js",
     "watch": "webpack --watch --config webpack.dev.js",
-    "test": "node_modules/mocha/bin/mocha --require @babel/register --recursive './src/**/*_spec.js'"
+    "test": "node_modules/mocha/bin/mocha --require @babel/register --recursive './src/**/*_spec.{js,jsx}'"
   },
   "repository": {
     "type": "git",
