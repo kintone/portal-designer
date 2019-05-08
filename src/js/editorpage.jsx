@@ -60,7 +60,7 @@ class EditorPage extends Component {
   }
 
   handleExport() {
-    exportFile(convertStateToText(this.state));
+    exportFile(convertStateToText(this.state), this.state.name);
   }
 
   handleHtmlChange(value) {
