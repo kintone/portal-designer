@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "chai": "^4.2.0",
     "enzyme": "^3.9.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -37,14 +38,13 @@
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^4.0.0",
     "mocha": "^6.1.4",
-    "power-assert": "^1.6.1",
     "sinon": "^7.3.2"
   },
   "scripts": {
     "build": "webpack --config webpack.prod.js && zip -r extension.zip dist/",
     "dev": "webpack --config webpack.dev.js",
     "watch": "webpack --watch --config webpack.dev.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/mocha/bin/mocha --require @babel/register --recursive './src/**/*_spec.js'"
   },
   "repository": {
     "type": "git",
