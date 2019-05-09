@@ -1,24 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class NameInput extends Component {
-  handleChange(evt) {
-    this.props.onChange(evt.target.value);
-  }
+const NameInput = (props) => {
+  const handleChange = (evt) => {
+    props.onChange(evt.target.value);
+  };
 
-  render() {
-    return (
-      <input
-        className="name-input"
-        type="text"
-        placeholder="Customized portal name"
-        aria-label="Customized portal name"
-        value={this.props.name}
-        onChange={evt => this.handleChange(evt)}
-      />
-    );
-  }
-}
+  return (
+    <input
+      className="name-input"
+      type="text"
+      placeholder="Customized portal name"
+      aria-label="Customized portal name"
+      value={props.name}
+      onChange={handleChange}
+    />
+  );
+};
 
 NameInput.propTypes = {
   name: PropTypes.string,
