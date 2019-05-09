@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import TabList from './TabList';
 import TabPanelContainer from './TabPanelContainer';
 
@@ -24,23 +23,10 @@ class Tabs extends React.Component {
         />
         <TabPanelContainer
           selectedTab={this.state.selectedTab}
-          editor={this.props.editor}
-          editorHandler={this.props.editorHandler}
         />
       </div>
     );
   }
 }
-
-Tabs.propTypes = {
-  editor: PropTypes.shape({
-    html: PropTypes.shape({
-      value: PropTypes.string,
-    }),
-  }).isRequired,
-  editorHandler: PropTypes.shape({
-    onHtmlChange: PropTypes.func,
-  }).isRequired,
-};
 
 export default Tabs;

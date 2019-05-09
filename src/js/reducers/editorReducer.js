@@ -9,6 +9,24 @@ const editorReducer = (state, action) => {
     case 'NAME_INPUT_CHANGE': {
       return { ...state, name: action.name };
     }
+    case 'HTML_VALUE_CHANGE': {
+      const { editor } = state;
+      const { html } = editor;
+      html.value = action.html;
+      return { ...state, editor };
+    }
+    case 'CSS_VALUE_CHANGE': {
+      const { editor } = state;
+      const { css } = editor;
+      css.value = action.css;
+      return { ...state, editor };
+    }
+    case 'JS_VALUE_CHANGE': {
+      const { editor } = state;
+      const { js } = editor;
+      js.value = action.js;
+      return { ...state, editor };
+    }
     case 'HEADER_COLOR_CHANGE': {
       const newState = { ...state };
       newState.editor.headerColor = action.headerColor;

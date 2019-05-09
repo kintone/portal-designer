@@ -12,24 +12,7 @@ import { convertStorageToState } from './domain/StorageConverter';
 class EditorPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      editor: {
-        html: {
-          value: '',
-        },
-        css: {
-          value: '',
-        },
-        js: {
-          value: '',
-        },
-      },
-    };
-    this.editorHandler = {
-      onHtmlChange: this.handleHtmlChange.bind(this),
-      onCssChange: this.handleCssChange.bind(this),
-      onJsChange: this.handleJsChange.bind(this),
-    };
+    this.state = {};
   }
 
   async componentDidMount() {
@@ -40,33 +23,6 @@ class EditorPage extends Component {
 
   handleImport(state) {
     this.setState(state);
-  }
-
-  handleHtmlChange(value) {
-    this.setState((prevState) => {
-      const { editor } = prevState;
-      const { html } = editor;
-      html.value = value;
-      return { editor };
-    });
-  }
-
-  handleCssChange(value) {
-    this.setState((prevState) => {
-      const { editor } = prevState;
-      const { css } = editor;
-      css.value = value;
-      return { editor };
-    });
-  }
-
-  handleJsChange(value) {
-    this.setState((prevState) => {
-      const { editor } = prevState;
-      const { js } = editor;
-      js.value = value;
-      return { editor };
-    });
   }
 
   render() {
@@ -84,10 +40,7 @@ class EditorPage extends Component {
           <Importer onImport={stateFragment => this.handleImport(stateFragment)} />
           <Exporter state={this.state} />
         </div>
-        <Tabs
-          editor={this.state.editor}
-          editorHandler={this.editorHandler}
-        />
+        <Tabs />
       </div>
     );
   }
