@@ -1,39 +1,40 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import HeaderColorInput from './HeaderColorInput';
 import ToolbarColorInput from './ToolbarColorInput';
+import { EditorStore } from '../../EditorStore';
 
-class ConfigTabPanelContent extends React.Component {
-  handleHeaderColorChange(value) {
-    this.props.onHeaderColorChange(value);
-  }
+const ConfigTabPanelContent = (props) => {
+  const { dispatch } = useContext(EditorStore);
 
-  handleToolbarColorChange(value) {
-    this.props.onToolbarColorChange(value);
-  }
+  const handleHeaderColorChange = () => {
+    dispatch({ type: 'HEADER_COLOR_CHANGE' });
+  };
 
-  render() {
-    return (
-      <div>
-        <div className="config-tabpanel-row">
-          <HeaderColorInput
-            value={this.props.headerColor}
-            onChange={evt => this.handleHeaderColorChange(evt)}
+  const handleToolbarColorChange = (value) => {
+    props.onToolbarColorChange(value);
+  };
+
+  return (
+    <div>
+      <div className="config-tabpanel-row">
+        <HeaderColorInput
+          value={props.headerColor}
+          onChange={evt => handleHeaderColorChange(evt)}
+        />
+      </div>
+      <details className="config-tabpanel-group">
+        <summary className="config-tabpanel-group-label">Unofficial Features</summary>
+        <div className="config-tabpanel-group-content">
+          <ToolbarColorInput
+            value={props.toolbarColor}
+            onChange={evt => handleToolbarColorChange(evt)}
           />
         </div>
-        <details className="config-tabpanel-group">
-          <summary className="config-tabpanel-group-label">Unofficial Features</summary>
-          <div className="config-tabpanel-group-content">
-            <ToolbarColorInput
-              value={this.props.toolbarColor}
-              onChange={evt => this.handleToolbarColorChange(evt)}
-            />
-          </div>
-        </details>
-      </div>
-    );
-  }
-}
+      </details>
+    </div>
+  );
+};
 
 ConfigTabPanelContent.propTypes = {
   headerColor: PropTypes.string.isRequired,

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import Activator from './components/Activator';
 import SaveButton from './components/SaveButton';
 import CancelButton from './components/CancelButton';
@@ -136,7 +135,4 @@ class EditorPage extends Component {
   }
 }
 
-ReactDOM.render(
-  <EditorPage />,
-  document.querySelector('.wrapper'),
-);
+export default EditorPage;

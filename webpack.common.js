@@ -5,7 +5,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   entry: {
     'js/index': './src/js/index.js',
-    'js/editorpage': './src/js/editorpage.jsx',
+    'js/editor': './src/js/Editor.jsx',
     'js/popup': './src/js/popup.js',
     'css/index': './src/scss/index.scss',
     'css/editorpage': './src/scss/editorpage.scss',
