@@ -5,30 +5,30 @@ import ToolbarColorInput from './ToolbarColorInput';
 import { EditorStore } from '../../EditorStore';
 
 const ConfigTabPanelContent = (props) => {
-  const { dispatch } = useContext(EditorStore);
+  const { state, dispatch } = useContext(EditorStore);
 
-  const handleHeaderColorChange = () => {
-    dispatch({ type: 'HEADER_COLOR_CHANGE' });
+  const handleHeaderColorChange = (headerColor) => {
+    dispatch({ type: 'HEADER_COLOR_CHANGE', headerColor });
   };
 
-  const handleToolbarColorChange = (value) => {
-    props.onToolbarColorChange(value);
+  const handleToolbarColorChange = (toolbarColor) => {
+    dispatch({ type: 'TOOLBAR_COLOR_CHANGE', toolbarColor });
   };
 
   return (
     <div>
       <div className="config-tabpanel-row">
         <HeaderColorInput
-          value={props.headerColor}
-          onChange={evt => handleHeaderColorChange(evt)}
+          value={state.headerColor}
+          onChange={handleHeaderColorChange}
         />
       </div>
       <details className="config-tabpanel-group">
         <summary className="config-tabpanel-group-label">Unofficial Features</summary>
         <div className="config-tabpanel-group-content">
           <ToolbarColorInput
-            value={props.toolbarColor}
-            onChange={evt => handleToolbarColorChange(evt)}
+            value={state.toolbarColor}
+            onChange={handleToolbarColorChange}
           />
         </div>
       </details>
@@ -39,8 +39,6 @@ const ConfigTabPanelContent = (props) => {
 ConfigTabPanelContent.propTypes = {
   headerColor: PropTypes.string.isRequired,
   toolbarColor: PropTypes.string.isRequired,
-  onHeaderColorChange: PropTypes.func.isRequired,
-  onToolbarColorChange: PropTypes.func.isRequired,
 };
 
 export default ConfigTabPanelContent;
