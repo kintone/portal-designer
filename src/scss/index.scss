@@ -23,6 +23,9 @@
   visibility: hidden;
 }
 
+.ocean-portal-index-header:not(.ocean-portal-index-header-ready) {
+  visibility: hidden;
+}
 // カスタマイズポータルを描画する前にデフォルトのポータルが表示されるのを防ぐ
 .getPortalIndexElement:not(.kintone-portal-ready) {
   display: none;

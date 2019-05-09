@@ -4,6 +4,7 @@ import renderToolbarLink from './domain/renderToolbarLink';
 import renderCustomize from './domain/renderCustomize';
 import updateHeaderColor from './domain/updateHeaderColor';
 import updateToolbarColor from './domain/updateToolbarColor';
+import updatePortalHeaderColor from './domain/updatePortalHeaderColor';
 import KintonePortalElements from './lib/KintonePortalElements';
 
 const addReadyClass = () => {
@@ -19,6 +20,7 @@ const initialize = async () => {
   const value = convertForRenderingPortal(await Storage.getAll());
   updateHeaderColor(value);
   updateToolbarColor(value);
+  updatePortalHeaderColor(value);
 
   window.addEventListener('hashchange', () => renderCustomize(value));
   await renderCustomize(value);

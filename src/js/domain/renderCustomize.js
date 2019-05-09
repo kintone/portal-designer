@@ -52,7 +52,7 @@ const renderCustomize = async ({
 
   await waitPortalShow();
 
-  hidePortalIndexHeader();
+  // hidePortalIndexHeader();
   hideWidgets();
 
   const entryPointEl = KintonePortalElements.getPortalCustomizeElement();
