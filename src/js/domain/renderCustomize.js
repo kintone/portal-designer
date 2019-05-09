@@ -39,7 +39,7 @@ const renderCustomizeTo = ({ html, css, js }, entryPointEl) => {
 };
 
 const renderCustomize = async ({
-  type, html, css, js,
+  type, html, css, js, hiddenPortalHeader,
 }) => {
   if (!Storage.isCustomizeType(type)) {
     return;
@@ -52,7 +52,9 @@ const renderCustomize = async ({
 
   await waitPortalShow();
 
-  // hidePortalIndexHeader();
+  if (hiddenPortalHeader) {
+    hidePortalIndexHeader();
+  }
   hideWidgets();
 
   const entryPointEl = KintonePortalElements.getPortalCustomizeElement();
