@@ -35,8 +35,6 @@ class EditorPage extends Component {
       onHtmlChange: this.handleHtmlChange.bind(this),
       onCssChange: this.handleCssChange.bind(this),
       onJsChange: this.handleJsChange.bind(this),
-      onHeaderColorChange: this.handleHeaderColorChange.bind(this),
-      onToolbarColorChange: this.handleToolbarColorChange.bind(this),
     };
   }
 
@@ -85,22 +83,6 @@ class EditorPage extends Component {
       const { editor } = prevState;
       const { js } = editor;
       js.value = value;
-      return { editor };
-    });
-  }
-
-  handleHeaderColorChange(value) {
-    this.setState((prevState) => {
-      const { editor } = prevState;
-      editor.headerColor = value;
-      return { editor };
-    });
-  }
-
-  handleToolbarColorChange(value) {
-    this.setState((prevState) => {
-      const { editor } = prevState;
-      editor.toolbarColor = value;
       return { editor };
     });
   }
