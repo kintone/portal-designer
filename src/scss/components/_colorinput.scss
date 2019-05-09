@@ -9,6 +9,13 @@
   &:focus {
     outline: 1px solid #3498db;
   }
+
+  &:disabled {
+    background-color: #dbdcdd;
+    box-shadow: none;
+    color: #888;
+    cursor: not-allowed;
+  }
 }
 
 .config-tabpanel-color-input-label-text {

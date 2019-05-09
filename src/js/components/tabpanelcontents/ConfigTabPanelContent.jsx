@@ -17,6 +17,8 @@ const ConfigTabPanelContent = () => (
         </div>
         <div className="config-tabpanel-row">
           <PortalHeaderHider />
+        </div>
+        <div className="config-tabpanel-row">
           <PortalHeaderColorInput />
         </div>
       </div>

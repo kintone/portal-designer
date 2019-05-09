@@ -18,6 +18,7 @@ const ColorInput = (props) => {
         className={props.className}
         value={props.value}
         placeholder={props.placeholder}
+        disabled={props.disabled}
         onChange={handleChange}
       />
     </label>
@@ -29,12 +30,14 @@ ColorInput.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string,
   label: PropTypes.string.isRequired,
+  disabled: PropTypes.bool,
   placeholder: PropTypes.string,
 };
 
 ColorInput.defaultProps = {
   className: 'color-input',
   value: '',
+  disabled: false,
   placeholder: '',
 };
 

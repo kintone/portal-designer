@@ -13,6 +13,7 @@ export default (props) => {
     <PortalHeaderColorInput
       {...props}
       value={state.editor.portalHeaderColor}
+      disabled={state.editor.hiddenPortalHeader}
       onChange={onChange}
     />
   );
