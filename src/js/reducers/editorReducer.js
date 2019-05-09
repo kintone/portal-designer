@@ -1,6 +1,9 @@
 const editorReducer = (state, action) => {
   switch (action.type) {
     case 'LOAD_STORAGE': {
+      return { ...action.state };
+    }
+    case 'IMPORT_JSON': {
       return { ...action.state, enabled: state.enabled };
     }
     case 'CUSTOMIZE_ENABLE_CHANGE': {

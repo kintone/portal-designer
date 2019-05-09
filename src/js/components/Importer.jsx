@@ -12,7 +12,7 @@ const Importer = (props) => {
 
   const handleLoadFile = (evt) => {
     const state = convertTextToStateFragment(evt.target.result);
-    dispatch({ type: 'LOAD_STORAGE', state });
+    dispatch({ type: 'IMPORT_JSON', state });
   };
 
   useEffect(() => {

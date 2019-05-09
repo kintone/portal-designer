@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react';
-import { EditorStore } from './EditorStore';
-import Storage from './domain/Storage';
-import { convertStorageToState } from './domain/StorageConverter';
-import EditorPage from './editorpage';
+import { EditorStore } from '../EditorStore';
+import Storage from '../domain/Storage';
+import { convertStorageToState } from '../domain/StorageConverter';
+import EditorPage from '../components/EditorPage';
 
-const EditorLoader = () => {
+export default () => {
   const { dispatch } = useContext(EditorStore);
 
   const loadStorage = async () => {
@@ -21,5 +21,3 @@ const EditorLoader = () => {
     <EditorPage />
   );
 };
-
-export default EditorLoader;
