@@ -2,6 +2,7 @@
 const mergeState = (storeState, pageState) => {
   const mergedState = { ...pageState };
   mergedState.enabled = storeState.enabled;
+  mergedState.name = storeState.name;
   mergedState.editor = { ...pageState.editor };
   mergedState.editor.headerColor = storeState.editor.headerColor;
   mergedState.editor.toolbarColor = storeState.editor.toolbarColor;

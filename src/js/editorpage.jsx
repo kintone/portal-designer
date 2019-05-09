@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Activator from './containers/Activator';
 import SaveButton from './components/SaveButton';
 import CancelButton from './components/CancelButton';
-import NameInput from './components/NameInput';
+import NameInput from './containers/NameInput';
 import Importer from './components/Importer';
 import Exporter from './components/Exporter';
 import Tabs from './components/Tabs';
@@ -13,7 +13,6 @@ class EditorPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
       editor: {
         html: {
           value: '',
@@ -37,10 +36,6 @@ class EditorPage extends Component {
     const storageValue = await Storage.getAll();
     const newState = convertStorageToState(storageValue);
     this.setState(newState);
-  }
-
-  handleNameInputChange(name) {
-    this.setState({ name });
   }
 
   handleImport(state) {
@@ -85,10 +80,7 @@ class EditorPage extends Component {
           <SaveButton state={this.state} />
         </div>
         <div className="local-nav">
-          <NameInput
-            onChange={name => this.handleNameInputChange(name)}
-            name={this.state.name}
-          />
+          <NameInput />
           <Importer onImport={stateFragment => this.handleImport(stateFragment)} />
           <Exporter state={this.state} />
         </div>

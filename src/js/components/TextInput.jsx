@@ -12,7 +12,7 @@ const TextInput = (props) => {
       type="text"
       placeholder={props.placeholder}
       aria-label={props.label}
-      value={props.name}
+      value={props.value}
       onChange={handleChange}
     />
   );
@@ -20,7 +20,7 @@ const TextInput = (props) => {
 
 TextInput.propTypes = {
   className: PropTypes.string,
-  name: PropTypes.string,
+  value: PropTypes.string,
   placeholder: PropTypes.string,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -28,7 +28,7 @@ TextInput.propTypes = {
 
 TextInput.defaultProps = {
   className: 'text-input',
-  name: '',
+  value: '',
   placeholder: '',
 };
 

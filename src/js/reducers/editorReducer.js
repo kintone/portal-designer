@@ -6,6 +6,9 @@ const editorReducer = (state, action) => {
     case 'CUSTOMIZE_ENABLE_CHANGE': {
       return { ...state, enabled: action.enabled };
     }
+    case 'NAME_INPUT_CHANGE': {
+      return { ...state, name: action.name };
+    }
     case 'HEADER_COLOR_CHANGE': {
       const newState = { ...state };
       newState.editor.headerColor = action.headerColor;
