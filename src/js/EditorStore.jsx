@@ -6,7 +6,21 @@ export const EditorStore = React.createContext();
 
 export const EditorProvider = ({ children }) => {
   const initialState = {
-    count: 0,
+    enabled: false,
+    name: '',
+    editor: {
+      html: {
+        value: '',
+      },
+      css: {
+        value: '',
+      },
+      js: {
+        value: '',
+      },
+      headerColor: '',
+      toolbarColor: '',
+    },
   };
 
   const [state, dispatch] = useReducer(editorReducer, initialState);

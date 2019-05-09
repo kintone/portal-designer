@@ -12,7 +12,7 @@ export default (props) => {
   return (
     <ToolbarColorInput
       {...props}
-      value={state.toolbarColor}
+      value={state.editor.toolbarColor}
       onChange={onChange}
     />
   );

@@ -1,34 +1,14 @@
-const initialState = {
-  enabled: false,
-  name: '',
-  editor: {
-    html: {
-      value: '',
-    },
-    css: {
-      value: '',
-    },
-    js: {
-      value: '',
-    },
-    headerColor: '',
-    toolbarColor: '',
-  },
-};
-
-const editorReducer = (state = initialState, action) => {
+const editorReducer = (state, action) => {
   switch (action.type) {
     case 'HEADER_COLOR_CHANGE': {
-      return {
-        ...state,
-        headerColor: action.headerColor,
-      };
+      const newState = { ...state };
+      newState.editor.headerColor = action.headerColor;
+      return newState;
     }
     case 'TOOLBAR_COLOR_CHANGE': {
-      return {
-        ...state,
-        toolbarColor: action.toolbarColor,
-      };
+      const newState = { ...state };
+      newState.editor.toolbarColor = action.toolbarColor;
+      return newState;
     }
     default: {
       throw new Error('unknown action type');

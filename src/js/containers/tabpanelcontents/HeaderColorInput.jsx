@@ -12,7 +12,7 @@ export default (props) => {
   return (
     <HeaderColorInput
       {...props}
-      value={state.headerColor}
+      value={state.editor.headerColor}
       onChange={onChange}
     />
   );
