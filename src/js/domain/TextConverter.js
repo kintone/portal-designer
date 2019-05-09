@@ -8,6 +8,7 @@ export const convertStateToText = (state) => {
     js: state.editor.js.value || '',
     headerColor: state.editor.headerColor || '',
     toolbarColor: state.editor.toolbarColor || '',
+    portalHeaderColor: state.editor.portalHeaderColor || '',
     customize_version: CUSTOMIZE_VERSION,
   };
   return encodeURIComponent(JSON.stringify(json));
@@ -30,6 +31,7 @@ export const convertTextToStateFragment = (text) => {
       },
       headerColor: json.headerColor || '',
       toolbarColor: json.toolbarColor || '',
+      portalHeaderColor: json.portalHeaderColor || '',
     },
   };
 };

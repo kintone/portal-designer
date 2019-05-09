@@ -11,6 +11,7 @@ const ALL_KEYS = [
   'js',
   'headerColor',
   'toolbarColor',
+  'portalHeaderColor',
 ];
 
 const isCustomizeType = type => (
