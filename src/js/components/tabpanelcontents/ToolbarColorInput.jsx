@@ -6,8 +6,8 @@ const ToolbarColorInput = props => (
     {...props}
     label="Toolbar Color"
     className="config-tabpanel-color-input"
+    placeholder="Example: #4b4b4b"
   />
-
 );
 
 export default ToolbarColorInput;
