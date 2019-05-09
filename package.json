@@ -46,7 +46,8 @@
     "build": "webpack --config webpack.prod.js && zip -r extension.zip dist/",
     "dev": "webpack --config webpack.dev.js",
     "watch": "webpack --watch --config webpack.dev.js",
-    "test": "node_modules/mocha/bin/mocha --require @babel/register --recursive './src/**/*_spec.{js,jsx}'"
+    "test": "node_modules/mocha/bin/mocha --require @babel/register --recursive './src/**/*_spec.{js,jsx}'",
+    "clean": "rm -rf dist"
   },
   "repository": {
     "type": "git",
