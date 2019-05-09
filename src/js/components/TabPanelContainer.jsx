@@ -47,15 +47,11 @@ TabPanelContainer.propTypes = {
     js: PropTypes.shape({
       value: PropTypes.string,
     }),
-    headerColor: PropTypes.string,
-    toolbarColor: PropTypes.string,
   }).isRequired,
   editorHandler: PropTypes.shape({
     onHtmlChange: PropTypes.func,
     onCssChange: PropTypes.func,
     onJsChange: PropTypes.func,
-    onHeaderColorChange: PropTypes.func,
-    onToolbarColorChange: PropTypes.func,
   }).isRequired,
 };
 
