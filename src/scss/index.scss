@@ -27,6 +27,6 @@
   visibility: hidden;
 }
 // カスタマイズポータルを描画する前にデフォルトのポータルが表示されるのを防ぐ
-.getPortalIndexElement:not(.kintone-portal-ready) {
+.ocean-portal-index:not(.kintone-portal-ready) {
   display: none;
 }
