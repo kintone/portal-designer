@@ -1,7 +1,7 @@
 const editorReducer = (state, action) => {
   switch (action.type) {
     case 'LOAD_STORAGE': {
-      return { ...action.state };
+      return { ...action.state, enabled: state.enabled };
     }
     case 'CUSTOMIZE_ENABLE_CHANGE': {
       return { ...state, enabled: action.enabled };

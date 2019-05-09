@@ -12,7 +12,6 @@ const Importer = (props) => {
 
   const handleLoadFile = (evt) => {
     const state = convertTextToStateFragment(evt.target.result);
-    props.onImport(state);
     dispatch({ type: 'LOAD_STORAGE', state });
   };
 
@@ -36,7 +35,6 @@ const Importer = (props) => {
 };
 
 Importer.propTypes = {
-  onImport: PropTypes.func.isRequired,
   reader: PropTypes.objectOf(FileReader),
 };
 
