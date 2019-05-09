@@ -8,6 +8,7 @@ export const convertStateToText = (state) => {
     js: state.editor.js.value || '',
     headerColor: state.editor.headerColor || '',
     toolbarColor: state.editor.toolbarColor || '',
+    hiddenPortalHeader: state.editor.hiddenPortalHeader || false,
     portalHeaderColor: state.editor.portalHeaderColor || '',
     customize_version: CUSTOMIZE_VERSION,
   };
@@ -31,6 +32,7 @@ export const convertTextToStateFragment = (text) => {
       },
       headerColor: json.headerColor || '',
       toolbarColor: json.toolbarColor || '',
+      hiddenPortalHeader: json.hiddenPortalHeader || false,
       portalHeaderColor: json.portalHeaderColor || '',
     },
   };

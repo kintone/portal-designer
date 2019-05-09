@@ -20,6 +20,7 @@ export const EditorProvider = ({ children }) => {
       },
       headerColor: '',
       toolbarColor: '',
+      hiddenPortalHeader: false,
       portalHeaderColor: '',
     },
   };

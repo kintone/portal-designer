@@ -15,6 +15,7 @@ export const convertStateToStorage = state => ({
   js: state.editor.js.value || '',
   headerColor: state.editor.headerColor || '',
   toolbarColor: state.editor.toolbarColor || '',
+  hiddenPortalHeader: state.editor.hiddenPortalHeader || false,
   portalHeaderColor: state.editor.portalHeaderColor || '',
 });
 
@@ -33,6 +34,7 @@ export const convertStorageToState = storage => ({
     },
     headerColor: storage.headerColor || '',
     toolbarColor: storage.toolbarColor || '',
+    hidePortalHeader: storage.hidePortalHeader || false,
     portalHeaderColor: storage.portalHeaderColor || '',
   },
 });
@@ -45,5 +47,6 @@ export const convertForRenderingPortal = storage => ({
   js: storage.js || '',
   headerColor: storage.headerColor || '',
   toolbarColor: storage.toolbarColor || '',
+  hiddenPortalHeader: storage.hiddenPortalHeader || false,
   portalHeaderColor: storage.portalHeaderColor || '',
 });

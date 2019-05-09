@@ -1,6 +1,7 @@
 import React from 'react';
 import HeaderColorInput from '../../containers/tabpanelcontents/HeaderColorInput';
 import ToolbarColorInput from '../../containers/tabpanelcontents/ToolbarColorInput';
+import PortalHeaderHider from '../../containers/tabpanelcontents/PortalHeaderHider';
 import PortalHeaderColorInput from '../../containers/tabpanelcontents/PortalHeaderColorInput';
 
 const ConfigTabPanelContent = () => (
@@ -15,6 +16,7 @@ const ConfigTabPanelContent = () => (
           <ToolbarColorInput />
         </div>
         <div className="config-tabpanel-row">
+          <PortalHeaderHider />
           <PortalHeaderColorInput />
         </div>
       </div>

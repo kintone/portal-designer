@@ -40,6 +40,11 @@ const editorReducer = (state, action) => {
       newState.editor.toolbarColor = action.toolbarColor;
       return newState;
     }
+    case 'PORTAL_HEADER_HIDER_CHANGE': {
+      const newState = { ...state };
+      newState.editor.hiddenPortalHeader = action.hiddenPortalHeader;
+      return newState;
+    }
     case 'PORTAL_HEADER_COLOR_CHANGE': {
       const newState = { ...state };
       newState.editor.portalHeaderColor = action.portalHeaderColor;
