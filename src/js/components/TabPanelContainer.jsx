@@ -30,12 +30,7 @@ const TabPanelContainer = props => (
     </TabPanel>
 
     <TabPanel name="config" selectedTab={props.selectedTab}>
-      <ConfigTabPanelContent
-        headerColor={props.editor.headerColor}
-        toolbarColor={props.editor.toolbarColor}
-        onHeaderColorChange={props.editorHandler.onHeaderColorChange}
-        onToolbarColorChange={props.editorHandler.onToolbarColorChange}
-      />
+      <ConfigTabPanelContent />
     </TabPanel>
   </div>
 );

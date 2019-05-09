@@ -27,8 +27,6 @@ class EditorPage extends Component {
         js: {
           value: '',
         },
-        headerColor: '',
-        toolbarColor: '',
       },
     };
     this.editorHandler = {
