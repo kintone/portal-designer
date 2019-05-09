@@ -1,30 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import TextInput from './TextInput';
 
-const NameInput = (props) => {
-  const handleChange = (evt) => {
-    props.onChange(evt.target.value);
-  };
-
-  return (
-    <input
-      className="name-input"
-      type="text"
-      placeholder="Customized portal name"
-      aria-label="Customized portal name"
-      value={props.name}
-      onChange={handleChange}
-    />
-  );
-};
-
-NameInput.propTypes = {
-  name: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-};
-
-NameInput.defaultProps = {
-  name: '',
-};
+const NameInput = props => (
+  <TextInput
+    {...props}
+    className="name-input"
+    placeholder="Customized portal name"
+    label="Customized portal name"
+  />
+);
 
 export default NameInput;
