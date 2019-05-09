@@ -1,5 +1,8 @@
 const editorReducer = (state, action) => {
   switch (action.type) {
+    case 'LOAD_STORAGE': {
+      return { ...action.state };
+    }
     case 'HEADER_COLOR_CHANGE': {
       const newState = { ...state };
       newState.editor.headerColor = action.headerColor;

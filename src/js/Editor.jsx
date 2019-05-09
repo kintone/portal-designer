@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { EditorProvider } from './EditorStore';
-import EditorPage from './editorpage';
+import EditorLoader from './EditorLoader';
 
 const Editor = () => (
   <EditorProvider>
-    <EditorPage />
+    <EditorLoader />
   </EditorProvider>
 );
 
