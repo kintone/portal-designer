@@ -54,10 +54,6 @@ class EditorPage extends Component {
     this.setState(convertTextToStateFragment(text));
   }
 
-  handleExport() {
-    exportFile(convertStateToText(this.state), this.state.name);
-  }
-
   handleHtmlChange(value) {
     this.setState((prevState) => {
       const { editor } = prevState;
@@ -104,7 +100,7 @@ class EditorPage extends Component {
             name={this.state.name}
           />
           <Importer onImport={stateFragment => this.handleImport(stateFragment)} />
-          <Exporter onExport={() => this.handleExport()} />
+          <Exporter state={this.state} />
         </div>
         <Tabs
           editor={this.state.editor}

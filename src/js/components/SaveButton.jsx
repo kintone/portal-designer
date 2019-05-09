@@ -3,17 +3,10 @@ import PropTypes from 'prop-types';
 import { EditorStore } from '../EditorStore';
 import Storage from '../domain/Storage';
 import { convertStateToStorage } from '../domain/StorageConverter';
+import mergeState from '../domain/mergeState';
 
 const SaveButton = (props) => {
   const { state } = useContext(EditorStore);
-
-  // TODO: React Hooksへの移行が完了したら破棄する
-  const mergeState = (storeState, pageState) => {
-    const mergedState = { ...pageState };
-    mergedState.editor.headerColor = storeState.editor.headerColor;
-    mergedState.editor.toolbarColor = storeState.editor.toolbarColor;
-    return mergedState;
-  };
 
   const onClick = async (pageState) => {
     const mergedState = mergeState(state, pageState);
