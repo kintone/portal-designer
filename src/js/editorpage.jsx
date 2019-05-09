@@ -8,7 +8,6 @@ import Exporter from './components/Exporter';
 import Tabs from './components/Tabs';
 import Storage from './domain/Storage';
 import { convertStorageToState } from './domain/StorageConverter';
-import { exportFile } from './domain/FileExporter';
 
 class EditorPage extends Component {
   constructor(props) {
