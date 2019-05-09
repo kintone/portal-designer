@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Activator from './components/Activator';
+import Activator from './containers/Activator';
 import SaveButton from './components/SaveButton';
 import CancelButton from './components/CancelButton';
 import NameInput from './components/NameInput';
@@ -14,7 +14,6 @@ class EditorPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      enabled: false,
       name: '',
       editor: {
         html: {
@@ -43,10 +42,6 @@ class EditorPage extends Component {
 
   handleNameInputChange(name) {
     this.setState({ name });
-  }
-
-  handleActivatorChange(enabled) {
-    this.setState({ enabled });
   }
 
   handleImport(state) {
@@ -85,10 +80,7 @@ class EditorPage extends Component {
       <div>
         <div className="global-nav">
           <div className="global-nav-name">
-            <Activator
-              onChange={enabled => this.handleActivatorChange(enabled)}
-              enabled={this.state.enabled}
-            />
+            <Activator />
           </div>
           <CancelButton />
           <SaveButton state={this.state} />

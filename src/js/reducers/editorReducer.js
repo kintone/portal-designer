@@ -3,6 +3,9 @@ const editorReducer = (state, action) => {
     case 'LOAD_STORAGE': {
       return { ...action.state };
     }
+    case 'CUSTOMIZE_ENABLE_CHANGE': {
+      return { ...state, enabled: action.enabled };
+    }
     case 'HEADER_COLOR_CHANGE': {
       const newState = { ...state };
       newState.editor.headerColor = action.headerColor;
