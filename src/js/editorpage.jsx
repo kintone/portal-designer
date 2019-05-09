@@ -7,7 +7,6 @@ import Importer from './components/Importer';
 import Exporter from './components/Exporter';
 import Tabs from './components/Tabs';
 import Storage from './domain/Storage';
-import { convertStateToText, convertTextToStateFragment } from './domain/TextConverter';
 import { convertStorageToState } from './domain/StorageConverter';
 import { exportFile } from './domain/FileExporter';
 
@@ -50,8 +49,8 @@ class EditorPage extends Component {
     this.setState({ enabled });
   }
 
-  handleImport(text) {
-    this.setState(convertTextToStateFragment(text));
+  handleImport(state) {
+    this.setState(state);
   }
 
   handleHtmlChange(value) {

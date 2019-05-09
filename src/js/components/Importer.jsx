@@ -1,40 +1,47 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { EditorStore } from '../EditorStore';
+import { convertTextToStateFragment } from '../domain/TextConverter';
 
-class Importer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.reader = new FileReader();
-    this.reader.addEventListener('load', evt => this.handleLoadFile(evt));
-  }
+const Importer = (props) => {
+  const { dispatch } = useContext(EditorStore);
 
-  handleLoadFile(evt) {
-    this.props.onImport(evt.target.result);
-  }
+  const handleChange = (evt) => {
+    props.reader.readAsText(evt.target.files[0]);
+  };
 
-  handleChange(evt) {
-    this.reader.readAsText(evt.target.files[0]);
-  }
+  const handleLoadFile = (evt) => {
+    const state = convertTextToStateFragment(evt.target.result);
+    props.onImport(state);
+    dispatch({ type: 'LOAD_STORAGE', state });
+  };
 
-  render() {
-    return (
-      <label className="action-import-label" htmlFor="action-import-label">
-        Import
-        <input
-          type="file"
-          accept=".json"
-          className="action-import visually-hidden"
-          value=""
-          onChange={evt => this.handleChange(evt)}
-          id="action-import-label"
-        />
-      </label>
-    );
-  }
-}
+  useEffect(() => {
+    props.reader.addEventListener('load', handleLoadFile);
+  }, []);
+
+  return (
+    <label className="action-import-label" htmlFor="action-import-label">
+      Import
+      <input
+        type="file"
+        accept=".json"
+        className="action-import visually-hidden"
+        value=""
+        onChange={handleChange}
+        id="action-import-label"
+      />
+    </label>
+  );
+};
 
 Importer.propTypes = {
   onImport: PropTypes.func.isRequired,
+  reader: PropTypes.objectOf(FileReader),
+};
+
+Importer.defaultProps = {
+  reader: new FileReader(),
 };
 
 export default Importer;
