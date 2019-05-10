@@ -2,7 +2,7 @@
 
 import { expect } from 'chai';
 import { TYPE_CUSTOMIZE, TYPE_DEFAULT } from './Storage';
-import { convertStorageToType } from './StorageConverter';
+import { convertStorageToType, convertStorageToState } from './StorageConverter';
 
 describe('StorageConverter', () => {
   context('convertStorageToType', () => {
@@ -24,6 +24,23 @@ describe('StorageConverter', () => {
     it('typeプロパティがないなら、TYPE_DEFAULTを返す', () => {
       const actual = convertStorageToType({});
       expect(actual).eql(TYPE_DEFAULT);
+    });
+  });
+
+  context('convertStorageToState', () => {
+    it('hiddenPortalHeaderプロパティがtrueならtrueを返す', () => {
+      const state = convertStorageToState({ hiddenPortalHeader: true });
+      expect(state.editor.hiddenPortalHeader).eql(true);
+    });
+
+    it('hiddenPortalHeaderプロパティがfalseならfalseを返す', () => {
+      const state = convertStorageToState({ hiddenPortalHeader: false });
+      expect(state.editor.hiddenPortalHeader).eql(false);
+    });
+
+    it('hiddenPortalHeaderプロパティがないならfalseを返す', () => {
+      const state = convertStorageToState({});
+      expect(state.editor.hiddenPortalHeader).eql(false);
     });
   });
 });
