@@ -34,7 +34,7 @@ export const convertStorageToState = storage => ({
     },
     headerColor: storage.headerColor || '',
     toolbarColor: storage.toolbarColor || '',
-    hidePortalHeader: storage.hidePortalHeader || false,
+    hiddenPortalHeader: storage.hiddenPortalHeader || false,
     portalHeaderColor: storage.portalHeaderColor || '',
   },
 });
