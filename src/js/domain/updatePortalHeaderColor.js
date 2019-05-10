@@ -7,9 +7,6 @@ const updatePortalHeaderColor = ({ type, portalHeaderColor }) => {
     portalHeaderImgEl.style.backgroundImage = '';
     portalHeaderImgEl.style.backgroundColor = portalHeaderColor;
   }
-
-  const portalHeaderEl = KintonePortalElements.getPortalHeaderElement();
-  portalHeaderEl.classList.add('ocean-portal-index-header-ready');
 };
 
 export default updatePortalHeaderColor;

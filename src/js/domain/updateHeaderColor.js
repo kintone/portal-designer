@@ -5,7 +5,6 @@ const updateHeaderColor = ({ type, headerColor }) => {
   if (Storage.isCustomizeType(type) && headerColor) {
     headerEl.style.backgroundColor = headerColor;
   }
-  headerEl.classList.add('gaia-header-header-ready');
 };
 
 export default updateHeaderColor;

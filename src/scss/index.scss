@@ -13,20 +13,12 @@
     font-size: 0;
 }
 
-// JSで表示するまで非表示
-.gaia-header-header:not(.gaia-header-header-ready) {
-  visibility: hidden;
-}
-
-// JSで表示するまで非表示
-.gaia-header-toolbar:not(.gaia-header-toolbar-ready) {
-  visibility: hidden;
-}
-
-.ocean-portal-index-header:not(.ocean-portal-index-header-ready) {
-  visibility: hidden;
-}
-// カスタマイズポータルを描画する前にデフォルトのポータルが表示されるのを防ぐ
-.ocean-portal-index:not(.kintone-portal-ready) {
-  display: none;
+// カスタマイズポータルを描画する前にカスタマイズ前の内容が表示されるのを防ぐ
+body:not(.kintone-portal-ready) {
+  .gaia-header-header,
+  .gaia-header-toolbar,
+  .ocean-portal-index-header,
+  .ocean-portal-body {
+    visibility: hidden;
+  }
 }

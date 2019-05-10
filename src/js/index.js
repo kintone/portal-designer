@@ -1,30 +1,31 @@
 import Storage from './domain/Storage';
 import { convertForRenderingPortal } from './domain/StorageConverter';
 import renderToolbarLink from './domain/renderToolbarLink';
-import renderCustomize from './domain/renderCustomize';
+import customizePortal from './domain/customizePortal';
 import updateHeaderColor from './domain/updateHeaderColor';
 import updateToolbarColor from './domain/updateToolbarColor';
-import updatePortalHeaderColor from './domain/updatePortalHeaderColor';
-import KintonePortalElements from './lib/KintonePortalElements';
+import waitPortalShow from './lib/waitPortalShow';
 
-const addReadyClass = () => {
-  const portalIndexEl = KintonePortalElements.getPortalIndexElement();
-  if (portalIndexEl) {
-    portalIndexEl.classList.add('kintone-portal-ready');
+const notifyReady = () => {
+  document.body.classList.add('kintone-portal-ready');
+};
+
+const customizeKintone = async (model) => {
+  updateHeaderColor(model);
+  updateToolbarColor(model);
+
+  await waitPortalShow();
+  customizePortal(model);
+};
+
+const renderFromStorage = async () => {
+  const model = convertForRenderingPortal(await Storage.getAll());
+  if (Storage.isCustomizeType(model.type)) {
+    await customizeKintone(model);
   }
+  notifyReady();
 };
 
-const initialize = async () => {
-  renderToolbarLink();
-
-  const value = convertForRenderingPortal(await Storage.getAll());
-  updateHeaderColor(value);
-  updateToolbarColor(value);
-  updatePortalHeaderColor(value);
-
-  window.addEventListener('hashchange', () => renderCustomize(value));
-  await renderCustomize(value);
-
-  addReadyClass();
-};
-initialize();
+renderToolbarLink();
+renderFromStorage();
+window.addEventListener('hashchange', renderFromStorage);

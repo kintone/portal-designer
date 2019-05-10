@@ -5,7 +5,6 @@ const updateToolbarColor = ({ type, toolbarColor }) => {
   if (Storage.isCustomizeType(type) && toolbarColor) {
     toolbarEl.style.backgroundColor = toolbarColor;
   }
-  toolbarEl.classList.add('gaia-header-toolbar-ready');
 };
 
 export default updateToolbarColor;

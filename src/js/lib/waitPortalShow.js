@@ -1,4 +1,5 @@
 import KintonePortalElements from './KintonePortalElements';
+import KintoneUrl from './KintoneUrl';
 
 const isPortalElementsRendered = () => {
   if (!KintonePortalElements.getPortalIndexElement()) {
@@ -15,6 +16,9 @@ const isPortalElementsRendered = () => {
 
 // TODO: ポータルのイベントが実装されたタイミングでおきかえる
 const waitPortalShow = () => new Promise((resolve) => {
+  if (!KintoneUrl.isPortal()) {
+    resolve();
+  }
   if (isPortalElementsRendered()) {
     resolve();
   }
