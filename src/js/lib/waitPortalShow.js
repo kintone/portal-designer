@@ -1,5 +1,4 @@
 import KintonePortalElements from './KintonePortalElements';
-import KintoneUrl from './KintoneUrl';
 
 const isPortalElementsRendered = () => {
   if (!KintonePortalElements.getPortalIndexElement()) {
@@ -28,9 +27,6 @@ const observePortalElementsRendered = () => (
 );
 
 export default async () => {
-  if (!KintoneUrl.isPortal()) {
-    return;
-  }
   if (isPortalElementsRendered()) {
     return;
   }

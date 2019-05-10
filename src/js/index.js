@@ -1,3 +1,4 @@
+import KintoneUrl from './lib/KintoneUrl';
 import Storage from './domain/Storage';
 import { convertForRenderingPortal } from './domain/StorageConverter';
 import renderToolbarLink from './domain/renderToolbarLink';
@@ -14,8 +15,10 @@ const customizeKintone = async (model) => {
   updateHeaderColor(model);
   updateToolbarColor(model);
 
-  await waitPortalShow();
-  customizePortal(model);
+  if (KintoneUrl.isPortal()) {
+    await waitPortalShow();
+    customizePortal(model);
+  }
 };
 
 const renderFromStorage = async () => {
