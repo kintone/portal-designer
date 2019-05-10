@@ -1,11 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const Checkbox = (props) => {
+const Checkbox = props => {
   // TODO: インスタンスごとに異なる値にする
   const generateCheckBoxId = () => props.className;
 
-  const handleChange = (evt) => {
+  const handleChange = evt => {
     props.onChange(evt.target.checked);
   };
 
@@ -32,12 +32,12 @@ Checkbox.propTypes = {
   checked: PropTypes.bool,
   className: PropTypes.string,
   label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 Checkbox.defaultProps = {
   checked: false,
-  className: 'checkbox',
+  className: "checkbox"
 };
 
 export default Checkbox;

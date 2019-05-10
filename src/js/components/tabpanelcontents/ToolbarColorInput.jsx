@@ -1,5 +1,5 @@
-import React from 'react';
-import ColorInput from '../ColorInput';
+import React from "react";
+import ColorInput from "../ColorInput";
 
 const ToolbarColorInput = props => (
   <ColorInput

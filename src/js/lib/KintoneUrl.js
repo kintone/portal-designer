@@ -1,7 +1,5 @@
 const KintoneUrl = {
-  isPortal: () => (
-    /\/k\/#\/portal/.test(window.location.href)
-  ),
+  isPortal: () => /\/k\/#\/portal/.test(window.location.href)
 };
 
 export default KintoneUrl;

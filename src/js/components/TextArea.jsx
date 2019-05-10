@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const TextArea = (props) => {
-  const handleChange = (evt) => {
+const TextArea = props => {
+  const handleChange = evt => {
     props.onChange(evt.target.value);
   };
 
@@ -22,13 +22,13 @@ TextArea.propTypes = {
   name: PropTypes.string,
   label: PropTypes.string.isRequired,
   value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 TextArea.defaultProps = {
-  className: 'textarea',
-  name: '',
-  value: '',
+  className: "textarea",
+  name: "",
+  value: ""
 };
 
 export default TextArea;

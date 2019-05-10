@@ -1,6 +1,6 @@
-import { TYPE_CUSTOMIZE, TYPE_DEFAULT } from './Storage';
+import { TYPE_CUSTOMIZE, TYPE_DEFAULT } from "./Storage";
 
-export const convertStorageToType = (storage) => {
+export const convertStorageToType = storage => {
   if (storage.type && storage.type === TYPE_CUSTOMIZE) {
     return TYPE_CUSTOMIZE;
   }
@@ -9,44 +9,44 @@ export const convertStorageToType = (storage) => {
 
 export const convertStateToStorage = state => ({
   type: state.enabled ? TYPE_CUSTOMIZE : TYPE_DEFAULT,
-  name: state.name || '',
-  html: state.editor.html.value || '',
-  css: state.editor.css.value || '',
-  js: state.editor.js.value || '',
-  headerColor: state.editor.headerColor || '',
-  toolbarColor: state.editor.toolbarColor || '',
+  name: state.name || "",
+  html: state.editor.html.value || "",
+  css: state.editor.css.value || "",
+  js: state.editor.js.value || "",
+  headerColor: state.editor.headerColor || "",
+  toolbarColor: state.editor.toolbarColor || "",
   hiddenPortalHeader: state.editor.hiddenPortalHeader || false,
-  portalHeaderColor: state.editor.portalHeaderColor || '',
+  portalHeaderColor: state.editor.portalHeaderColor || ""
 });
 
 export const convertStorageToState = storage => ({
   enabled: convertStorageToType(storage) === TYPE_CUSTOMIZE,
-  name: storage.name || '',
+  name: storage.name || "",
   editor: {
     html: {
-      value: storage.html || '',
+      value: storage.html || ""
     },
     css: {
-      value: storage.css || '',
+      value: storage.css || ""
     },
     js: {
-      value: storage.js || '',
+      value: storage.js || ""
     },
-    headerColor: storage.headerColor || '',
-    toolbarColor: storage.toolbarColor || '',
+    headerColor: storage.headerColor || "",
+    toolbarColor: storage.toolbarColor || "",
     hiddenPortalHeader: storage.hiddenPortalHeader || false,
-    portalHeaderColor: storage.portalHeaderColor || '',
-  },
+    portalHeaderColor: storage.portalHeaderColor || ""
+  }
 });
 
 export const convertForRenderingPortal = storage => ({
   type: convertStorageToType(storage),
-  name: storage.name || '',
-  html: storage.html || '',
-  css: storage.css || '',
-  js: storage.js || '',
-  headerColor: storage.headerColor || '',
-  toolbarColor: storage.toolbarColor || '',
+  name: storage.name || "",
+  html: storage.html || "",
+  css: storage.css || "",
+  js: storage.js || "",
+  headerColor: storage.headerColor || "",
+  toolbarColor: storage.toolbarColor || "",
   hiddenPortalHeader: storage.hiddenPortalHeader || false,
-  portalHeaderColor: storage.portalHeaderColor || '',
+  portalHeaderColor: storage.portalHeaderColor || ""
 });

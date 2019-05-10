@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class Tab extends Component {
   isSelectedTab() {
@@ -29,11 +29,11 @@ Tab.propTypes = {
   text: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   selectedTab: PropTypes.string,
-  setSelectedTab: PropTypes.func.isRequired,
+  setSelectedTab: PropTypes.func.isRequired
 };
 
 Tab.defaultProps = {
-  selectedTab: '',
+  selectedTab: ""
 };
 
 export default Tab;

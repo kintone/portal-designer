@@ -1,23 +1,23 @@
-import React, { useContext, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { EditorStore } from '../EditorStore';
-import { convertTextToStateFragment } from '../domain/TextConverter';
+import React, { useContext, useEffect } from "react";
+import PropTypes from "prop-types";
+import { EditorStore } from "../EditorStore";
+import { convertTextToStateFragment } from "../domain/TextConverter";
 
-const Importer = (props) => {
+const Importer = props => {
   const { dispatch } = useContext(EditorStore);
 
-  const handleChange = (evt) => {
+  const handleChange = evt => {
     props.reader.readAsText(evt.target.files[0]);
   };
 
-  const handleLoadFile = (evt) => {
+  const handleLoadFile = evt => {
     const state = convertTextToStateFragment(evt.target.result);
-    dispatch({ type: 'IMPORT_JSON', state });
+    dispatch({ type: "IMPORT_JSON", state });
   };
 
   useEffect(() => {
-    props.reader.addEventListener('load', handleLoadFile);
-  }, []);
+    props.reader.addEventListener("load", handleLoadFile);
+  }, [handleLoadFile, props.reader]);
 
   return (
     <label className="action-import-label" htmlFor="action-import-label">
@@ -35,11 +35,11 @@ const Importer = (props) => {
 };
 
 Importer.propTypes = {
-  reader: PropTypes.objectOf(FileReader),
+  reader: PropTypes.objectOf(FileReader)
 };
 
 Importer.defaultProps = {
-  reader: new FileReader(),
+  reader: new FileReader()
 };
 
 export default Importer;

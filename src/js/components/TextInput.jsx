@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-const TextInput = (props) => {
-  const handleChange = (evt) => {
+const TextInput = props => {
+  const handleChange = evt => {
     props.onChange(evt.target.value);
   };
 
@@ -23,13 +23,13 @@ TextInput.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string,
   label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
 };
 
 TextInput.defaultProps = {
-  className: 'text-input',
-  value: '',
-  placeholder: '',
+  className: "text-input",
+  value: "",
+  placeholder: ""
 };
 
 export default TextInput;

@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import TabPanel from './TabPanel';
-import HtmlTabPanelContent from '../containers/tabpanelcontents/HtmlTabPanelContent';
-import CssTabPanelContent from '../containers/tabpanelcontents/CssTabPanelContent';
-import JsTabPanelContent from '../containers/tabpanelcontents/JsTabPanelContent';
-import ConfigTabPanelContent from './tabpanelcontents/ConfigTabPanelContent';
+import React from "react";
+import PropTypes from "prop-types";
+import TabPanel from "./TabPanel";
+import HtmlTabPanelContent from "../containers/tabpanelcontents/HtmlTabPanelContent";
+import CssTabPanelContent from "../containers/tabpanelcontents/CssTabPanelContent";
+import JsTabPanelContent from "../containers/tabpanelcontents/JsTabPanelContent";
+import ConfigTabPanelContent from "./tabpanelcontents/ConfigTabPanelContent";
 
 const TabPanelContainer = props => (
   <div className="tabpanelwrapper">
@@ -27,7 +27,7 @@ const TabPanelContainer = props => (
 );
 
 TabPanelContainer.propTypes = {
-  selectedTab: PropTypes.string.isRequired,
+  selectedTab: PropTypes.string.isRequired
 };
 
 export default TabPanelContainer;

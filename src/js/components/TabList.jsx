@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Tab from './Tab';
+import React from "react";
+import PropTypes from "prop-types";
+import Tab from "./Tab";
 
 const TabList = props => (
   <div className="tablist" role="tablist">
@@ -33,12 +33,11 @@ const TabList = props => (
 
 TabList.propTypes = {
   selectedTab: PropTypes.string,
-  setSelectedTab: PropTypes.func.isRequired,
+  setSelectedTab: PropTypes.func.isRequired
 };
 
 TabList.defaultProps = {
-  selectedTab: '',
+  selectedTab: ""
 };
-
 
 export default TabList;

@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import { EditorStore } from '../../EditorStore';
-import HeaderColorInput from '../../components/tabpanelcontents/HeaderColorInput';
+import React, { useContext } from "react";
+import { EditorStore } from "../../EditorStore";
+import HeaderColorInput from "../../components/tabpanelcontents/HeaderColorInput";
 
-export default (props) => {
+export default props => {
   const { state, dispatch } = useContext(EditorStore);
 
-  const onChange = (headerColor) => {
-    dispatch({ type: 'HEADER_COLOR_CHANGE', headerColor });
+  const onChange = headerColor => {
+    dispatch({ type: "HEADER_COLOR_CHANGE", headerColor });
   };
 
   return (

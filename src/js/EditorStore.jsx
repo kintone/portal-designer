@@ -1,28 +1,28 @@
-import React, { useReducer } from 'react';
-import PropTypes from 'prop-types';
-import editorReducer from './reducers/editorReducer';
+import React, { useReducer } from "react";
+import PropTypes from "prop-types";
+import editorReducer from "./reducers/editorReducer";
 
 export const EditorStore = React.createContext();
 
 export const EditorProvider = ({ children }) => {
   const initialState = {
     enabled: false,
-    name: '',
+    name: "",
     editor: {
       html: {
-        value: '',
+        value: ""
       },
       css: {
-        value: '',
+        value: ""
       },
       js: {
-        value: '',
+        value: ""
       },
-      headerColor: '',
-      toolbarColor: '',
+      headerColor: "",
+      toolbarColor: "",
       hiddenPortalHeader: false,
-      portalHeaderColor: '',
-    },
+      portalHeaderColor: ""
+    }
   };
 
   const [state, dispatch] = useReducer(editorReducer, initialState);
@@ -35,5 +35,5 @@ export const EditorProvider = ({ children }) => {
 };
 
 EditorProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired
 };

@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import { EditorStore } from '../../EditorStore';
-import ToolbarColorInput from '../../components/tabpanelcontents/ToolbarColorInput';
+import React, { useContext } from "react";
+import { EditorStore } from "../../EditorStore";
+import ToolbarColorInput from "../../components/tabpanelcontents/ToolbarColorInput";
 
-export default (props) => {
+export default props => {
   const { state, dispatch } = useContext(EditorStore);
 
-  const onChange = (toolbarColor) => {
-    dispatch({ type: 'TOOLBAR_COLOR_CHANGE', toolbarColor });
+  const onChange = toolbarColor => {
+    dispatch({ type: "TOOLBAR_COLOR_CHANGE", toolbarColor });
   };
 
   return (

@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import { EditorStore } from '../../EditorStore';
-import TextArea from '../../components/TextArea';
+import React, { useContext } from "react";
+import { EditorStore } from "../../EditorStore";
+import TextArea from "../../components/TextArea";
 
-const HtmlTabPanelContent = (props) => {
+const HtmlTabPanelContent = props => {
   const { state, dispatch } = useContext(EditorStore);
 
-  const onChange = (html) => {
-    dispatch({ type: 'HTML_VALUE_CHANGE', html });
+  const onChange = html => {
+    dispatch({ type: "HTML_VALUE_CHANGE", html });
   };
 
   return (

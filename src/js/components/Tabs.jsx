@@ -1,12 +1,12 @@
-import React from 'react';
-import TabList from './TabList';
-import TabPanelContainer from './TabPanelContainer';
+import React from "react";
+import TabList from "./TabList";
+import TabPanelContainer from "./TabPanelContainer";
 
 class Tabs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'html',
+      selectedTab: "html"
     };
   }
 
@@ -21,9 +21,7 @@ class Tabs extends React.Component {
           selectedTab={this.state.selectedTab}
           setSelectedTab={selectedTab => this.setSelectedTab(selectedTab)}
         />
-        <TabPanelContainer
-          selectedTab={this.state.selectedTab}
-        />
+        <TabPanelContainer selectedTab={this.state.selectedTab} />
       </div>
     );
   }

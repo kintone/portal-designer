@@ -1,12 +1,12 @@
-import React, { useContext } from 'react';
-import { EditorStore } from '../../EditorStore';
-import TextArea from '../../components/TextArea';
+import React, { useContext } from "react";
+import { EditorStore } from "../../EditorStore";
+import TextArea from "../../components/TextArea";
 
-const CssTabPanelContent = (props) => {
+const CssTabPanelContent = props => {
   const { state, dispatch } = useContext(EditorStore);
 
-  const onChange = (css) => {
-    dispatch({ type: 'CSS_VALUE_CHANGE', css });
+  const onChange = css => {
+    dispatch({ type: "CSS_VALUE_CHANGE", css });
   };
 
   return (

@@ -1,11 +1,11 @@
-import React from 'react';
-import Activator from '../containers/Activator';
-import SaveButton from './SaveButton';
-import CancelButton from './CancelButton';
-import NameInput from '../containers/NameInput';
-import Importer from './Importer';
-import Exporter from './Exporter';
-import Tabs from './Tabs';
+import React from "react";
+import Activator from "../containers/Activator";
+import SaveButton from "./SaveButton";
+import CancelButton from "./CancelButton";
+import NameInput from "../containers/NameInput";
+import Importer from "./Importer";
+import Exporter from "./Exporter";
+import Tabs from "./Tabs";
 
 const EditorPage = () => (
   <div>

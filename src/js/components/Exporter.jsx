@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { EditorStore } from '../EditorStore';
-import { exportFile } from '../domain/FileExporter';
-import { convertStateToText } from '../domain/TextConverter';
+import React, { useContext } from "react";
+import { EditorStore } from "../EditorStore";
+import { exportFile } from "../domain/FileExporter";
+import { convertStateToText } from "../domain/TextConverter";
 
 const Exporter = () => {
   const { state } = useContext(EditorStore);
@@ -11,12 +11,8 @@ const Exporter = () => {
   };
 
   return (
-    <button
-      type="button"
-      className="action-export"
-      onClick={handleExport}
-    >
-    Export
+    <button type="button" className="action-export" onClick={handleExport}>
+      Export
     </button>
   );
 };

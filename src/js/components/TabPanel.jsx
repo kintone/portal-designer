@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 class TabPanel extends React.Component {
   isSelectedTab() {
@@ -11,7 +11,7 @@ class TabPanel extends React.Component {
       <div
         className="tabpanel"
         role="tabpanel"
-        hidden={(this.isSelectedTab()) ? '' : 'hidden'}
+        hidden={this.isSelectedTab() ? "" : "hidden"}
       >
         {this.props.children}
       </div>
@@ -22,11 +22,11 @@ class TabPanel extends React.Component {
 TabPanel.propTypes = {
   name: PropTypes.string.isRequired,
   selectedTab: PropTypes.string.isRequired,
-  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string]),
+  children: PropTypes.oneOfType([PropTypes.element, PropTypes.string])
 };
 
 TabPanel.defaultProps = {
-  children: null,
+  children: null
 };
 
 export default TabPanel;

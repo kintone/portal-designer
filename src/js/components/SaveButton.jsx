@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
-import { EditorStore } from '../EditorStore';
-import Storage from '../domain/Storage';
-import { convertStateToStorage } from '../domain/StorageConverter';
+import React, { useContext } from "react";
+import { EditorStore } from "../EditorStore";
+import Storage from "../domain/Storage";
+import { convertStateToStorage } from "../domain/StorageConverter";
 
 const SaveButton = () => {
   const { state } = useContext(EditorStore);
@@ -11,12 +11,8 @@ const SaveButton = () => {
   };
 
   return (
-    <button
-      type="button"
-      className="action-save"
-      onClick={onClick}
-    >
-    Save
+    <button type="button" className="action-save" onClick={onClick}>
+      Save
     </button>
   );
 };
