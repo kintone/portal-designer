@@ -2,12 +2,12 @@ import KintoneUrl from '../lib/KintoneUrl';
 import updatePortalContent from './updatePortalContent';
 import addCustomizedContent from './addCustomizedContent';
 
-const customizePortal = async (model) => {
+const customizePortal = (model) => {
   if (!KintoneUrl.isPortal()) {
     return;
   }
   updatePortalContent(model);
-  await addCustomizedContent(model);
+  addCustomizedContent(model);
 };
 
 export default customizePortal;

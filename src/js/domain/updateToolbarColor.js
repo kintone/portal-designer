@@ -1,10 +1,9 @@
-import Storage from './Storage';
-
-const updateToolbarColor = ({ type, toolbarColor }) => {
-  const toolbarEl = document.querySelector('.gaia-header-toolbar');
-  if (Storage.isCustomizeType(type) && toolbarColor) {
-    toolbarEl.style.backgroundColor = toolbarColor;
+const updateToolbarColor = ({ toolbarColor }) => {
+  if (!toolbarColor) {
+    return;
   }
+  const toolbarEl = document.querySelector('.gaia-header-toolbar');
+  toolbarEl.style.backgroundColor = toolbarColor;
 };
 
 export default updateToolbarColor;

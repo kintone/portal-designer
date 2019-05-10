@@ -14,22 +14,25 @@ const isPortalElementsRendered = () => {
   return true;
 };
 
-// TODO: ポータルのイベントが実装されたタイミングでおきかえる
-const waitPortalShow = () => new Promise((resolve) => {
+const observePortalElementsRendered = () => (
+  new Promise((resolve) => {
+    new MutationObserver((records, observer) => {
+      if (isPortalElementsRendered()) {
+        resolve(observer);
+      }
+    }).observe(
+      KintonePortalElements.getOceanBodyElement(),
+      { childList: true },
+    );
+  }).then(observer => observer.disconnect())
+);
+
+export default async () => {
   if (!KintoneUrl.isPortal()) {
-    resolve();
+    return;
   }
   if (isPortalElementsRendered()) {
-    resolve();
+    return;
   }
-  new MutationObserver(() => {
-    if (isPortalElementsRendered()) {
-      resolve();
-    }
-  }).observe(
-    KintonePortalElements.getOceanBodyElement(),
-    { childList: true },
-  );
-});
-
-export default waitPortalShow;
+  await observePortalElementsRendered();
+};

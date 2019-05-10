@@ -1,10 +1,9 @@
-import Storage from './Storage';
-
-const updateHeaderColor = ({ type, headerColor }) => {
-  const headerEl = document.querySelector('.gaia-header-header');
-  if (Storage.isCustomizeType(type) && headerColor) {
-    headerEl.style.backgroundColor = headerColor;
+const updateHeaderColor = ({ headerColor }) => {
+  if (!headerColor) {
+    return;
   }
+  const headerEl = document.querySelector('.gaia-header-header');
+  headerEl.style.backgroundColor = headerColor;
 };
 
 export default updateHeaderColor;

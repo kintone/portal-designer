@@ -1,4 +1,5 @@
 import KintonePortalElements from '../lib/KintonePortalElements';
+import updatePortalHeaderColor from './updatePortalHeaderColor';
 
 const hiddenWidgets = () => {
   const bodyEl = KintonePortalElements.getPortalBodyElement();
@@ -12,7 +13,9 @@ const hiddenPortalIndexHeader = () => {
 
 export default (model) => {
   hiddenWidgets();
-  if (model.hiddenPortalIndexHeader) {
+  if (model.hiddenPortalHeader) {
     hiddenPortalIndexHeader();
+  } else {
+    updatePortalHeaderColor(model);
   }
 };
