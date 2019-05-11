@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
-import { EditorStore } from "../EditorStore";
+import { EditorContext } from "../EditorContext";
 import { exportFile } from "../domain/FileExporter";
 import { convertStateToText } from "../domain/TextConverter";
 
 const Exporter = () => {
-  const { state } = useContext(EditorStore);
+  const { state } = useContext(EditorContext);
 
   const handleExport = () => {
     exportFile(convertStateToText(state), state.name);

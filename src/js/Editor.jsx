@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { EditorProvider } from "./EditorStore";
+import { EditorProvider } from "./EditorContext";
 import EditorPage from "./containers/EditorPageContainer";
 
 const Editor = () => (

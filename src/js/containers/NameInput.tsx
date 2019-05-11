@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { EditorStore } from "../EditorStore";
+import { EditorContext } from "../EditorContext";
 import TextInput, { TextInputProps } from "../components/TextInput";
 
 const NameInput = (props: NameInputProps) => {
-  const { state, dispatch } = useContext(EditorStore);
+  const { state, dispatch } = useContext(EditorContext);
 
   const onChange = (name: string) => {
     dispatch({ type: "NAME_INPUT_CHANGE", name });

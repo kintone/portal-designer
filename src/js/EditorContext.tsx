@@ -2,7 +2,8 @@ import React, { useReducer } from "react";
 import PropTypes from "prop-types";
 import editorReducer from "./reducers/editorReducer";
 
-export const EditorStore = React.createContext();
+// @ts-ignore
+export const EditorContext = React.createContext<EditorState>();
 
 export const EditorProvider = ({ children }: any) => {
   const initialState: EditorState = {
@@ -28,9 +29,9 @@ export const EditorProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(editorReducer, initialState);
 
   return (
-    <EditorStore.Provider value={{ state, dispatch }}>
+    <EditorContext.Provider value={{ state, dispatch }}>
       {children}
-    </EditorStore.Provider>
+    </EditorContext.Provider>
   );
 };
 

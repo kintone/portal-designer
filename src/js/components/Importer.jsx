@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
-import { EditorStore } from "../EditorStore";
+import { EditorContext } from "../EditorContext";
 import { convertTextToStateFragment } from "../domain/TextConverter";
 
 const Importer = props => {
-  const { dispatch } = useContext(EditorStore);
+  const { dispatch } = useContext(EditorContext);
 
   const handleChange = evt => {
     props.reader.readAsText(evt.target.files[0]);

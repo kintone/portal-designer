@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
-import { EditorStore } from "../EditorStore";
+import { EditorContext } from "../EditorContext";
 import Storage from "../domain/Storage";
 import { convertStorageToState } from "../domain/StorageConverter";
 import EditorPage from "../components/EditorPage";
 
 const EditorPageContainer = () => {
-  const { dispatch } = useContext(EditorStore);
+  const { dispatch } = useContext(EditorContext);
 
   const loadStorage = async () => {
     const storageValue = await Storage.getAll();
