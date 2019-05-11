@@ -8,5 +8,8 @@ module.exports = {
     react: {
       version: "latest"
     }
+  },
+  rules: {
+    "react-hooks/exhaustive-deps": false
   }
 };

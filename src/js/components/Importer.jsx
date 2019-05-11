@@ -17,7 +17,7 @@ const Importer = props => {
 
   useEffect(() => {
     props.reader.addEventListener("load", handleLoadFile);
-  }, [handleLoadFile, props.reader]);
+  }, []);
 
   return (
     <label className="action-import-label" htmlFor="action-import-label">

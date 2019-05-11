@@ -15,7 +15,7 @@ const EditorPageContainer = () => {
 
   useEffect(() => {
     loadStorage();
-  }, [loadStorage]);
+  }, []);
 
   return <EditorPage />;
 };
