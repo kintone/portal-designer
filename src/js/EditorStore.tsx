@@ -2,7 +2,7 @@ import React, { useReducer } from "react";
 import PropTypes from "prop-types";
 import editorReducer from "./reducers/editorReducer";
 
-export const EditorStore = React.createContext({});
+export const EditorStore = React.createContext();
 
 export const EditorProvider = ({ children }: any) => {
   const initialState: EditorState = {

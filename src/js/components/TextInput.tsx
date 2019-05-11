@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const TextInput = (props: Props) => {
+const TextInput = (props: TextInputProps) => {
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     props.onChange(evt.target.value);
   };
@@ -17,7 +17,7 @@ const TextInput = (props: Props) => {
   );
 };
 
-interface Props {
+export interface TextInputProps {
   className: string;
   value: string;
   placeholder: string;
