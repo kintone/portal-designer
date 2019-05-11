@@ -1,7 +1,7 @@
 import * as React from "react";
 
-const TextInput = props => {
-  const handleChange = evt => {
+const TextInput = (props: Props) => {
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     props.onChange(evt.target.value);
   };
 
@@ -17,13 +17,13 @@ const TextInput = props => {
   );
 };
 
-TextInput.propTypes = {
-  className: PropTypes.string,
-  value: PropTypes.string,
-  placeholder: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
-};
+interface Props {
+  className: string;
+  value: string;
+  placeholder: string;
+  label: string;
+  onChange: (value: string) => void;
+}
 
 TextInput.defaultProps = {
   className: "text-input",

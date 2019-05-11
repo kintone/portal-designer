@@ -1,8 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import * as React from "react";
 
-const TextArea = props => {
-  const handleChange = evt => {
+const TextArea = (props: Props) => {
+  const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
     props.onChange(evt.target.value);
   };
 
@@ -17,13 +16,13 @@ const TextArea = props => {
   );
 };
 
-TextArea.propTypes = {
-  className: PropTypes.string,
-  name: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired
-};
+interface Props {
+  className: string;
+  name: string;
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}
 
 TextArea.defaultProps = {
   className: "textarea",
