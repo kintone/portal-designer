@@ -9,6 +9,8 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.4.4",
     "@types/chrome": "0.0.83",
+    "@types/react": "^16.8.17",
+    "@types/react-dom": "^16.8.4",
     "babel-loader": "^8.0.0",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.0.0",
