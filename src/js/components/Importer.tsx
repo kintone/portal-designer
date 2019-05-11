@@ -1,16 +1,15 @@
 import React, { useContext, useEffect } from "react";
-import PropTypes from "prop-types";
 import { EditorContext } from "../EditorContext";
 import { convertTextToStateFragment } from "../domain/TextConverter";
 
-const Importer = props => {
+const Importer = (props: ImporterProps) => {
   const { dispatch } = useContext(EditorContext);
 
-  const handleChange = evt => {
-    props.reader.readAsText(evt.target.files[0]);
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    props.reader.readAsText(evt.target.files![0]);
   };
 
-  const handleLoadFile = evt => {
+  const handleLoadFile = (evt: any) => {
     const state = convertTextToStateFragment(evt.target.result);
     dispatch({ type: "IMPORT_JSON", state });
   };
@@ -34,9 +33,9 @@ const Importer = props => {
   );
 };
 
-Importer.propTypes = {
-  reader: PropTypes.objectOf(FileReader)
-};
+interface ImporterProps {
+  reader: FileReader;
+}
 
 Importer.defaultProps = {
   reader: new FileReader()

@@ -1,11 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const Checkbox = props => {
+const Checkbox = (props: CheckboxProps) => {
   // TODO: インスタンスごとに異なる値にする
   const generateCheckBoxId = () => props.className;
 
-  const handleChange = evt => {
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     props.onChange(evt.target.checked);
   };
 
@@ -16,7 +15,7 @@ const Checkbox = props => {
         id={generateCheckBoxId()}
         className={`${props.className}-input`}
         checked={props.checked}
-        onChange={evt => handleChange(evt)}
+        onChange={handleChange}
       />
       <label // eslint-disable-line
         htmlFor={generateCheckBoxId()}
@@ -28,12 +27,12 @@ const Checkbox = props => {
   );
 };
 
-Checkbox.propTypes = {
-  checked: PropTypes.bool,
-  className: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
-};
+export interface CheckboxProps {
+  checked: boolean;
+  className: string;
+  label: string;
+  onChange: (value: boolean) => void;
+}
 
 Checkbox.defaultProps = {
   checked: false,

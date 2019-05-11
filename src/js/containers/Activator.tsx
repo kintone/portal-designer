@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
 import Checkbox from "../components/Checkbox";
 
-const Activator = props => {
+const Activator = (props: {}) => {
   const { state, dispatch } = useContext(EditorContext);
 
-  const onChange = enabled => {
+  const onChange = (enabled: boolean) => {
     dispatch({ type: "CUSTOMIZE_ENABLE_CHANGE", enabled });
   };
 

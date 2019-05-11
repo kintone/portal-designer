@@ -1,6 +1,6 @@
 import * as React from "react";
 
-const TextArea = (props: Props) => {
+const TextArea = (props: TextAreaProps) => {
   const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
     props.onChange(evt.target.value);
   };
@@ -16,7 +16,7 @@ const TextArea = (props: Props) => {
   );
 };
 
-interface Props {
+export interface TextAreaProps {
   className: string;
   name: string;
   label: string;

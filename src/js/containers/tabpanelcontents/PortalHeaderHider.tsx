@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { EditorContext } from "../../EditorContext";
 import Checkbox from "../../components/Checkbox";
 
-const PortalHeaderHider = props => {
+const PortalHeaderHider = (props: any) => {
   const { state, dispatch } = useContext(EditorContext);
 
-  const onChange = hiddenPortalHeader => {
+  const onChange = (hiddenPortalHeader: boolean) => {
     dispatch({ type: "PORTAL_HEADER_HIDER_CHANGE", hiddenPortalHeader });
   };
 

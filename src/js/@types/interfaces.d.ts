@@ -21,7 +21,7 @@ interface EditorState extends EditorImportableState {
   enabled: boolean;
 }
 
-interface EditorStorage {
+interface ICustomize {
   type: string;
   name: string;
   html: string;
@@ -32,3 +32,7 @@ interface EditorStorage {
   hiddenPortalHeader: boolean;
   portalHeaderColor: string;
 }
+
+interface EditorStorage extends ICustomize {}
+
+interface RenderingModel extends ICustomize {}

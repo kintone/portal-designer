@@ -1,8 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const ColorInput = props => {
-  const handleChange = evt => {
+const ColorInput = (props: ColorInputProps) => {
+  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     props.onChange(evt.target.value);
   };
 
@@ -25,14 +24,14 @@ const ColorInput = props => {
   );
 };
 
-ColorInput.propTypes = {
-  className: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  placeholder: PropTypes.string
-};
+export interface ColorInputProps {
+  className: string;
+  onChange: (value: string) => void;
+  value: string;
+  label: string;
+  disabled?: boolean;
+  placeholder: string;
+}
 
 ColorInput.defaultProps = {
   className: "color-input",

@@ -1,7 +1,7 @@
 import React from "react";
-import ColorInput from "../ColorInput";
+import ColorInput, { ColorInputProps } from "../ColorInput";
 
-const HeaderColorInput = props => (
+const HeaderColorInput = (props: HeaderColorInputProps) => (
   <ColorInput
     {...props}
     label="Header Color"
@@ -9,5 +9,7 @@ const HeaderColorInput = props => (
     placeholder="Example: #ffcc00"
   />
 );
+
+export interface HeaderColorInputProps extends ColorInputProps {}
 
 export default HeaderColorInput;

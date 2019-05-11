@@ -1,7 +1,7 @@
 import React from "react";
 
 const onClick = () => {
-  window.open("about:blank", "_self").close();
+  window.open("about:blank", "_self")!.close();
 };
 
 const CancelButton = () => (

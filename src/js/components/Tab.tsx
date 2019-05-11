@@ -1,7 +1,10 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 
-class Tab extends Component {
+class Tab extends React.Component<TabProps> {
+  static defaultProps = {
+    selectedTab: ""
+  };
+
   isSelectedTab() {
     return this.props.selectedTab === this.props.name;
   }
@@ -25,15 +28,11 @@ class Tab extends Component {
   }
 }
 
-Tab.propTypes = {
-  text: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  selectedTab: PropTypes.string,
-  setSelectedTab: PropTypes.func.isRequired
-};
-
-Tab.defaultProps = {
-  selectedTab: ""
-};
+interface TabProps {
+  text: string;
+  name: string;
+  selectedTab: string;
+  setSelectedTab: (value: string) => void;
+}
 
 export default Tab;

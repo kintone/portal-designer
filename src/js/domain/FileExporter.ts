@@ -3,18 +3,18 @@ import sanitize from "sanitize-filename";
 export const FILE_EXT = "json";
 export const DEFAULT_FILE_NAME = `customize.${FILE_EXT}`;
 
-export const generateFileName = optFileName => {
-  let fileName = optFileName || DEFAULT_FILE_NAME;
+export const generateFileName = (fileName?: string) => {
+  fileName = fileName || DEFAULT_FILE_NAME;
   if (!/.*\.json$/.test(fileName)) {
     fileName = `${fileName}.${FILE_EXT}`;
   }
   return sanitize(fileName, { replacement: "_" });
 };
 
-export const exportFile = (text, optFileName) => {
+export const exportFile = (text: string, fileName?: string) => {
   const element = document.createElement("a");
   element.setAttribute("href", `data:text/plain;charset=utf-8,${text}`);
-  element.setAttribute("download", generateFileName(optFileName));
+  element.setAttribute("download", generateFileName(fileName));
   element.setAttribute("hidden", "hidden");
 
   document.body.appendChild(element);

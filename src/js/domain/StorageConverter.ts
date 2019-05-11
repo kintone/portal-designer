@@ -39,7 +39,9 @@ export const convertStorageToState = (storage: EditorStorage): EditorState => ({
   }
 });
 
-export const convertForRenderingPortal = (storage: EditorStorage) => ({
+export const convertForRenderingPortal = (
+  storage: EditorStorage
+): RenderingModel => ({
   type: convertStorageToType(storage),
   name: storage.name || "",
   html: storage.html || "",

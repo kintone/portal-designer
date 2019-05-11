@@ -11,7 +11,7 @@ const notifyReady = () => {
   document.body.classList.add("kintone-portal-ready");
 };
 
-const customizeKintone = async model => {
+const customizeKintone = async (model: RenderingModel) => {
   updateHeaderColor(model);
   updateToolbarColor(model);
 

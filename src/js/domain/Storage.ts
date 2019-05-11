@@ -18,9 +18,9 @@ const ALL_KEYS = [
 const isCustomizeType = (type: string) => type && type === TYPE_CUSTOMIZE;
 
 const Storage = {
-  get: ChromeStorage.get,
-  set: ChromeStorage.set,
-  getAll: () => ChromeStorage.get(ALL_KEYS),
+  get: (keys: string[]) => ChromeStorage.get<EditorStorage>(keys),
+  set: (storage: any) => ChromeStorage.set(storage),
+  getAll: () => ChromeStorage.get<EditorStorage>(ALL_KEYS),
   isCustomizeType
 };
 

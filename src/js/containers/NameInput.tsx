@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
-import TextInput, { TextInputProps } from "../components/TextInput";
+import TextInput from "../components/TextInput";
 
-const NameInput = (props: NameInputProps) => {
+const NameInput = (props: {}) => {
   const { state, dispatch } = useContext(EditorContext);
 
   const onChange = (name: string) => {
@@ -20,7 +20,5 @@ const NameInput = (props: NameInputProps) => {
     />
   );
 };
-
-interface NameInputProps extends TextInputProps {}
 
 export default NameInput;

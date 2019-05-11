@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import editorReducer from "./reducers/editorReducer";
 
 // @ts-ignore
-export const EditorContext = React.createContext<EditorState>();
+export const EditorContext = React.createContext();
 
 export const EditorProvider = ({ children }: any) => {
   const initialState: EditorState = {

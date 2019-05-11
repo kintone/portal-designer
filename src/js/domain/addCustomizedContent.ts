@@ -4,8 +4,11 @@ const KINTONE_PORTAL_CUSTOMIZE_HTML = "kintone-portal-customize-html";
 const KINTONE_PORTAL_CUSTOMIZE_CSS = "kintone-portal-customize-css";
 const KINTONE_PORTAL_CUSTOMIZE_JS = "kintone-portal-customize-js";
 
-const addCustomizedContentTo = (model, entryPointEl) => {
-  const headEl = document.querySelector("head");
+const addCustomizedContentTo = (
+  model: RenderingModel,
+  entryPointEl: Element
+) => {
+  const headEl = document.querySelector("head")!;
   const styleEl = document.createElement("style");
   styleEl.innerHTML = model.css;
   styleEl.classList.add(KINTONE_PORTAL_CUSTOMIZE_CSS);
@@ -32,7 +35,7 @@ const removeCustomizedContent = () => {
   customizedEls.filter(el => !!el).forEach(el => el.remove());
 };
 
-export default model => {
+export default (model: RenderingModel) => {
   addCustomizedContentTo(
     model,
     KintonePortalElements.getPortalCustomizeElement()

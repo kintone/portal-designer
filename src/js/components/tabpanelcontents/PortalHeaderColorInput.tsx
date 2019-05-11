@@ -1,7 +1,7 @@
 import React from "react";
-import ColorInput from "../ColorInput";
+import ColorInput, { ColorInputProps } from "../ColorInput";
 
-const PortalHeaderColorInput = props => (
+const PortalHeaderColorInput = (props: PortalHeaderColorInputProps) => (
   <ColorInput
     {...props}
     label="Portal Header Color"
@@ -9,5 +9,7 @@ const PortalHeaderColorInput = props => (
     placeholder="Example: #ffcc00"
   />
 );
+
+export interface PortalHeaderColorInputProps extends ColorInputProps {}
 
 export default PortalHeaderColorInput;

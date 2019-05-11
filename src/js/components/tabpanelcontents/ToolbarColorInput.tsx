@@ -1,7 +1,7 @@
 import React from "react";
-import ColorInput from "../ColorInput";
+import ColorInput, { ColorInputProps } from "../ColorInput";
 
-const ToolbarColorInput = props => (
+const ToolbarColorInput = (props: ToolbarColorInputProps) => (
   <ColorInput
     {...props}
     label="Toolbar Color"
@@ -9,5 +9,7 @@ const ToolbarColorInput = props => (
     placeholder="Example: #4b4b4b"
   />
 );
+
+export interface ToolbarColorInputProps extends ColorInputProps {}
 
 export default ToolbarColorInput;

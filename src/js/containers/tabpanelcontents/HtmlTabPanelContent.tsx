@@ -2,16 +2,15 @@ import React, { useContext } from "react";
 import { EditorContext } from "../../EditorContext";
 import TextArea from "../../components/TextArea";
 
-const HtmlTabPanelContent = props => {
+const HtmlTabPanelContent = () => {
   const { state, dispatch } = useContext(EditorContext);
 
-  const onChange = html => {
+  const onChange = (html: string) => {
     dispatch({ type: "HTML_VALUE_CHANGE", html });
   };
 
   return (
     <TextArea
-      {...props}
       className="tabpanel-input html-input"
       name="html"
       label="HTML"

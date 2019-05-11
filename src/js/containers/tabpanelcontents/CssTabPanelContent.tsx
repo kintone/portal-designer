@@ -2,23 +2,22 @@ import React, { useContext } from "react";
 import { EditorContext } from "../../EditorContext";
 import TextArea from "../../components/TextArea";
 
-const JsTabPanelContent = props => {
+const CssTabPanelContent = () => {
   const { state, dispatch } = useContext(EditorContext);
 
-  const onChange = js => {
-    dispatch({ type: "JS_VALUE_CHANGE", js });
+  const onChange = (css: string) => {
+    dispatch({ type: "CSS_VALUE_CHANGE", css });
   };
 
   return (
     <TextArea
-      {...props}
-      className="tabpanel-input js-input"
-      name="js"
-      label="JS"
-      value={state.editor.js.value}
+      className="tabpanel-input css-input"
+      name="css"
+      label="CSS"
+      value={state.editor.css.value}
       onChange={onChange}
     />
   );
 };
 
-export default JsTabPanelContent;
+export default CssTabPanelContent;

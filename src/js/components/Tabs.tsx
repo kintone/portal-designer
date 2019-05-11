@@ -2,15 +2,15 @@ import React from "react";
 import TabList from "./TabList";
 import TabPanelContainer from "./TabPanelContainer";
 
-class Tabs extends React.Component {
-  constructor(props) {
+class Tabs extends React.Component<{}, TabsState> {
+  constructor(props: {}) {
     super(props);
     this.state = {
       selectedTab: "html"
     };
   }
 
-  setSelectedTab(selectedTab) {
+  setSelectedTab(selectedTab: string) {
     this.setState({ selectedTab });
   }
 
@@ -25,6 +25,10 @@ class Tabs extends React.Component {
       </div>
     );
   }
+}
+
+interface TabsState {
+  selectedTab: string;
 }
 
 export default Tabs;

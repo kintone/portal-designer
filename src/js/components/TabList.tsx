@@ -1,8 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 import Tab from "./Tab";
 
-const TabList = props => (
+const TabList = (props: TabListProps) => (
   <div className="tablist" role="tablist">
     <Tab
       text="HTML"
@@ -31,10 +30,10 @@ const TabList = props => (
   </div>
 );
 
-TabList.propTypes = {
-  selectedTab: PropTypes.string,
-  setSelectedTab: PropTypes.func.isRequired
-};
+interface TabListProps {
+  selectedTab: string;
+  setSelectedTab: (value: string) => void;
+}
 
 TabList.defaultProps = {
   selectedTab: ""

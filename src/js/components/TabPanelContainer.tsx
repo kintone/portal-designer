@@ -1,12 +1,11 @@
 import React from "react";
-import PropTypes from "prop-types";
 import TabPanel from "./TabPanel";
 import HtmlTabPanelContent from "../containers/tabpanelcontents/HtmlTabPanelContent";
 import CssTabPanelContent from "../containers/tabpanelcontents/CssTabPanelContent";
 import JsTabPanelContent from "../containers/tabpanelcontents/JsTabPanelContent";
 import ConfigTabPanelContent from "./tabpanelcontents/ConfigTabPanelContent";
 
-const TabPanelContainer = props => (
+const TabPanelContainer = (props: TabPanelContainerProps) => (
   <div className="tabpanelwrapper">
     <TabPanel name="html" selectedTab={props.selectedTab}>
       <HtmlTabPanelContent />
@@ -26,8 +25,8 @@ const TabPanelContainer = props => (
   </div>
 );
 
-TabPanelContainer.propTypes = {
-  selectedTab: PropTypes.string.isRequired
-};
+interface TabPanelContainerProps {
+  selectedTab: string;
+}
 
 export default TabPanelContainer;
