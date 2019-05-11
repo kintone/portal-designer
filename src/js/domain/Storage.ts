@@ -15,7 +15,7 @@ const ALL_KEYS = [
   "portalHeaderColor"
 ];
 
-const isCustomizeType = type => type && type === TYPE_CUSTOMIZE;
+const isCustomizeType = (type: string) => type && type === TYPE_CUSTOMIZE;
 
 const Storage = {
   get: ChromeStorage.get,

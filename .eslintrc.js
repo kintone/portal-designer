@@ -1,5 +1,5 @@
 module.exports = {
-  extends: "@cybozu/eslint-config/presets/react-prettier",
+  extends: "@cybozu/eslint-config/presets/react-typescript-prettier",
   env: {
     webextensions: true
   },
@@ -10,6 +10,7 @@ module.exports = {
     }
   },
   rules: {
-    "react-hooks/exhaustive-deps": false
+    "react-hooks/exhaustive-deps": false,
+    "react/jsx-filename-extension": false
   }
 };

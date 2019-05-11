@@ -1,6 +1,6 @@
 const CUSTOMIZE_VERSION = 1;
 
-export const convertStateToText = state => {
+export const convertStateToText = (state: EditorState) => {
   const json = {
     name: state.name || "",
     html: state.editor.html.value || "",
@@ -15,7 +15,9 @@ export const convertStateToText = state => {
   return encodeURIComponent(JSON.stringify(json));
 };
 
-export const convertTextToStateFragment = text => {
+export const convertTextToStateFragment = (
+  text: string
+): EditorImportableState => {
   const json = JSON.parse(text);
   return {
     // enabledプロパティはTextに含まれない

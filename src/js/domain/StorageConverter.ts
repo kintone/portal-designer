@@ -1,13 +1,13 @@
 import { TYPE_CUSTOMIZE, TYPE_DEFAULT } from "./Storage";
 
-export const convertStorageToType = storage => {
+export const convertStorageToType = (storage: EditorStorage) => {
   if (storage.type && storage.type === TYPE_CUSTOMIZE) {
     return TYPE_CUSTOMIZE;
   }
   return TYPE_DEFAULT;
 };
 
-export const convertStateToStorage = state => ({
+export const convertStateToStorage = (state: EditorState): EditorStorage => ({
   type: state.enabled ? TYPE_CUSTOMIZE : TYPE_DEFAULT,
   name: state.name || "",
   html: state.editor.html.value || "",
@@ -19,7 +19,7 @@ export const convertStateToStorage = state => ({
   portalHeaderColor: state.editor.portalHeaderColor || ""
 });
 
-export const convertStorageToState = storage => ({
+export const convertStorageToState = (storage: EditorStorage): EditorState => ({
   enabled: convertStorageToType(storage) === TYPE_CUSTOMIZE,
   name: storage.name || "",
   editor: {
@@ -39,7 +39,7 @@ export const convertStorageToState = storage => ({
   }
 });
 
-export const convertForRenderingPortal = storage => ({
+export const convertForRenderingPortal = (storage: EditorStorage) => ({
   type: convertStorageToType(storage),
   name: storage.name || "",
   html: storage.html || "",
