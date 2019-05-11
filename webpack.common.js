@@ -4,6 +4,7 @@ const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -38,6 +39,9 @@ module.exports = {
       }
     ])
   ],
+  optimization: {
+    minimizer: [new OptimizeCSSAssetsPlugin({})]
+  },
   resolve: {
     extensions: [".js", ".jsx"]
   },
