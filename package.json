@@ -34,7 +34,8 @@
     "eslint": "^5.16.0",
     "mocha": "^6.1.4",
     "prettier": "^1.17.0",
-    "sinon": "^7.3.2"
+    "sinon": "^7.3.2",
+    "webpack-fix-style-only-entries": "^0.2.1"
   },
   "scripts": {
     "build": "webpack --config webpack.prod.js && zip -r extension.zip dist/",

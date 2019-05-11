@@ -1,8 +1,9 @@
 /* eslint-env node */
 
 const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 
 module.exports = {
   entry: {
@@ -17,6 +18,7 @@ module.exports = {
     path: path.join(__dirname, "dist")
   },
   plugins: [
+    new FixStyleOnlyEntriesPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].css",
       chunkFilename: "[id].css"
