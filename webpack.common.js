@@ -25,15 +25,11 @@ module.exports = {
       {
         from: "src/img",
         to: "img"
-      }
-    ]),
-    new CopyWebpackPlugin([
+      },
       {
         from: "src/html",
         to: "html"
-      }
-    ]),
-    new CopyWebpackPlugin([
+      },
       {
         from: "src/manifest.json",
         to: "manifest.json"
@@ -48,18 +44,6 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
-      },
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "../img/[name].[ext]",
-              outputPath: "../dist/img"
-            }
-          }
-        ]
       },
       {
         test: /\.jsx$/,
