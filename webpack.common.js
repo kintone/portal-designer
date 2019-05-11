@@ -11,7 +11,7 @@ module.exports = {
     "js/editor": "./src/js/Editor.jsx",
     "js/popup": "./src/js/popup.js",
     "css/index": "./src/scss/index.scss",
-    "css/editorpage": "./src/scss/editorpage.scss",
+    "css/editor": "./src/scss/editor.scss",
     "css/popup": "./src/scss/popup.scss"
   },
   output: {

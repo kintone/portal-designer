@@ -1,10 +1,7 @@
 const renderToolbarLink = () => {
   const anchorEl = document.createElement("a");
   anchorEl.className = "customize-portal";
-  anchorEl.setAttribute(
-    "href",
-    chrome.extension.getURL("html/editorpage.html")
-  );
+  anchorEl.setAttribute("href", chrome.extension.getURL("html/editor.html"));
   anchorEl.setAttribute("target", "_blank");
   anchorEl.setAttribute("aria-label", "Customize Portal");
   anchorEl.setAttribute("title", "Customize portal");
