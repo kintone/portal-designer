@@ -1,4 +1,4 @@
-const editorReducer = (state, action) => {
+const editorReducer = (state: EditorState, action: any): any => {
   switch (action.type) {
     case "LOAD_STORAGE": {
       return { ...action.state };
