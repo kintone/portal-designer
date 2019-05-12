@@ -53,7 +53,7 @@
     "build": "webpack --config webpack.prod.js && zip -r extension.zip dist/",
     "dev": "webpack --config webpack.dev.js",
     "watch": "webpack --watch --config webpack.dev.js",
-    "test": "TS_NODE_FILES=true TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ./node_modules/mocha/bin/mocha -require ts-node/register src/js/**/*_spec.ts",
+    "test": "TS_NODE_FILES=true TS_NODE_COMPILER_OPTIONS='{\"module\":\"commonjs\"}' ./node_modules/mocha/bin/mocha -require ts-node/register src/js/**/*_spec.{ts,tsx}",
     "clean": "rm -rf dist"
   },
   "repository": {
