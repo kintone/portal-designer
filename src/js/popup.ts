@@ -2,7 +2,7 @@ import Storage from "./domain/Storage";
 import { convertStorageToType } from "./domain/StorageConverter";
 
 const initialize = async () => {
-  const type = convertStorageToType(await Storage.getAll());
+  const type = convertStorageToType((await Storage.getAll()).type);
   const checkedRadioEl = <HTMLInputElement>(
     document.querySelector(`.popup-radio-input[value=${type}]`)
   );

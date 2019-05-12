@@ -28,7 +28,8 @@ export interface TextInputProps {
 TextInput.defaultProps = {
   className: "text-input",
   value: "",
-  placeholder: ""
+  placeholder: "",
+  onChange: () => {}
 };
 
 export default TextInput;

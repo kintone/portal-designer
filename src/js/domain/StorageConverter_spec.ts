@@ -10,39 +10,57 @@ import {
 describe("StorageConverter", () => {
   context("convertStorageToType", () => {
     it("TYPE_CUSTOMIZEには、TYPE_CUSTOMIZEを返す", () => {
-      const actual = convertStorageToType({ type: TYPE_CUSTOMIZE });
+      const actual = convertStorageToType(TYPE_CUSTOMIZE);
       expect(actual).eql(TYPE_CUSTOMIZE);
     });
 
     it("TYPE_DEFAULTには、TYPE_DEFAULTを返す", () => {
-      const actual = convertStorageToType({ type: TYPE_DEFAULT });
+      const actual = convertStorageToType(TYPE_DEFAULT);
       expect(actual).eql(TYPE_DEFAULT);
     });
 
     it("typeが空文字なら、TYPE_DEFAULTを返す", () => {
-      const actual = convertStorageToType({ type: "" });
+      const actual = convertStorageToType("");
       expect(actual).eql(TYPE_DEFAULT);
     });
 
     it("typeプロパティがないなら、TYPE_DEFAULTを返す", () => {
-      const actual = convertStorageToType({});
+      const actual = convertStorageToType();
       expect(actual).eql(TYPE_DEFAULT);
     });
   });
 
   context("convertStorageToState", () => {
+    const generateStorage = (props: object) => {
+      return {
+        type: TYPE_DEFAULT,
+        name: "",
+        html: "",
+        css: "",
+        js: "",
+        headerColor: "",
+        toolbarColor: "",
+        portalHeaderColor: "",
+        hiddenPortalHeader: false,
+        ...props
+      };
+    };
+
     it("hiddenPortalHeaderプロパティがtrueならtrueを返す", () => {
-      const state = convertStorageToState({ hiddenPortalHeader: true });
+      const storage = generateStorage({ hiddenPortalHeader: true });
+      const state = convertStorageToState(storage);
       expect(state.editor.hiddenPortalHeader).eql(true);
     });
 
     it("hiddenPortalHeaderプロパティがfalseならfalseを返す", () => {
-      const state = convertStorageToState({ hiddenPortalHeader: false });
+      const storage = generateStorage({ hiddenPortalHeader: false });
+      const state = convertStorageToState(storage);
       expect(state.editor.hiddenPortalHeader).eql(false);
     });
 
     it("hiddenPortalHeaderプロパティがないならfalseを返す", () => {
-      const state = convertStorageToState({});
+      const storage = generateStorage({});
+      const state = convertStorageToState(storage);
       expect(state.editor.hiddenPortalHeader).eql(false);
     });
   });

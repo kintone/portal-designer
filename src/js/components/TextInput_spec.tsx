@@ -3,14 +3,15 @@
 import { expect } from "chai";
 import Enzyme, { shallow } from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import React from "react";
+import * as React from "react";
 import TextInput from "./TextInput";
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe("NameInput", () => {
+describe("TextInput", () => {
   it("render", () => {
-    const nameInput = shallow(<TextInput />);
+    const textInput = <TextInput label="sample" />;
+    const nameInput = shallow(textInput);
     expect(nameInput).to.be.an("object");
   });
 });

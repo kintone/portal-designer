@@ -34,20 +34,26 @@
   },
   "devDependencies": {
     "@cybozu/eslint-config": "^4.0.1",
+    "@types/chai": "^4.1.7",
+    "@types/enzyme": "^3.9.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/mocha": "^5.2.6",
     "babel-eslint": "^10.0.1",
     "chai": "^4.2.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "eslint": "^5.16.0",
     "mocha": "^6.1.4",
+    "mocha-webpack": "^1.1.0",
     "prettier": "^1.17.0",
-    "sinon": "^7.3.2"
+    "sinon": "^7.3.2",
+    "ts-node": "^8.1.0"
   },
   "scripts": {
     "build": "webpack --config webpack.prod.js && zip -r extension.zip dist/",
     "dev": "webpack --config webpack.dev.js",
     "watch": "webpack --watch --config webpack.dev.js",
-    "test": "node_modules/mocha/bin/mocha --require @babel/register --recursive './src/**/*_spec.{js,jsx}'",
+    "test": "TS_NODE_COMPILER_OPTIONS=\"{module:\\\"ES2015\\\"}\" node_modules/mocha/bin/mocha --require ts-node/register --recursive \"./src/**/*_spec.{ts,tsx}\"",
     "clean": "rm -rf dist"
   },
   "repository": {

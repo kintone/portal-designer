@@ -1,7 +1,7 @@
 import { TYPE_CUSTOMIZE, TYPE_DEFAULT } from "./Storage";
 
-export const convertStorageToType = (storage: EditorStorage) => {
-  if (storage.type && storage.type === TYPE_CUSTOMIZE) {
+export const convertStorageToType = (type?: string) => {
+  if (type && type === TYPE_CUSTOMIZE) {
     return TYPE_CUSTOMIZE;
   }
   return TYPE_DEFAULT;
@@ -20,7 +20,7 @@ export const convertStateToStorage = (state: EditorState): EditorStorage => ({
 });
 
 export const convertStorageToState = (storage: EditorStorage): EditorState => ({
-  enabled: convertStorageToType(storage) === TYPE_CUSTOMIZE,
+  enabled: convertStorageToType(storage.type) === TYPE_CUSTOMIZE,
   name: storage.name || "",
   editor: {
     html: {
@@ -42,7 +42,7 @@ export const convertStorageToState = (storage: EditorStorage): EditorState => ({
 export const convertForRenderingPortal = (
   storage: EditorStorage
 ): RenderingModel => ({
-  type: convertStorageToType(storage),
+  type: convertStorageToType(storage.type),
   name: storage.name || "",
   html: storage.html || "",
   css: storage.css || "",
