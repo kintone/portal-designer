@@ -3,8 +3,8 @@ import sanitize from "sanitize-filename";
 export const FILE_EXT = "json";
 export const DEFAULT_FILE_NAME = `customize.${FILE_EXT}`;
 
-export const generateFileName = (fileName?: string) => {
-  fileName = fileName || DEFAULT_FILE_NAME;
+export const generateFileName = (optFileName?: string) => {
+  let fileName = optFileName || DEFAULT_FILE_NAME;
   if (!/.*\.json$/.test(fileName)) {
     fileName = `${fileName}.${FILE_EXT}`;
   }

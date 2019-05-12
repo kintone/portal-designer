@@ -2,7 +2,7 @@ const updateHeaderColor = ({ headerColor }: RenderingModel) => {
   if (!headerColor) {
     return;
   }
-  const headerEl = <HTMLElement>document.querySelector(".gaia-header-header");
+  const headerEl = document.querySelector(".gaia-header-header") as HTMLElement;
   headerEl.style.backgroundColor = headerColor;
 };
 

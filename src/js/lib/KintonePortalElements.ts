@@ -20,7 +20,7 @@ const getPortalWidgetElements = (): NodeListOf<HTMLElement> =>
 const getPortalCustomizeElement = (): HTMLElement => {
   const entryPointEl = document.querySelector(".kintone-portal-customize");
   if (entryPointEl) {
-    return <HTMLElement>entryPointEl;
+    return entryPointEl as HTMLElement;
   }
 
   // entryPointがなければ作成する

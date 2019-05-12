@@ -15,7 +15,7 @@ const isPortalElementsRendered = () => {
 
 const observePortalElementsRendered = () =>
   new Promise<MutationObserver>(resolve => {
-    new MutationObserver(({}, observer) => {
+    new MutationObserver((records: {}, observer) => {
       if (isPortalElementsRendered()) {
         resolve(observer);
       }

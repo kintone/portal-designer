@@ -1,8 +1,8 @@
 const ChromeStorage = {
-  get: <T>(key: Array<string>) =>
+  get: <T>(key: string[]) =>
     new Promise<T>(resolve => {
       chrome.storage.local.get(key, result => {
-        resolve(<T>result);
+        resolve(result as T);
       });
     }),
 

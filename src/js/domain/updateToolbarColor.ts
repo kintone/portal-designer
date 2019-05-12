@@ -2,7 +2,9 @@ const updateToolbarColor = ({ toolbarColor }: RenderingModel) => {
   if (!toolbarColor) {
     return;
   }
-  const toolbarEl = <HTMLElement>document.querySelector(".gaia-header-toolbar");
+  const toolbarEl = document.querySelector(
+    ".gaia-header-toolbar"
+  ) as HTMLElement;
   toolbarEl.style.backgroundColor = toolbarColor;
 };
 

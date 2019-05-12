@@ -15,7 +15,7 @@ const customizeKintone = async (model: RenderingModel) => {
   updateHeaderColor(model);
   updateToolbarColor(model);
 
-  if (KintoneUrl.isPortal()) {
+  if (KintoneUrl.isPortal(window.location.href)) {
     await waitPortalShow();
     customizePortal(model);
   }
