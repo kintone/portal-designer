@@ -31,7 +31,7 @@ describe("StorageConverter", () => {
   });
 
   context("convertStorageToState", () => {
-    const generateStorage = (props: object) => {
+    const generateStorage = (props: { hiddenPortalHeader?: boolean }) => {
       return {
         type: TYPE_DEFAULT,
         name: "",
@@ -41,9 +41,8 @@ describe("StorageConverter", () => {
         headerColor: "",
         toolbarColor: "",
         portalHeaderColor: "",
-        hiddenPortalHeader: false,
         ...props
-      };
+      } as EditorStorage;
     };
 
     it("hiddenPortalHeaderプロパティがtrueならtrueを返す", () => {

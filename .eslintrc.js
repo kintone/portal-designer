@@ -3,7 +3,12 @@ module.exports = {
   env: {
     webextensions: true
   },
-  parser: "babel-eslint",
+  plugins: ["@typescript-eslint"],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    sourceType: "module",
+    project: "./tsconfig.json"
+  },
   settings: {
     react: {
       version: "latest"
