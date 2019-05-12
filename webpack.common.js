@@ -43,7 +43,7 @@ module.exports = {
     minimizer: [new OptimizeCSSAssetsPlugin({})]
   },
   resolve: {
-    extensions: [".ts", ".tsx", ".js", ".jsx"]
+    extensions: [".ts", ".tsx", ".js"]
   },
   module: {
     rules: [
@@ -56,14 +56,6 @@ module.exports = {
         use: [
           {
             loader: "ts-loader"
-          }
-        ]
-      },
-      {
-        test: /\.(js|jsx)$/,
-        use: [
-          {
-            loader: "babel-loader"
           }
         ]
       }

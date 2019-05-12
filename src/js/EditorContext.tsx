@@ -1,5 +1,4 @@
 import React, { useReducer } from "react";
-import PropTypes from "prop-types";
 import editorReducer from "./reducers/editorReducer";
 
 // @ts-ignore
@@ -33,8 +32,4 @@ export const EditorProvider = ({ children }: any) => {
       {children}
     </EditorContext.Provider>
   );
-};
-
-EditorProvider.propTypes = {
-  children: PropTypes.node.isRequired
 };
