@@ -8,6 +8,7 @@
 @import "components/tablist";
 @import "components/tabpanel";
 @import "components/colorinput";
+@import "components/fileformatmenu";
 
 html {
     font-size: 16px;
@@ -35,6 +36,7 @@ html {
 
 .config-tabpanel-row {
     font-size: 1rem;
+
     &:not(:last-child) {
         margin-bottom: 2rem;
     }
