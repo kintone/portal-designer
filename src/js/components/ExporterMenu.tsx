@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
+import { EditorContext } from "../EditorContext";
+import { exportFile } from "../domain/FileExporter";
+import { convertStateToText } from "../domain/TextConverter";
 
 const ExporterMenu = (props: ExporterMenuProps) => {
+  const { state } = useContext(EditorContext);
+
   const exportAsJson = (evt: React.MouseEvent) => {
-    console.log("as JSON");
+    exportFile(convertStateToText(state), state.name);
     props.onClick(evt);
   };
 
   const exportAsJavaScript = (evt: React.MouseEvent) => {
-    console.log("as JavaScript");
+    // TODO: implement
     props.onClick(evt);
   };
 
@@ -26,6 +31,7 @@ const ExporterMenu = (props: ExporterMenuProps) => {
         role="menuitem"
         className="file-format-menu-item"
         onClick={exportAsJavaScript}
+        disabled
       >
         Export as JavaScript
       </button>
