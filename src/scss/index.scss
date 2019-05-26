@@ -1,20 +1,20 @@
 @import "lib/chromeExtensionUrl";
 
 .customize-portal {
-    display: inline-block;
-    width: 48px;
-    height: 48px;
-    cursor: pointer;
-    background-image: chromeExtensionUrl("button.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 0;
-    padding: 0;
-    font-size: 0;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  background-image: chromeExtensionUrl("button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0;
+  padding: 0;
+  font-size: 0;
 }
 
 // カスタマイズポータルを描画する前にカスタマイズ前の内容が表示されるのを防ぐ
-body:not(.kintone-portal-ready) {
+body:not(.kintone-portal-customizer-ready) {
   .gaia-header-header,
   .gaia-header-toolbar,
   .ocean-portal-index-header,

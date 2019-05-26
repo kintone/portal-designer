@@ -7,28 +7,42 @@ import updateHeaderColor from "./domain/updateHeaderColor";
 import updateToolbarColor from "./domain/updateToolbarColor";
 import waitPortalShow from "./lib/waitPortalShow";
 
-const notifyReady = () => {
-  document.body.classList.add("kintone-portal-ready");
+const READY_CLASS = "kintone-portal-customizer-ready";
+
+const addNotifyReady = () => {
+  document.body.classList.add(READY_CLASS);
 };
 
-const customizeKintone = async (model: RenderingModel) => {
+const removeNotifyReady = () => {
+  document.body.classList.remove(READY_CLASS);
+};
+
+const renderCustomize = async (model: RenderingModel, url: string) => {
+  if (!Storage.isCustomizeType(model.type)) {
+    return;
+  }
+
   updateHeaderColor(model);
   updateToolbarColor(model);
 
-  if (KintoneUrl.isPortal(window.location.href)) {
+  if (KintoneUrl.isPortal(url)) {
     await waitPortalShow();
     customizePortal(model);
   }
 };
 
-const renderFromStorage = async () => {
-  const model = convertForRenderingPortal(await Storage.getAll());
-  if (Storage.isCustomizeType(model.type)) {
-    await customizeKintone(model);
-  }
-  notifyReady();
+const loadModelFromStorage = async () => {
+  return convertForRenderingPortal(await Storage.getAll());
+};
+
+const initialize = async (url: string) => {
+  removeNotifyReady();
+  await loadModelFromStorage().then(model => renderCustomize(model, url));
+  addNotifyReady();
 };
 
 renderToolbarLink();
-renderFromStorage();
-window.addEventListener("hashchange", renderFromStorage);
+initialize(window.location.href);
+window.addEventListener("hashchange", evt => {
+  initialize(evt.newURL);
+});
