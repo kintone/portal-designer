@@ -11,33 +11,37 @@
 @import "components/fileformatmenu";
 
 html {
-    font-size: 16px;
+  font-size: 16px;
+}
+
+body {
+  background-color: #f7f9fa;
 }
 
 .main {
-    margin: 16px;
+  margin: 16px;
 }
 
 .global-nav {
-    display: flex;
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid #e3e7e8;
+  display: flex;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid #e3e7e8;
 }
 
 .global-nav-name {
-    flex: 1;
+  flex: 1;
 }
 
 .local-nav {
-    display: flex;
-    margin-bottom: 16px;
+  display: flex;
+  margin-bottom: 16px;
 }
 
 .config-tabpanel-row {
-    font-size: 1rem;
+  font-size: 1rem;
 
-    &:not(:last-child) {
-        margin-bottom: 2rem;
-    }
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
 }

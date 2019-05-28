@@ -1,45 +1,48 @@
 .portal-header-hider {
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 48px;
-    font-size: 1rem;
-    flex: 1;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 48px;
+  font-size: 1rem;
+  flex: 1;
 
-    &:focus-within {
-        outline: 1px solid #3498db;
-    }
+  &:focus-within {
+    outline: 1px solid #3498db;
+  }
 }
 
 .portal-header-hider-label {
-    cursor: pointer;
+  cursor: pointer;
 
-    &:before {
-        position: absolute;
-        left: 0;
-        top: 50%;
-        box-sizing: border-box;
-        margin-top: -11px;
-        width: 21px;
-        height: 21px;
-        content: '';
-    }
+  &:before {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    box-sizing: border-box;
+    margin-top: -11px;
+    width: 21px;
+    height: 21px;
+    content: "";
+  }
 
-    .portal-header-hider-input:not(:checked) + &:before {
-        background: #fff;
-        box-shadow: 1px 1px 3px #f5f5f5 inset, -1px -1px 3px #f5f5f5 inset;
-    }
+  .portal-header-hider-input:not(:checked) + &:before {
+    background: #fff;
+    background: url("https://static.cybozu.com/contents/k/image/argo/form/checkbox.png")
+      no-repeat center center #fff;
+  }
 
-    .portal-header-hider-input:checked  + &:before {
-        background: url(https://static.cybozu.com/contents/k/image/argo/form/checkbox-checked.png) no-repeat center center #fff;
-    }
+  .portal-header-hider-input:checked + &:before {
+    background: #fff;
+    background: url("https://static.cybozu.com/contents/k/image/argo/form/checkbox-checked.png")
+      no-repeat center center #fff;
+  }
 }
 
 .portal-header-hider-input {
-    -webkit-appearance: none;
-    width: 22px;
-    height: 22px;
-    &:focus {
-        outline: none;
-    }
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  &:focus {
+    outline: none;
+  }
 }
