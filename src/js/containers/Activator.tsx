@@ -12,7 +12,7 @@ const Activator = (props: {}) => {
   return (
     <Checkbox
       {...props}
-      label="Enable customized portal"
+      label="Enable design portal"
       className="action-enable-customized-portal"
       checked={state.enabled}
       onChange={onChange}

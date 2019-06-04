@@ -15,8 +15,8 @@ const NameInput = (props: {}) => {
       value={state.name}
       onChange={onChange}
       className="name-input"
-      placeholder="Customized portal name"
-      label="Customized portal name"
+      placeholder="Input design portal name..."
+      label="Design portal name"
     />
   );
 };

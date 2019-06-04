@@ -1,15 +1,11 @@
 {
-  "name": "Kintone Portal Customizer",
-  "description": "Customize Kintone portal",
+  "name": "Kintone Portal Designer",
+  "description": "Design Kintone portal",
   "version": "1.6.6",
   "content_scripts": [
     {
-      "css": [
-        "css/index.css"
-      ],
-      "js": [
-        "js/index.js"
-      ],
+      "css": ["css/index.css"],
+      "js": ["js/index.js"],
       "matches": [
         "https://*.cybozu.com/k/*",
         "https://*.cybozu-dev.com/k/*",
@@ -31,7 +27,7 @@
       "48": "img/chrome_extension_icon_64x64.png",
       "128": "img/chrome_extension_icon_128x128.png"
     },
-    "default_title": "Kintone Portal Customizer",
+    "default_title": "Kintone Portal Designer",
     "default_popup": "html/popup.html"
   },
   "permissions": [
@@ -43,10 +39,6 @@
     "https://*.cybozu.cn/k/*",
     "https://*.cybozu-dev.cn/k/*"
   ],
-  "web_accessible_resources": [
-    "img/*",
-    "html/*",
-    "css/*"
-  ],
+  "web_accessible_resources": ["img/*", "html/*", "css/*"],
   "manifest_version": 2
 }
