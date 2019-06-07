@@ -7,15 +7,6 @@
   const KINTONE_PORTAL_CUSTOMIZE_CSS = "kintone-portal-customize-css";
   const KINTONE_PORTAL_CUSTOMIZE_JS = "kintone-portal-customize-js";
 
-  function getPortalHeaderElement() {
-    return document.querySelector(".ocean-portal-index-header");
-  }
-
-  function hiddenPortalIndexHeader() {
-    const headerEl = getPortalHeaderElement();
-    headerEl.style.display = "none";
-  };
-
   function addCustomizedContentTo(model, entryPointEl) {
     const headEl = document.querySelector("head");
     const styleEl = document.createElement("style");
@@ -48,16 +39,36 @@
     });
   }
 
+  // Unofficial Features
+  function hiddenPortalIndexHeader() {
+    if (!renderingModel.hiddenPortalHeader) {
+      return;
+    }
+    const headerEl = document.querySelector(".ocean-portal-index-header");
+    headerEl.style.display = "none";
+  };
+
+  // Unofficial Features
+  function updateToolbarColor() {
+    const toolbarColor = renderingModel.toolbarColor;
+    if (!toolbarColor) {
+      return;
+    }
+    const styleEl = document.createElement("style");
+    styleEl.innerHTML = `.gaia-header-toolbar { background-color: ${toolbarColor}; }`;
+    const headEl = document.querySelector("head");
+    headEl.appendChild(styleEl);
+  }
+
   kintone.events.on("portal.show", function() {
     removeCustomizedContent();
     addCustomizedContentTo(
       renderingModel,
       kintone.portal.getContentSpaceElement()
     );
-
-    //Unofficial Features
-    if (renderingModel.hiddenPortalHeader) {
-      hiddenPortalIndexHeader();
-    }
+    hiddenPortalIndexHeader();
   });
+
+  updateToolbarColor();
+
 })();
