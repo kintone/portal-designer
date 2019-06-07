@@ -1,19 +1,30 @@
 import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
 import { exportFile } from "../domain/FileExporter";
-import { convertStateToText } from "../domain/TextConverter";
+import {
+  convertStateToText,
+  convertStateToTextForJs
+} from "../domain/TextConverter";
 
 const ExporterMenu = (props: ExporterMenuProps) => {
   const { state } = useContext(EditorContext);
 
   const exportAsJson = (evt: React.MouseEvent) => {
-    exportFile(convertStateToText(state), state.name);
     props.onClick(evt);
+
+    exportFile(convertStateToText(state), state.name || "customize", "json");
   };
 
-  const exportAsJavaScript = (evt: React.MouseEvent) => {
-    // TODO: implement
+  const exportAsJavaScript = async (evt: React.MouseEvent) => {
     props.onClick(evt);
+
+    const response = await fetch(chrome.runtime.getURL("js/template.js"));
+    const template = await response.text();
+    const jsString = template.replace(
+      "${renderingModel}",
+      convertStateToText(state)
+    );
+    exportFile(jsString, state.name || "customize", "js");
   };
 
   return (
@@ -31,7 +42,6 @@ const ExporterMenu = (props: ExporterMenuProps) => {
         role="menuitem"
         className="file-format-menu-item"
         onClick={exportAsJavaScript}
-        disabled
       >
         Export as JavaScript
       </button>

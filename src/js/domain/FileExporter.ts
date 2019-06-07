@@ -1,20 +1,17 @@
 import sanitize from "sanitize-filename";
 
-export const FILE_EXT = "json";
-export const DEFAULT_FILE_NAME = `customize.${FILE_EXT}`;
-
-export const generateFileName = (optFileName?: string) => {
-  let fileName = optFileName || DEFAULT_FILE_NAME;
-  if (!/.*\.json$/.test(fileName)) {
-    fileName = `${fileName}.${FILE_EXT}`;
+export const generateFileName = (fileName: string, ext: string) => {
+  const hasExt = new RegExp(".*." + ext + "$");
+  if (!hasExt.test(fileName)) {
+    fileName = `${fileName}.${ext}`;
   }
   return sanitize(fileName, { replacement: "_" });
 };
 
-export const exportFile = (text: string, fileName?: string) => {
+export const exportFile = (text: string, fileName: string, ext: string) => {
   const element = document.createElement("a");
   element.setAttribute("href", `data:text/plain;charset=utf-8,${text}`);
-  element.setAttribute("download", generateFileName(fileName));
+  element.setAttribute("download", generateFileName(fileName, ext));
   element.setAttribute("hidden", "hidden");
 
   document.body.appendChild(element);
