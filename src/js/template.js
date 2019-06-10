@@ -39,49 +39,42 @@
     });
   }
 
-  // Unofficial Features
+  function setCssRule(selector, property, value) {
+    const styleEl = document.createElement("style");
+    styleEl.innerHTML = `${selector} { ${property}: ${value} !important; }`;
+    const headEl = document.querySelector("head");
+    headEl.appendChild(styleEl);
+  }
+
   function hiddenPortalHeader() {
     if (!renderingModel.hiddenPortalHeader) {
       return;
     }
-    const headerEl = document.querySelector(".ocean-portal-index-header");
-    headerEl.style.display = "none";
+    setCssRule(".ocean-portal-index-header", "display", "none");
   };
 
-  // Unofficial Features
   function updatePortalHeaderColor() {
     const portalHeaderColor = renderingModel.portalHeaderColor;
     if (!portalHeaderColor) {
       return;
     }
-    const styleEl = document.createElement("style");
-    styleEl.innerHTML = `.ocean-portal-index-header-img { background: ${portalHeaderColor} !important; }`;
-    const headEl = document.querySelector("head");
-    headEl.appendChild(styleEl);
+    setCssRule(".ocean-portal-index-header-img", "background", portalHeaderColor);
   }
 
-  // Unofficial Features
   function updateHeaderColor() {
     const headerColor = renderingModel.headerColor;
     if (!headerColor) {
       return;
     }
-    const styleEl = document.createElement("style");
-    styleEl.innerHTML = `.gaia-header-header { background-color: ${headerColor} !important; }`;
-    const headEl = document.querySelector("head");
-    headEl.appendChild(styleEl);
+    setCssRule(".gaia-header-header", "background", headerColor);
   }
 
-  // Unofficial Features
   function updateToolbarColor() {
     const toolbarColor = renderingModel.toolbarColor;
     if (!toolbarColor) {
       return;
     }
-    const styleEl = document.createElement("style");
-    styleEl.innerHTML = `.gaia-header-toolbar { background-color: ${toolbarColor}; }`;
-    const headEl = document.querySelector("head");
-    headEl.appendChild(styleEl);
+    setCssRule(".gaia-header-toolbar", "background", toolbarColor);
   }
 
   kintone.events.on("portal.show", function() {
@@ -90,11 +83,11 @@
       renderingModel,
       kintone.portal.getContentSpaceElement()
     );
-    hiddenPortalHeader();
   });
 
   updateHeaderColor();
   updateToolbarColor();
+  hiddenPortalHeader();
   updatePortalHeaderColor();
 
 })();
