@@ -6,7 +6,7 @@ import PortalHeaderColorInput from "../../containers/tabpanelcontents/PortalHead
 
 const ConfigTabPanelContent = () => (
   <div>
-    <details className="config-tabpanel-group">
+    <details className="config-tabpanel-group" open>
       <summary className="config-tabpanel-group-label">
         Unofficial Features
       </summary>
