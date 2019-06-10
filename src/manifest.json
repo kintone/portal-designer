@@ -39,6 +39,6 @@
     "https://*.cybozu.cn/k/*",
     "https://*.cybozu-dev.cn/k/*"
   ],
-  "web_accessible_resources": ["img/*", "html/*", "css/*", "js/template.js"],
+  "web_accessible_resources": ["img/*", "html/*", "css/*", "js/templates/*"],
   "manifest_version": 2
 }

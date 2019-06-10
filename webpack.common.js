@@ -34,8 +34,8 @@ module.exports = {
         to: "html"
       },
       {
-        from: "src/js/template.js",
-        to: "js/template.js"
+        from: "src/js/templates",
+        to: "js/templates"
       },
       {
         from: "src/manifest.json",

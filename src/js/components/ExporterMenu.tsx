@@ -1,10 +1,7 @@
 import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
 import { exportFile } from "../domain/FileExporter";
-import {
-  convertStateToText,
-  convertStateToTextForJs
-} from "../domain/TextConverter";
+import { convertStateToText } from "../domain/TextConverter";
 
 const ExporterMenu = (props: ExporterMenuProps) => {
   const { state } = useContext(EditorContext);
@@ -18,7 +15,9 @@ const ExporterMenu = (props: ExporterMenuProps) => {
   const exportAsJavaScript = async (evt: React.MouseEvent) => {
     props.onClick(evt);
 
-    const response = await fetch(chrome.runtime.getURL("js/template.js"));
+    const response = await fetch(
+      chrome.runtime.getURL("js/templates/desktop.js")
+    );
     const template = await response.text();
     const jsString = template.replace(
       "${renderingModel}",
