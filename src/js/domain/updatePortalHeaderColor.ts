@@ -1,11 +1,14 @@
-import KintonePortalElements from "../lib/KintonePortalElements";
+import { addOverrideCssRule } from "./OverrideCssRules";
 
 const updatePortalHeaderColor = ({ portalHeaderColor }: RenderingModel) => {
-  if (portalHeaderColor) {
-    const portalHeaderImgEl = KintonePortalElements.getPortalHeaderImgElement()!;
-    portalHeaderImgEl.style.backgroundImage = "";
-    portalHeaderImgEl.style.backgroundColor = portalHeaderColor;
+  if (!portalHeaderColor) {
+    return;
   }
+  addOverrideCssRule(
+    ".ocean-portal-index-header-img",
+    "background",
+    portalHeaderColor
+  );
 };
 
 export default updatePortalHeaderColor;

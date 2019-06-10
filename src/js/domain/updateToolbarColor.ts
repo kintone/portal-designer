@@ -1,11 +1,10 @@
+import { addOverrideCssRule } from "./OverrideCssRules";
+
 const updateToolbarColor = ({ toolbarColor }: RenderingModel) => {
   if (!toolbarColor) {
     return;
   }
-  const toolbarEl = document.querySelector(
-    ".gaia-header-toolbar"
-  ) as HTMLElement;
-  toolbarEl.style.backgroundColor = toolbarColor;
+  addOverrideCssRule(".gaia-header-toolbar", "background", toolbarColor);
 };
 
 export default updateToolbarColor;

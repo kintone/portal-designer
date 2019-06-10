@@ -13,7 +13,6 @@
   font-size: 0;
 }
 
-// カスタマイズポータルを描画する前にカスタマイズ前の内容が表示されるのを防ぐ
 body:not(.kintone-portal-customizer-ready) {
   .gaia-header-header,
   .gaia-header-toolbar,

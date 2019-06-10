@@ -1,9 +1,10 @@
+import { addOverrideCssRule } from "./OverrideCssRules";
+
 const updateHeaderColor = ({ headerColor }: RenderingModel) => {
   if (!headerColor) {
     return;
   }
-  const headerEl = document.querySelector(".gaia-header-header") as HTMLElement;
-  headerEl.style.backgroundColor = headerColor;
+  addOverrideCssRule(".gaia-header-header", "background", headerColor);
 };
 
 export default updateHeaderColor;
