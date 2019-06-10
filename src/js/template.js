@@ -40,13 +40,37 @@
   }
 
   // Unofficial Features
-  function hiddenPortalIndexHeader() {
+  function hiddenPortalHeader() {
     if (!renderingModel.hiddenPortalHeader) {
       return;
     }
     const headerEl = document.querySelector(".ocean-portal-index-header");
     headerEl.style.display = "none";
   };
+
+  // Unofficial Features
+  function updatePortalHeaderColor() {
+    const portalHeaderColor = renderingModel.portalHeaderColor;
+    if (!portalHeaderColor) {
+      return;
+    }
+    const styleEl = document.createElement("style");
+    styleEl.innerHTML = `.ocean-portal-index-header-img { background: ${portalHeaderColor} !important; }`;
+    const headEl = document.querySelector("head");
+    headEl.appendChild(styleEl);
+  }
+
+  // Unofficial Features
+  function updateHeaderColor() {
+    const headerColor = renderingModel.headerColor;
+    if (!headerColor) {
+      return;
+    }
+    const styleEl = document.createElement("style");
+    styleEl.innerHTML = `.gaia-header-header { background-color: ${headerColor} !important; }`;
+    const headEl = document.querySelector("head");
+    headEl.appendChild(styleEl);
+  }
 
   // Unofficial Features
   function updateToolbarColor() {
@@ -66,9 +90,11 @@
       renderingModel,
       kintone.portal.getContentSpaceElement()
     );
-    hiddenPortalIndexHeader();
+    hiddenPortalHeader();
   });
 
+  updateHeaderColor();
   updateToolbarColor();
+  updatePortalHeaderColor();
 
 })();
