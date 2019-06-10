@@ -6,14 +6,17 @@ import PortalHeaderColorInput from "../../containers/tabpanelcontents/PortalHead
 
 const ConfigTabPanelContent = () => (
   <div>
-    <div className="config-tabpanel-row">
-      <HeaderColorInput />
-    </div>
     <details className="config-tabpanel-group">
       <summary className="config-tabpanel-group-label">
         Unofficial Features
       </summary>
       <div className="config-tabpanel-group-content">
+        <p className="config-tabpanel-caution">
+          <strong>CAUTION</strong>: These features are not supported officially.
+        </p>
+        <div className="config-tabpanel-row">
+          <HeaderColorInput />
+        </div>
         <div className="config-tabpanel-row">
           <ToolbarColorInput />
         </div>
