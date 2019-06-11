@@ -79,6 +79,6 @@
     );
   });
 
-  updatePortalHeaderColor();
   hiddenPortalHeader();
+  updatePortalHeaderColor();
 })();

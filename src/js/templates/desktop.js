@@ -48,6 +48,22 @@
     headEl.appendChild(styleEl);
   }
 
+  function updateHeaderColor() {
+    const headerColor = renderingModel.headerColor;
+    if (!headerColor) {
+      return;
+    }
+    addImportantCssRule(".gaia-header-header", "background", headerColor);
+  }
+
+  function updateToolbarColor() {
+    const toolbarColor = renderingModel.toolbarColor;
+    if (!toolbarColor) {
+      return;
+    }
+    addImportantCssRule(".gaia-header-toolbar", "background", toolbarColor);
+  }
+
   function hiddenPortalHeader() {
     if (!renderingModel.hiddenPortalHeader) {
       return;
@@ -65,22 +81,6 @@
       "background",
       portalHeaderColor
     );
-  }
-
-  function updateHeaderColor() {
-    const headerColor = renderingModel.headerColor;
-    if (!headerColor) {
-      return;
-    }
-    addImportantCssRule(".gaia-header-header", "background", headerColor);
-  }
-
-  function updateToolbarColor() {
-    const toolbarColor = renderingModel.toolbarColor;
-    if (!toolbarColor) {
-      return;
-    }
-    addImportantCssRule(".gaia-header-toolbar", "background", toolbarColor);
   }
 
   kintone.events.on("portal.show", function() {
