@@ -12,7 +12,7 @@ const ExporterMenu = (props: ExporterMenuProps) => {
     exportFile(convertStateToText(state), state.name || "customize", "json");
   };
 
-  const exportAsJavaScript = async (evt: React.MouseEvent) => {
+  const exportAsDesktopJS = async (evt: React.MouseEvent) => {
     props.onClick(evt);
 
     const response = await fetch(
@@ -23,7 +23,21 @@ const ExporterMenu = (props: ExporterMenuProps) => {
       "${renderingModel}",
       convertStateToText(state)
     );
-    exportFile(jsString, state.name || "customize", "js");
+    exportFile(jsString, state.name || "desktop", "js");
+  };
+
+  const exportAsMobileJS = async (evt: React.MouseEvent) => {
+    props.onClick(evt);
+
+    const response = await fetch(
+      chrome.runtime.getURL("js/templates/mobile.js")
+    );
+    const template = await response.text();
+    const jsString = template.replace(
+      "${renderingModel}",
+      convertStateToText(state)
+    );
+    exportFile(jsString, state.name || "mobile", "js");
   };
 
   return (
@@ -40,9 +54,17 @@ const ExporterMenu = (props: ExporterMenuProps) => {
         type="button"
         role="menuitem"
         className="file-format-menu-item"
-        onClick={exportAsJavaScript}
+        onClick={exportAsDesktopJS}
       >
-        Export as JavaScript
+        Export as JavaScript (Desktop)
+      </button>
+      <button
+        type="button"
+        role="menuitem"
+        className="file-format-menu-item"
+        onClick={exportAsMobileJS}
+      >
+        Export as JavaScript (Mobile)
       </button>
     </div>
   );
