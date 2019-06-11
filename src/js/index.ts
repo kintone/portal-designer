@@ -8,6 +8,7 @@ import updateToolbarColor from "./domain/updateToolbarColor";
 import updatePortalHeaderColor from "./domain/updatePortalHeaderColor";
 import hiddenPortalIndexHeader from "./domain/hiddenPortalIndexHeader";
 import hiddenPortalWidgets from "./domain/hiddenPortalWidgets";
+import hiddenMobilePortalWidgets from "./domain/hiddenMobilePortalWidgets";
 import { clearAllOverrideCss } from "./domain/OverrideCssRules";
 import waitPortalShow from "./lib/waitPortalShow";
 
@@ -32,6 +33,7 @@ const renderCustomize = async (model: RenderingModel, url: string) => {
   updatePortalHeaderColor(model);
   hiddenPortalIndexHeader(model);
   hiddenPortalWidgets();
+  hiddenMobilePortalWidgets();
 
   if (KintoneUrl.isPortal(url)) {
     await waitPortalShow();
