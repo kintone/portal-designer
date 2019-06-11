@@ -3,12 +3,13 @@
   flex-direction: column;
   box-sizing: border-box;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 4px 0;
   padding: 8px 0;
   border: #f0f0f0 solid 1px;
   background-color: #fff;
   position: absolute;
   right: 0;
-  width: 10rem;
+  width: 12rem;
 
   &[hidden] {
     display: none;
@@ -18,9 +19,11 @@
 .file-format-menu-item {
   background: #fff;
   border: 0;
+  font-size: 0.8rem;
   padding: 8px 16px;
   width: 100%;
   outline: none;
+  text-align: left;
 
   &:focus,
   &:hover {
