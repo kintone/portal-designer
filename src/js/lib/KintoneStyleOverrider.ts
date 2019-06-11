@@ -37,11 +37,37 @@ const updatePortalHeaderColor = ({ portalHeaderColor }: RenderingModel) => {
   );
 };
 
+const updateMobilePortalHeaderColor = ({
+  portalHeaderColor
+}: RenderingModel) => {
+  if (!portalHeaderColor) {
+    return;
+  }
+  addImportantCssRule(
+    ".gaia-mobile-v2-portal-header",
+    "background",
+    portalHeaderColor
+  );
+};
+
 const hiddenPortalIndexHeader = ({ hiddenPortalHeader }: RenderingModel) => {
   if (!hiddenPortalHeader) {
     return;
   }
   addImportantCssRule(".ocean-portal-index-header", "display", "none");
+};
+
+const hiddenMobilePortalIndexHeader = ({
+  hiddenPortalHeader
+}: RenderingModel) => {
+  if (!hiddenPortalHeader) {
+    return;
+  }
+  addImportantCssRule(
+    ".gaia-mobile-v2-portal-header-container",
+    "display",
+    "none"
+  );
 };
 
 const hiddenPortalWidgets = () => {
@@ -75,7 +101,9 @@ export default {
   updateHeaderColor,
   updateToolbarColor,
   updatePortalHeaderColor,
+  updateMobilePortalHeaderColor,
   hiddenPortalIndexHeader,
+  hiddenMobilePortalIndexHeader,
   hiddenPortalWidgets,
   hiddenMobilePortalWidgets,
   clearAll

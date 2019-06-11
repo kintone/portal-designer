@@ -25,7 +25,9 @@ const overrideStyles = async (model: RenderingModel) => {
   KintoneStyleOverrider.updateHeaderColor(model);
   KintoneStyleOverrider.updateToolbarColor(model);
   KintoneStyleOverrider.updatePortalHeaderColor(model);
+  KintoneStyleOverrider.updateMobilePortalHeaderColor(model);
   KintoneStyleOverrider.hiddenPortalIndexHeader(model);
+  KintoneStyleOverrider.hiddenMobilePortalIndexHeader(model);
   KintoneStyleOverrider.hiddenPortalWidgets();
   KintoneStyleOverrider.hiddenMobilePortalWidgets();
 };
