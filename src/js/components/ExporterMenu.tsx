@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
-import { exportFile } from "../domain/FileExporter";
+import FileExporter from "../domain/FileExporter";
 import { convertStateToText } from "../domain/TextConverter";
 
 const ExporterMenu = (props: ExporterMenuProps) => {
@@ -8,36 +8,17 @@ const ExporterMenu = (props: ExporterMenuProps) => {
 
   const exportAsJson = (evt: React.MouseEvent) => {
     props.onClick(evt);
-
-    exportFile(convertStateToText(state), state.name || "customize", "json");
+    FileExporter.exportAsJson(convertStateToText(state), state.name);
   };
 
   const exportAsDesktopJS = async (evt: React.MouseEvent) => {
     props.onClick(evt);
-
-    const response = await fetch(
-      chrome.runtime.getURL("js/templates/desktop.js")
-    );
-    const template = await response.text();
-    const jsString = template.replace(
-      "${renderingModel}",
-      convertStateToText(state)
-    );
-    exportFile(jsString, state.name || "desktop", "js");
+    FileExporter.exportAsDesktopJS(convertStateToText(state), state.name);
   };
 
   const exportAsMobileJS = async (evt: React.MouseEvent) => {
     props.onClick(evt);
-
-    const response = await fetch(
-      chrome.runtime.getURL("js/templates/mobile.js")
-    );
-    const template = await response.text();
-    const jsString = template.replace(
-      "${renderingModel}",
-      convertStateToText(state)
-    );
-    exportFile(jsString, state.name || "mobile", "js");
+    FileExporter.exportAsMobileJS(convertStateToText(state), state.name);
   };
 
   return (
