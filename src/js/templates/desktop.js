@@ -32,14 +32,16 @@
       document.getElementsByClassName(KINTONE_PORTAL_CUSTOMIZE_HTML)[0],
       document.getElementsByClassName(KINTONE_PORTAL_CUSTOMIZE_CSS)[0]
     ];
-    customizedEls.filter(function(el) {
-      return !!el;
-    }).forEach(function(el) {
-      el.parentNode.removeChild(el);
-    });
+    customizedEls
+      .filter(function(el) {
+        return !!el;
+      })
+      .forEach(function(el) {
+        el.parentNode.removeChild(el);
+      });
   }
 
-  function setCssRule(selector, property, value) {
+  function addImportantCssRule(selector, property, value) {
     const styleEl = document.createElement("style");
     styleEl.innerHTML = `${selector} { ${property}: ${value} !important; }`;
     const headEl = document.querySelector("head");
@@ -50,15 +52,19 @@
     if (!renderingModel.hiddenPortalHeader) {
       return;
     }
-    setCssRule(".ocean-portal-index-header", "display", "none");
-  };
+    addImportantCssRule(".ocean-portal-index-header", "display", "none");
+  }
 
   function updatePortalHeaderColor() {
     const portalHeaderColor = renderingModel.portalHeaderColor;
     if (!portalHeaderColor) {
       return;
     }
-    setCssRule(".ocean-portal-index-header-img", "background", portalHeaderColor);
+    addImportantCssRule(
+      ".ocean-portal-index-header-img",
+      "background",
+      portalHeaderColor
+    );
   }
 
   function updateHeaderColor() {
@@ -66,7 +72,7 @@
     if (!headerColor) {
       return;
     }
-    setCssRule(".gaia-header-header", "background", headerColor);
+    addImportantCssRule(".gaia-header-header", "background", headerColor);
   }
 
   function updateToolbarColor() {
@@ -74,7 +80,7 @@
     if (!toolbarColor) {
       return;
     }
-    setCssRule(".gaia-header-toolbar", "background", toolbarColor);
+    addImportantCssRule(".gaia-header-toolbar", "background", toolbarColor);
   }
 
   kintone.events.on("portal.show", function() {
@@ -89,5 +95,4 @@
   updateToolbarColor();
   hiddenPortalHeader();
   updatePortalHeaderColor();
-
 })();
