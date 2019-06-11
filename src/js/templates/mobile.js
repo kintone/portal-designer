@@ -39,6 +39,28 @@
     });
   }
 
+  function setCssRule(selector, property, value) {
+    const styleEl = document.createElement("style");
+    styleEl.innerHTML = `${selector} { ${property}: ${value} !important; }`;
+    const headEl = document.querySelector("head");
+    headEl.appendChild(styleEl);
+  }
+
+  function hiddenPortalHeader() {
+    if (!renderingModel.hiddenPortalHeader) {
+      return;
+    }
+    setCssRule(".gaia-mobile-v2-portal-header-container", "display", "none");
+  };
+
+  function updatePortalHeaderColor() {
+    const portalHeaderColor = renderingModel.portalHeaderColor;
+    if (!portalHeaderColor) {
+      return;
+    }
+    setCssRule(".gaia-mobile-v2-portal-header", "background", portalHeaderColor);
+  }
+
   kintone.events.on("mobile.portal.show", function() {
     removeCustomizedContent();
     addCustomizedContentTo(
@@ -46,4 +68,8 @@
       kintone.mobile.portal.getContentSpaceElement()
     );
   });
+
+  updatePortalHeaderColor();
+  hiddenPortalHeader();
+
 })();
