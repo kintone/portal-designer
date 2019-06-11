@@ -1,6 +1,6 @@
-"use strict";
-
 (function() {
+  "use strict";
+
   const renderingModel = ${renderingModel};
 
   const KINTONE_PORTAL_CUSTOMIZE_HTML = "kintone-portal-customize-html";
