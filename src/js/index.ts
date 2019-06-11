@@ -11,6 +11,7 @@ import hiddenPortalWidgets from "./domain/hiddenPortalWidgets";
 import hiddenMobilePortalWidgets from "./domain/hiddenMobilePortalWidgets";
 import { clearAllOverrideCss } from "./domain/OverrideCssRules";
 import waitPortalShow from "./lib/waitPortalShow";
+import KintonePortalElements from "./lib/KintonePortalElements";
 
 const READY_CLASS = "kintone-portal-customizer-ready";
 
@@ -37,7 +38,12 @@ const renderCustomize = async (model: RenderingModel, url: string) => {
 
   if (KintoneUrl.isPortal(url)) {
     await waitPortalShow();
-    addCustomizedContent(model);
+    const entryPointEl = KintonePortalElements.getPortalCustomizeElement();
+    addCustomizedContent(model, entryPointEl);
+  }
+  if (KintoneUrl.isMobilePortal(url)) {
+    const entryPointEl = KintonePortalElements.getMobilePortalCustomizeElement();
+    addCustomizedContent(model, entryPointEl);
   }
 };
 

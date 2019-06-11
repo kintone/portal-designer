@@ -12,7 +12,7 @@ const addCustomizedContentTo = (
   const styleEl = document.createElement("style");
   styleEl.innerHTML = model.css;
   styleEl.classList.add(KINTONE_PORTAL_CUSTOMIZE_CSS);
-  headEl.appendChild(styleEl);
+  entryPointEl.appendChild(styleEl);
 
   const innerEl = document.createElement("div");
   innerEl.innerHTML = model.html;
@@ -35,12 +35,7 @@ const removeCustomizedContent = () => {
   customizedEls.filter(el => !!el).forEach(el => el.remove());
 };
 
-export default (model: RenderingModel) => {
-  addCustomizedContentTo(
-    model,
-    KintonePortalElements.getPortalCustomizeElement()
-  );
-  window.addEventListener("hashchange", removeCustomizedContent, {
-    once: true
-  });
+export default (model: RenderingModel, entryPointEl: Element) => {
+  removeCustomizedContent();
+  addCustomizedContentTo(model, entryPointEl);
 };

@@ -16,6 +16,9 @@ const getPortalBodyElement = (): HTMLElement | null =>
 const getPortalWidgetElements = (): NodeListOf<HTMLElement> =>
   document.querySelectorAll(".ocean-portal-widget");
 
+const getMobilePortalIndexElement = (): HTMLElement | null =>
+  document.querySelector(".gaia-mobile-v2-portal-index");
+
 // TODO: ポータルのAPIが実装されたタイミングでおきかえる
 const getPortalCustomizeElement = (): HTMLElement => {
   const entryPointEl = document.querySelector(".kintone-portal-customize");
@@ -33,6 +36,23 @@ const getPortalCustomizeElement = (): HTMLElement => {
   return newEntryPointEl;
 };
 
+// TODO: ポータルのAPIが実装されたタイミングでおきかえる
+const getMobilePortalCustomizeElement = (): HTMLElement => {
+  const entryPointEl = document.querySelector(".kintone-portal-customize");
+  if (entryPointEl) {
+    return entryPointEl as HTMLElement;
+  }
+
+  // entryPointがなければ作成する
+  const newEntryPointEl = document.createElement("div");
+  newEntryPointEl.classList.add("kintone-portal-customize");
+  getMobilePortalIndexElement()!.insertBefore(
+    newEntryPointEl,
+    getMobilePortalIndexElement()!.childNodes[1]
+  );
+  return newEntryPointEl;
+};
+
 const KintonePortalElements = {
   getOceanBodyElement,
   getPortalIndexElement,
@@ -40,7 +60,8 @@ const KintonePortalElements = {
   getPortalHeaderImgElement,
   getPortalBodyElement,
   getPortalWidgetElements,
-  getPortalCustomizeElement
+  getPortalCustomizeElement,
+  getMobilePortalCustomizeElement
 };
 
 export default KintonePortalElements;

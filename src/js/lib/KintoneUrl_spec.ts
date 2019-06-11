@@ -15,4 +15,16 @@ describe("KintoneUrl", () => {
       expect(KintoneUrl.isPortal(url)).eql(false);
     });
   });
+
+  context("isMobilePortal", () => {
+    it("モバイルポータルのURLではtrueが返る", () => {
+      const url = "https://sample.cybozu.com/k/m/";
+      expect(KintoneUrl.isMobilePortal(url)).eql(true);
+    });
+
+    it("デスクトップのポータルのURLではfalseが返る", () => {
+      const url = "https://sample.cybozu.com/k/#/portal";
+      expect(KintoneUrl.isMobilePortal(url)).eql(false);
+    });
+  });
 });
