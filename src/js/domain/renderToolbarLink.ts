@@ -3,8 +3,8 @@ const renderToolbarLink = () => {
   anchorEl.className = "customize-portal";
   anchorEl.setAttribute("href", chrome.extension.getURL("html/editor.html"));
   anchorEl.setAttribute("target", "_blank");
-  anchorEl.setAttribute("aria-label", "Kintone Portal Customizer");
-  anchorEl.setAttribute("title", "Kintone Portal Customizer");
+  anchorEl.setAttribute("aria-label", "Kintone Portal Designer");
+  anchorEl.setAttribute("title", "Kintone Portal Designer");
 
   const linksEl = document.querySelector(".gaia-header-toolbar-links");
   if (linksEl) {
