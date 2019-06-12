@@ -1,7 +1,7 @@
 {
   "name": "Kintone Portal Designer",
   "description": "Design Kintone portal",
-  "version": "1.6.7",
+  "version": "1.7.0",
   "content_scripts": [
     {
       "css": ["css/index.css"],
