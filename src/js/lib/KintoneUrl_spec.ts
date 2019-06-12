@@ -26,5 +26,15 @@ describe("KintoneUrl", () => {
       const url = "https://sample.cybozu.com/k/#/portal";
       expect(KintoneUrl.isMobilePortal(url)).eql(false);
     });
+
+    it("URLパラメータが含まれていても無視される", () => {
+      const url = "https://sample.cybozu.com/k/m/?portal";
+      expect(KintoneUrl.isMobilePortal(url)).eql(true);
+    });
+
+    it("URLハッシュが含まれていても無視される", () => {
+      const url = "https://sample.cybozu.com/k/m/#portal";
+      expect(KintoneUrl.isMobilePortal(url)).eql(true);
+    });
   });
 });

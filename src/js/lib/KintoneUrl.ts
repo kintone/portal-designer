@@ -1,6 +1,12 @@
 const KintoneUrl = {
-  isPortal: (url: string) => /\/k\/#\/portal/.test(url),
-  isMobilePortal: (url: string) => /\/k\/m\/$/.test(url)
+  isPortal: (urlString: string) => {
+    const url = new URL(urlString);
+    return url.pathname === "/k/" && url.hash === "#/portal";
+  },
+  isMobilePortal: (urlString: string) => {
+    const url = new URL(urlString);
+    return url.pathname === "/k/m/";
+  }
 };
 
 export default KintoneUrl;
