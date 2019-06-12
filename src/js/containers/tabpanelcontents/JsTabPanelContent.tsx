@@ -14,6 +14,7 @@ const JsTabPanelContent = () => {
       className="tabpanel-input js-input"
       name="js"
       label="JS"
+      language="javascript"
       value={state.editor.js.value}
       onChange={onChange}
     />

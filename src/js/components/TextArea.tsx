@@ -1,33 +1,94 @@
-import * as React from "react";
+// / <reference path="../../../node_modules/monaco-editor/monaco.d.ts" />
 
-const TextArea = (props: TextAreaProps) => {
-  const handleChange = (evt: React.ChangeEvent<HTMLTextAreaElement>) => {
-    props.onChange(evt.target.value);
+import React from "react";
+// import * as monaco from "monaco-editor";
+import * as monaco from "../../../node_modules/monaco-editor/esm/vs/editor/editor.api";
+
+class TextArea extends React.Component<TextAreaProps> {
+  containerRef: React.RefObject<HTMLDivElement>;
+  monacoEditor: monaco.editor.IStandaloneCodeEditor | null;
+  triggerChangeEvent: boolean;
+  currentValue: string;
+
+  static defaultProps = {
+    className: "textarea",
+    name: "",
+    value: ""
   };
 
-  return (
-    <textarea
-      className={props.className}
-      name={props.name}
-      aria-label={props.label}
-      value={props.value}
-      onChange={handleChange}
-    />
-  );
-};
+  constructor(props: TextAreaProps) {
+    super(props);
+    this.containerRef = React.createRef();
+    this.monacoEditor = null;
+    this.triggerChangeEvent = true;
+    this.currentValue = this.props.value;
+  }
+
+  componentDidMount() {
+    const container = this.containerRef.current;
+    if (!container) {
+      return;
+    }
+    monaco.languages.html.htmlDefaults.setOptions({
+      format: Object.assign(
+        {},
+        monaco.languages.html.htmlDefaults.options.format,
+        { tabSize: 2, insertSpaces: true }
+      )
+    });
+    this.monacoEditor = monaco.editor.create(container, {
+      value: this.props.value,
+      language: this.props.language,
+      ariaLabel: this.props.label,
+      theme: "vs-dark",
+      fontSize: 20,
+      minimap: { enabled: false }
+    });
+    this.monacoEditor
+      .getModel()!
+      .updateOptions({ tabSize: 2, insertSpaces: true });
+    this.monacoEditor.onDidChangeModelContent(() => {
+      const value = this.monacoEditor!.getValue();
+      this.currentValue = value;
+      if (this.triggerChangeEvent) {
+        this.props.onChange(value);
+      }
+    });
+  }
+
+  componentDidUpdate() {
+    if (this.currentValue !== this.props.value) {
+      this.currentValue = this.props.value;
+      if (this.monacoEditor) {
+        this.triggerChangeEvent = false;
+        this.monacoEditor.setValue(this.props.value);
+        this.triggerChangeEvent = true;
+      }
+    }
+
+    if (this.monacoEditor) {
+      this.monacoEditor.layout();
+    }
+  }
+
+  componentWillUnmount() {
+    if (this.monacoEditor) {
+      this.monacoEditor.dispose();
+    }
+  }
+
+  render() {
+    return <div ref={this.containerRef} className="tabpanel-input-container" />;
+  }
+}
 
 export interface TextAreaProps {
   className: string;
   name: string;
   label: string;
+  language: string;
   value: string;
   onChange: (value: string) => void;
 }
-
-TextArea.defaultProps = {
-  className: "textarea",
-  name: "",
-  value: ""
-};
 
 export default TextArea;

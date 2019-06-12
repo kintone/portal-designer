@@ -18,7 +18,6 @@
     width: 100%;
     height: 500px;
     box-sizing: border-box;
-    padding: 8px;
     margin: 0;
     border: 1px solid #e3e7e8;
     background-color: #fff;
@@ -27,4 +26,11 @@
     font-family: Menlo, Monaco, "Courier New", Consolas, monospace;
     font-size: 1rem;
     line-height: 1.3rem;
+    position: relative;
+}
+
+.tabpanel-input-container {
+    width: 100%;
+    min-height: 600px;
+    height: calc(100vh - 300px);
 }

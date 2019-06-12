@@ -5,6 +5,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 
 module.exports = {
   entry: {
@@ -19,6 +20,7 @@ module.exports = {
     path: path.join(__dirname, "dist")
   },
   plugins: [
+    new MonacoWebpackPlugin(),
     new FixStyleOnlyEntriesPlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].css",
@@ -40,6 +42,10 @@ module.exports = {
       {
         from: "src/manifest.json",
         to: "manifest.json"
+      },
+      {
+        from: "src/editor.html",
+        to: "editor.html"
       }
     ])
   ],
@@ -51,6 +57,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]

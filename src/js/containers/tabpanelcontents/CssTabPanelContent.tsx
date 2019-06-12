@@ -14,6 +14,7 @@ const CssTabPanelContent = () => {
       className="tabpanel-input css-input"
       name="css"
       label="CSS"
+      language="css"
       value={state.editor.css.value}
       onChange={onChange}
     />
