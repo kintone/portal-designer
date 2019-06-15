@@ -1,41 +1,45 @@
 %button-base {
-    display: inline-block;
-    box-sizing: border-box;
-    padding: 0 16px;
-    min-width: 163px;
-    height: 48px;
-    text-align: center;
-    line-height: 48px;
-    &:active,
-    &:hover,
-    &:focus {
-        cursor: pointer;
-    }
-    &:focus-within {
-        outline: 1px solid #3498db;
-    }
+  box-sizing: border-box;
+  display: inline-block;
+  height: 48px;
+  line-height: 48px;
+  min-width: 163px;
+  padding: 0 16px;
+  text-align: center;
+
+  &:active,
+  &:focus,
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:focus-within {
+    outline: 1px solid $color-active;
+  }
 }
 
 %button-default {
-    @extend %button-base;
-    border: 1px solid #e3e7e8;
-    background-color: #3498db;
-    box-shadow: 1px 1px 1px #8ccbee inset;
-    color: #fff;
-    font-size: 1rem;
-    &:active {
-        background-color: #1d6fa5;
-    }
+  @extend %button-base;
+  background-color: $color-active;
+  border: 1px solid $color-border;
+  box-shadow: 1px 1px 1px darken($color-active) inset;
+  color: $bg-form;
+  font-size: 1rem;
+
+  &:active {
+    background-color: darken($color-active);
+  }
 }
 
 %button-normal {
-    @extend %button-base;
-    border: 1px solid #e3e7e8;
-    background-color: #f7f9fa;
-    box-shadow: 1px 1px 1px #ffffff inset;
-    color: #3498db;
-    font-size: 1rem;
-    &:active {
-        background-color: #c8d6dd;
-    }
+  @extend %button-base;
+  background-color: $bg-button;
+  border: 1px solid $color-border;
+  box-shadow: 1px 1px 1px $bg-form inset;
+  color: $color-active;
+  font-size: 1rem;
+
+  &:active {
+    background-color: darken($bg-button);
+  }
 }

@@ -1,4 +1,4 @@
-@import "../lib/form-text";
+@import '../lib/form-text';
 
 .config-tabpanel-color-input {
   @extend %form-text;
@@ -7,19 +7,19 @@
   padding: 0 8px;
 
   &:focus {
-    outline: 1px solid #3498db;
+    outline: 1px solid $color-active;
   }
 
   &:disabled {
-    background-color: #dbdcdd;
+    background-color: $bg-disabled;
     box-shadow: none;
-    color: #888;
+    color: $color-text-sub;
     cursor: not-allowed;
   }
 }
 
 .config-tabpanel-color-input-label-text {
   display: block;
-  margin: 8px 0;
   font-size: 1rem;
+  margin: 8px 0;
 }

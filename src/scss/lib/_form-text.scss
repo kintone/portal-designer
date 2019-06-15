@@ -1,23 +1,23 @@
 @mixin form-text-input-shadow {
-  box-shadow: 2px 2px 4px #f5f5f5 inset, -2px -2px 4px #f5f5f5 inset;
+  box-shadow: 2px 2px 4px $color-shadow inset, -2px -2px 4px $color-shadow inset;
 }
 
 %form-text {
   @include form-text-input-shadow;
-  display: inline-block;
+  background-color: $bg-form;
+  border: 1px solid $color-border;
   box-sizing: border-box;
+  color: $color-text;
+  display: inline-block;
   margin: 0;
-  border: 1px solid #e3e7e8;
-  background-color: #fff;
-  color: #333;
 
   &:focus {
-    background-color: #e2f2fe;
+    background-color: $bg-form-focus;
     box-shadow: none;
-    color: #000;
+    color: darken($color-text);
   }
 
   &::placeholder {
-    color: #888;
+    color: $color-text-sub;
   }
 }

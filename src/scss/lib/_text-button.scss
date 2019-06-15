@@ -1,15 +1,17 @@
 %text-button {
-    background-size: 30px;
-    background-position: 0 4px;
-    padding: 2px 4px 0 36px;
-    line-height: 48px;
-    font-size: 1rem;
-    border: 0;
-    cursor: pointer;
-    &:hover {
-        text-decoration: underline;
-    }
-    &:focus-within {
-        outline: 1px solid #3498db;
-    }
+  background-position: 0 4px;
+  background-size: 30px;
+  border: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 48px;
+  padding: 2px 4px 0 36px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus-within {
+    outline: 1px solid $color-active;
+  }
 }

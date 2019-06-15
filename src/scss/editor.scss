@@ -1,48 +1,49 @@
-@import "lib/visually-hidden";
-@import "components/actionsave";
-@import "components/actionimportexport";
-@import "components/activator";
-@import "components/portalheaderhider";
-@import "components/group";
-@import "components/nameinput";
-@import "components/tablist";
-@import "components/tabpanel";
-@import "components/colorinput";
-@import "components/fileformatmenu";
+@import 'lib/colors';
+@import 'lib/visually-hidden';
+@import 'components/actionsave';
+@import 'components/actionimportexport';
+@import 'components/activator';
+@import 'components/portalheaderhider';
+@import 'components/group';
+@import 'components/nameinput';
+@import 'components/tablist';
+@import 'components/tabpanel';
+@import 'components/colorinput';
+@import 'components/fileformatmenu';
 
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .portaldesigner-main {
-    margin: 16px;
+  margin: 16px;
 }
 
 .global-nav {
-    display: flex;
-    margin-bottom: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid #e3e7e8;
+  border-bottom: 1px solid $color-border;
+  display: flex;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
 }
 
 .global-nav-name {
-    flex: 1;
+  flex: 1;
 }
 
 .local-nav {
-    display: flex;
-    margin-bottom: 16px;
+  display: flex;
+  margin-bottom: 16px;
 }
 
 .config-tabpanel-row {
-    font-size: 1rem;
+  font-size: 1rem;
 
-    &:not(:last-child) {
-        margin-bottom: 2rem;
-    }
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
 }
 
 .config-tabpanel-caution {
-    font-size: 1.1rem;
-    padding: 8px 0;
+  font-size: 1.1rem;
+  padding: 8px 0;
 }

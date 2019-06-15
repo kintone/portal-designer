@@ -1,33 +1,33 @@
 .file-format-menu {
-    display: flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin: 4px 0;
-    padding: 8px 0;
-    border: #f0f0f0 solid 1px;
-    background-color: #fff;
-    position: absolute;
-    right: 0;
-    width: 12rem;
-    z-index: 1;
+  background-color: $bg-form;
+  border: $border-popup solid 1px;
+  box-shadow: 0 1px 3px $color-shadow-bg;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin: 4px 0;
+  padding: 8px 0;
+  position: absolute;
+  right: 0;
+  width: 12rem;
+  z-index: 1;
 
-    &[hidden] {
-        display: none;
-    }
+  &[hidden] {
+    display: none;
+  }
 }
 
 .file-format-menu-item {
-    background: #fff;
-    border: 0;
-    font-size: 0.8rem;
-    padding: 8px 16px;
-    width: 100%;
-    outline: none;
-    text-align: left;
+  background: $bg-form;
+  border: 0;
+  font-size: .8rem;
+  outline: none;
+  padding: 8px 16px;
+  text-align: left;
+  width: 100%;
 
-    &:focus,
-    &:hover {
-        background-color: #e2f2fe;
-    }
+  &:focus,
+  &:hover {
+    background-color: $bg-form-focus;
+  }
 }

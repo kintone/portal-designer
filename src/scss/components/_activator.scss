@@ -1,47 +1,44 @@
 .action-enable-customized-portal {
-  position: relative;
   display: inline-block;
-  vertical-align: middle;
-  line-height: 48px;
-  font-size: 1rem;
   flex: 1;
+  font-size: 1rem;
+  line-height: 48px;
+  position: relative;
+  vertical-align: middle;
 
   &:focus-within {
-    outline: 1px solid #3498db;
+    outline: 1px solid $color-active;
   }
 }
 
 .action-enable-customized-portal-label {
   cursor: pointer;
 
-  &:before {
-    position: absolute;
-    left: 0;
-    top: 50%;
+  &::before {
     box-sizing: border-box;
-    margin-top: -11px;
-    width: 21px;
+    content: '';
     height: 21px;
-    content: "";
+    left: 0;
+    margin-top: -11px;
+    position: absolute;
+    top: 50%;
+    width: 21px;
   }
 
   .action-enable-customized-portal-input:not(:checked) + &:before {
-    background: #fff;
-    background: url("https://static.cybozu.com/contents/k/image/argo/form/checkbox.png")
-      no-repeat center center #fff;
+    background: url("https://static.cybozu.com/contents/k/image/argo/form/checkbox.png") no-repeat center center #fff;
   }
 
   .action-enable-customized-portal-input:checked + &:before {
-    background: #fff;
-    background: url("https://static.cybozu.com/contents/k/image/argo/form/checkbox-checked.png")
-      no-repeat center center #fff;
+    background: url("https://static.cybozu.com/contents/k/image/argo/form/checkbox-checked.png") no-repeat center center #fff;
   }
 }
 
 .action-enable-customized-portal-input {
   -webkit-appearance: none;
-  width: 22px;
   height: 22px;
+  width: 22px;
+
   &:focus {
     outline: none;
   }
