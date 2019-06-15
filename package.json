@@ -4,10 +4,6 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.4.4",
     "@types/chrome": "0.0.83",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
