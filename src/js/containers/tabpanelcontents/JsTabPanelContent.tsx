@@ -11,8 +11,6 @@ const JsTabPanelContent = () => {
 
   return (
     <TextArea
-      className="tabpanel-input js-input"
-      name="js"
       label="JS"
       language="javascript"
       value={state.editor.js.value}

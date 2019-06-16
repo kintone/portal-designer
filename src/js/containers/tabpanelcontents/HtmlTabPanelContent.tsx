@@ -11,8 +11,6 @@ const HtmlTabPanelContent = () => {
 
   return (
     <TextArea
-      className="tabpanel-input html-input"
-      name="html"
       label="HTML"
       language="html"
       value={state.editor.html.value}

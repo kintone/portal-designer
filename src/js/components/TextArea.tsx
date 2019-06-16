@@ -11,8 +11,6 @@ class TextArea extends React.Component<TextAreaProps> {
   currentValue: string;
 
   static defaultProps = {
-    className: "textarea",
-    name: "",
     value: ""
   };
 
@@ -83,8 +81,6 @@ class TextArea extends React.Component<TextAreaProps> {
 }
 
 export interface TextAreaProps {
-  className: string;
-  name: string;
   label: string;
   language: string;
   value: string;
