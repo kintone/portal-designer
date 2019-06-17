@@ -25,12 +25,12 @@
     width: 21px;
   }
 
-  .action-enable-customized-portal-input:not(:checked) + &:before {
-    background: url("https://static.cybozu.com/contents/k/image/argo/form/checkbox.png") no-repeat center center #fff;
+  .action-enable-customized-portal-input:not(:checked) + &::before {
+    background: chrome-extension-img-url('checkbox.png') no-repeat center center $bg-form;
   }
 
-  .action-enable-customized-portal-input:checked + &:before {
-    background: url("https://static.cybozu.com/contents/k/image/argo/form/checkbox-checked.png") no-repeat center center #fff;
+  .action-enable-customized-portal-input:checked + &::before {
+    background: chrome-extension-img-url('checkbox-checked.png') no-repeat center center $bg-form;
   }
 }
 
