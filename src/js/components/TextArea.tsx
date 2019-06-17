@@ -20,6 +20,7 @@ class TextArea extends React.Component<TextAreaProps> {
     this.monacoEditor = null;
     this.triggerChangeEvent = true;
     this.currentValue = this.props.value;
+    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
@@ -52,6 +53,10 @@ class TextArea extends React.Component<TextAreaProps> {
         this.props.onChange(value);
       }
     });
+
+    window.addEventListener("resize", () => {
+      this.handleResize();
+    });
   }
 
   componentDidUpdate() {
@@ -70,9 +75,18 @@ class TextArea extends React.Component<TextAreaProps> {
   }
 
   componentWillUnmount() {
+    window.removeEventListener("resize", this.handleResize);
     if (this.monacoEditor) {
       this.monacoEditor.dispose();
     }
+  }
+
+  handleResize() {
+    setTimeout(() => {
+      if (this.monacoEditor) {
+        this.monacoEditor.layout();
+      }
+    }, 0);
   }
 
   render() {
