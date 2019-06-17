@@ -14,7 +14,7 @@
   &:focus {
     background-color: $bg-form-focus;
     box-shadow: none;
-    color: darken($color-text);
+    color: darken($color-text, 10%);
   }
 
   &::placeholder {

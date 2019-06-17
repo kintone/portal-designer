@@ -22,12 +22,12 @@
   @extend %button-base;
   background-color: $color-active;
   border: 1px solid $color-border;
-  box-shadow: 1px 1px 1px darken($color-active) inset;
+  box-shadow: 1px 1px 1px darken($color-active, 10%) inset;
   color: $bg-form;
   font-size: 1rem;
 
   &:active {
-    background-color: darken($color-active);
+    background-color: darken($color-active, 10%);
   }
 }
 
@@ -40,6 +40,6 @@
   font-size: 1rem;
 
   &:active {
-    background-color: darken($bg-button);
+    background-color: darken($bg-button, 10%);
   }
 }
