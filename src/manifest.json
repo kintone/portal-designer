@@ -1,7 +1,8 @@
 {
   "name": "Kintone Portal Designer",
-  "description": "Design Kintone portal",
-  "version": "1.7.0",
+  "version": "1.8.0",
+  "default_locale": "en",
+  "description": "Kintone Portal Designer",
   "content_scripts": [
     {
       "css": ["css/index.css"],

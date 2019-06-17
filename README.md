@@ -19,4 +19,6 @@ $ npm run dev
 
 ## License
 
-MIT License
+Copyright (c) 2019 Cybozu, Inc.
+Released under the MIT license
+https://opensource.org/licenses/mit-license.php
