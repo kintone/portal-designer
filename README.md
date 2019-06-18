@@ -1,9 +1,10 @@
-kintone-portal-designer
+Kintone Portal Designer
 ====
 
-Chrome Extension to design Kintone portal
+Chrome Extension to design Kintone portal  
+[Web Store](https://chrome.google.com/webstore/detail/kintone-portal-designer/kmedncknheiegbelfmcfdlpcpfbnklmo)
 
-# How to install for Chrome extension developer
+## How to install for Chrome extension developer
 
 1. Generate 'dist' directory.
 
@@ -19,6 +20,7 @@ $ npm run dev
 
 ## License
 
-Copyright (c) 2019 Cybozu, Inc.
-Released under the MIT license
-https://opensource.org/licenses/mit-license.php
+Copyright 2019 Cybozu, Inc.  
+Released under the MIT license  
+https://opensource.org/licenses/mit-license.php  
+
