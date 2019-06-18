@@ -25,6 +25,10 @@
     width: 21px;
   }
 
+  &:hover {
+    text-decoration: underline;
+  }
+
   .portal-header-hider-input:not(:checked) + &::before {
     background: url("https://static.cybozu.com/contents/k/image/argo/form/checkbox.png") no-repeat center center #fff;
   }
