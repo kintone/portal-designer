@@ -8,11 +8,10 @@
   const KINTONE_PORTAL_DESIGNER_JS = "kintone-portal-designer-js";
 
   function addCustomizedContentTo(model, entryPointEl) {
-    const headEl = document.querySelector("head");
     const styleEl = document.createElement("style");
     styleEl.innerHTML = model.css;
     styleEl.classList.add(KINTONE_PORTAL_DESIGNER_CSS);
-    headEl.appendChild(styleEl);
+    entryPointEl.appendChild(styleEl);
 
     const innerEl = document.createElement("div");
     innerEl.innerHTML = model.html;
