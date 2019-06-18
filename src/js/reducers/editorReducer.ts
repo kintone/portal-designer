@@ -50,6 +50,9 @@ const editorReducer = (state: EditorState, action: any): any => {
       newState.editor.portalHeaderColor = action.portalHeaderColor;
       return newState;
     }
+    case "NOTIFY_SAVED": {
+      return { ...state, notifySaved: action.notifySaved };
+    }
     default: {
       throw new Error("unknown action type");
     }

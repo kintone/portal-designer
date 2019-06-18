@@ -1,0 +1,38 @@
+@keyframes animate-notifier {
+  0% {
+    opacity: 1;
+    top: -24px;
+  }
+
+  15% {
+    opacity: 1;
+    top: 0;
+  }
+
+  75% {
+    opacity: 1;
+    top: 0;
+  }
+
+  100% {
+    opacity: 0;
+    top: 0;
+  }
+
+}
+
+.save-notifier {
+  animation: animate-notifier .75s ease forwards;
+  background-color: $bg-notifier;
+  border-radius: 0 0 8px 8px;
+  box-sizing: border-box;
+  color: $bg-form;
+  height: 32px;
+  left: 50%;
+  line-height: 32px;
+  min-width: 8rem;
+  position: fixed;
+  text-align: center;
+  transform: translateX(-50%);
+  z-index: 1;
+}

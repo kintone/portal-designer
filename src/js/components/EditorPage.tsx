@@ -1,5 +1,6 @@
 import React from "react";
 import Activator from "../containers/Activator";
+import SaveNotifier from "../containers/SaveNotifier";
 import SaveButton from "./SaveButton";
 import CancelButton from "./CancelButton";
 import NameInput from "../containers/NameInput";
@@ -9,6 +10,7 @@ import Tabs from "./Tabs";
 
 const EditorPage = () => (
   <div>
+    <SaveNotifier />
     <div className="global-nav">
       <div className="global-nav-name">
         <Activator />
