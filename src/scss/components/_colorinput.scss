@@ -6,10 +6,6 @@
   height: 40px;
   padding: 0 8px;
 
-  &:focus {
-    outline: 1px solid $color-active;
-  }
-
   &:disabled {
     background-color: $bg-disabled;
     box-shadow: none;
