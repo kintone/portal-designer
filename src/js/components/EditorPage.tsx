@@ -3,7 +3,6 @@ import Activator from "../containers/Activator";
 import KeyShortcutCapture from "../containers/KeyShortcutCapture";
 import SaveNotifier from "../containers/SaveNotifier";
 import SaveButton from "./SaveButton";
-import CancelButton from "./CancelButton";
 import NameInput from "../containers/NameInput";
 import Importer from "./Importer";
 import Exporter from "./Exporter";
@@ -17,13 +16,10 @@ const EditorPage = () => (
         <div className="global-nav-name">
           <Activator />
         </div>
-        <CancelButton />
-        <SaveButton />
-      </div>
-      <div className="local-nav">
         <NameInput />
         <Importer />
         <Exporter />
+        <SaveButton />
       </div>
       <Tabs />
     </KeyShortcutCapture>
