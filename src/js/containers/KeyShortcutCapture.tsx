@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
-import Storage from "../domain/Storage";
-import { convertStateToStorage } from "../domain/StorageConverter";
+import saveEditor from "../domain/saveEditor";
 
 const KeyShortcutCapture = (props: KeyShortcutCaptureProps) => {
   const { state, dispatch } = useContext(EditorContext);
@@ -9,11 +8,7 @@ const KeyShortcutCapture = (props: KeyShortcutCaptureProps) => {
   const handleKeyDown = async (evt: React.KeyboardEvent<HTMLDivElement>) => {
     if ((evt.ctrlKey || evt.metaKey) && evt.which === 83) {
       evt.preventDefault();
-
-      await Storage.set(convertStateToStorage(state));
-      // 一旦Notifierを消す
-      dispatch({ type: "NOTIFY_SAVED", notifySaved: false });
-      dispatch({ type: "NOTIFY_SAVED", notifySaved: true });
+      await saveEditor({ state, dispatch });
     }
   };
 

@@ -1,16 +1,12 @@
 import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
-import Storage from "../domain/Storage";
-import { convertStateToStorage } from "../domain/StorageConverter";
+import saveEditor from "../domain/saveEditor";
 
 const SaveButton = () => {
-  const { state, dispatch } = useContext(EditorContext);
+  const context = useContext(EditorContext);
 
   const onClick = async () => {
-    await Storage.set(convertStateToStorage(state));
-    // 一旦Notifierを消す
-    dispatch({ type: "NOTIFY_SAVED", notifySaved: false });
-    dispatch({ type: "NOTIFY_SAVED", notifySaved: true });
+    await saveEditor(context);
   };
 
   return (
