@@ -1,12 +1,16 @@
 .activator {
 
-  $toggle-size: 32px;
+  $activator-width: 8rem;
+  $activator-height: 32px;
+  $toggle-border: 2px;
+  $toggle-size: $activator-height - $toggle-border * 2;
 
   border: 0;
-  border-radius: $toggle-size / 2;
-  height: $toggle-size;
+  border-radius: $activator-height / 2;
+  cursor: pointer;
+  height: $activator-height;
   position: relative;
-  width: 8rem;
+  width: $activator-width;
 
   &:focus {
     outline: 1px solid $color-active;
@@ -16,14 +20,14 @@
   &[aria-pressed="false"] {
     background-color: $bg-dark;
     color: $color-text;
-    padding-right: $toggle-size / 2;
+    padding-right: $activator-height / 2;
     text-align: right;
   }
 
   &[aria-pressed="true"] {
     background: $bg-notifier;
     color: $bg-form;
-    padding-left: $toggle-size / 2;
+    padding-left: $activator-height / 2;
     text-align: left;
   }
 
@@ -41,12 +45,12 @@
   }
 
   &[aria-pressed="false"]::before {
-    left: 0;
-    top: 0;
+    left: $toggle-border;
+    top: $toggle-border;
   }
 
   &[aria-pressed="true"]::before {
-    left: calc(8rem - 32px);
-    top: 0;
+    left: calc(#{$activator-width} - #{$activator-height} + #{$toggle-border});
+    top: $toggle-border;
   }
 }
