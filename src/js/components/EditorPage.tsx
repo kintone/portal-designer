@@ -10,7 +10,7 @@ import Exporter from "./Exporter";
 import Tabs from "./Tabs";
 
 const EditorPage = () => (
-  <div>
+  <>
     <KeyShortcutCapture>
       <SaveNotifier />
       <div className="global-nav">
@@ -27,7 +27,7 @@ const EditorPage = () => (
       </div>
       <Tabs />
     </KeyShortcutCapture>
-  </div>
+  </>
 );
 
 export default EditorPage;
