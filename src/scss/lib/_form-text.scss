@@ -16,6 +16,7 @@
     box-shadow: none;
     color: darken($color-text, 10%);
     outline: 1px solid $color-active;
+    outline-offset: 0;
   }
 
   &::placeholder {
