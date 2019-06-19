@@ -1,2 +1,51 @@
+@import 'lib/chromeExtensionUrl';
 @import 'lib/colors';
 @import 'components/activator';
+
+body {
+  margin: 0;
+  width: 13rem;
+}
+
+.popup-header {
+  border-bottom: 1px solid $bg-dark;
+  margin: 16px 16px 0;
+  padding-bottom: 8px;
+}
+
+.popup-content {
+  margin: 0 16px;
+  padding: 16px 0;
+  text-align: center;
+}
+
+.popup-link {
+  background-color: $toolbar-button-hover;
+  display: flex;
+  padding: 0 32px;
+
+  &:focus,
+  &:hover {
+    background-color: darken($toolbar-button-hover, 10%);
+  }
+}
+
+.popup-link-text {
+  color: $bg-form;
+  cursor: pointer;
+  display: flex;
+  font-size: .8rem;
+  height: 48px;
+  line-height: 48px;
+  outline: none;
+  padding: 0 6px;
+  text-decoration: underline;
+  width: 100%;
+
+  &::before {
+    background-image: chrome-extension-img-url('kintone-icon.svg');
+    content: ' ';
+    height: 48px;
+    width: 48px;
+  }
+}
