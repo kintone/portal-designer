@@ -33,8 +33,11 @@
     content: ' ';
     height: $toggle-size;
     position: absolute;
-    transition: left .25s;
     width: $toggle-size;
+
+    body.loaded & {
+      transition: left .25s;
+    }
   }
 
   &[aria-pressed="false"]::before {

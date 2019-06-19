@@ -9,4 +9,8 @@ const Editor = () => (
   </EditorProvider>
 );
 
+window.onload = () => {
+  // ページ表示時にアニメーションが実行されることを防ぐ
+  document.body.classList.add("loaded");
+};
 ReactDOM.render(<Editor />, document.querySelector(".wrapper"));
