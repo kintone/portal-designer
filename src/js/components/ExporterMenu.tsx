@@ -37,7 +37,7 @@ const ExporterMenu = (props: ExporterMenuProps) => {
         className="file-format-menu-item"
         onClick={exportAsDesktopJS}
       >
-        Export as JS (Desktop)
+        Export as JavaScript (Desktop)
       </button>
       <button
         type="button"
@@ -45,7 +45,7 @@ const ExporterMenu = (props: ExporterMenuProps) => {
         className="file-format-menu-item"
         onClick={exportAsMobileJS}
       >
-        Export as JS (Mobile)
+        Export as JavaScript (Mobile)
       </button>
     </div>
   );

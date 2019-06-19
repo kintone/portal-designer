@@ -16,7 +16,7 @@ const TabList = (props: TabListProps) => (
       setSelectedTab={props.setSelectedTab}
     />
     <Tab
-      text="JS"
+      text="JavaScript"
       name="js"
       selectedTab={props.selectedTab}
       setSelectedTab={props.setSelectedTab}
