@@ -1,22 +1,26 @@
 import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
-import Checkbox from "../components/Checkbox";
 
-const Activator = (props: {}) => {
+const Activator = () => {
   const { state, dispatch } = useContext(EditorContext);
 
-  const onChange = (enabled: boolean) => {
-    dispatch({ type: "CUSTOMIZE_ENABLE_CHANGE", enabled });
+  const handleClick = () => {
+    dispatch({ type: "CUSTOMIZE_ENABLE_CHANGE", enabled: !state.enabled });
+  };
+
+  const getLabel = (enabled: boolean) => {
+    return enabled ? "Design Portal" : "Default Portal";
   };
 
   return (
-    <Checkbox
-      {...props}
-      label="Enable design portal"
-      className="action-enable-customized-portal"
-      checked={state.enabled}
-      onChange={onChange}
-    />
+    <button
+      type="button"
+      onClick={handleClick}
+      aria-pressed={state.enabled}
+      className="activator"
+    >
+      {getLabel(state.enabled)}
+    </button>
   );
 };
 

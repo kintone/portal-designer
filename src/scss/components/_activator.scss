@@ -1,49 +1,49 @@
-.action-enable-customized-portal {
-  display: inline-block;
-  flex: 1;
-  font-size: 1rem;
-  line-height: 48px;
+.activator {
+
+  $toggle-size: 32px;
+
+  border: 0;
+  border-radius: $toggle-size / 2;
+  height: $toggle-size;
   position: relative;
-  vertical-align: middle;
-
-  &:focus-within {
-    outline: 1px solid $color-active;
-  }
-}
-
-.action-enable-customized-portal-label {
-  cursor: pointer;
-
-  &::before {
-    box-sizing: border-box;
-    content: '';
-    height: 21px;
-    left: 0;
-    margin-top: -11px;
-    position: absolute;
-    top: 50%;
-    width: 21px;
-  }
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  .action-enable-customized-portal-input:not(:checked) + &::before {
-    background: chrome-extension-img-url('checkbox.png') no-repeat center center $bg-form;
-  }
-
-  .action-enable-customized-portal-input:checked + &::before {
-    background: chrome-extension-img-url('checkbox-checked.png') no-repeat center center $bg-form;
-  }
-}
-
-.action-enable-customized-portal-input {
-  -webkit-appearance: none;
-  height: 22px;
-  width: 22px;
+  width: 8rem;
 
   &:focus {
-    outline: none;
+    outline: 1px solid $color-active;
+    outline-offset: 1px;
+  }
+
+  &[aria-pressed="false"] {
+    background-color: $bg-dark;
+    color: $color-text;
+    padding-right: $toggle-size / 2;
+    text-align: right;
+  }
+
+  &[aria-pressed="true"] {
+    background: $bg-notifier;
+    color: $bg-form;
+    padding-left: $toggle-size / 2;
+    text-align: left;
+  }
+
+  &::before {
+    background-color: $bg-form;
+    border-radius: $toggle-size / 2;
+    content: ' ';
+    height: $toggle-size;
+    position: absolute;
+    transition: left .25s;
+    width: $toggle-size;
+  }
+
+  &[aria-pressed="false"]::before {
+    left: 0;
+    top: 0;
+  }
+
+  &[aria-pressed="true"]::before {
+    left: calc(8rem - 32px);
+    top: 0;
   }
 }
