@@ -18,12 +18,11 @@
     opacity: 0;
     top: 0;
   }
-
 }
 
 .save-notifier {
   animation: animate-notifier .75s ease forwards;
-  background-color: $bg-notifier;
+  background-color: $color-active;
   border-radius: 0 0 8px 8px;
   box-sizing: border-box;
   color: $bg-form;
