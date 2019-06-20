@@ -29,7 +29,7 @@ const templateModels = [
     thumbnail: baseURL + "/advanced/3tabs/advanced-3tabs.png",
     json: baseURL + "/advanced/3tabs/advanced-3tabs.json"
   }
-];
+] as TemplateModel[];
 
 const getModels = () => templateModels;
 
@@ -47,7 +47,21 @@ const download = (templateIndex: number): Promise<string> => {
     });
 };
 
+const preloadImages = () => {
+  for (const templateModel of templateModels) {
+    const img = document.createElement("img");
+    img.src = templateModel.thumbnail;
+  }
+};
+
+interface TemplateModel {
+  name: string;
+  thumbnail: string;
+  json: string;
+}
+
 export default {
   download,
-  getModels
+  getModels,
+  preloadImages
 };
