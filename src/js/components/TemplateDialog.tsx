@@ -72,7 +72,7 @@ const TemplateDialog = () => {
         <h1 className="template-dialog-header-text">Sample Template</h1>
       </div>
       <div className="template-dialog-content">
-        <p className="template-dialog-description">Choose templates.</p>
+        <p className="template-dialog-description">Choose template.</p>
         <form ref={formRef}>{renderContent(templateModels)}</form>
       </div>
       <div className="template-dialog-footer">

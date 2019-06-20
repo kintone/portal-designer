@@ -15,7 +15,7 @@ const ImporterMenu = (props: ImporterMenuProps) => {
     <div role="menu" className="file-format-menu" hidden={!props.expanded}>
       <MenuItem
         className="file-format-menu-item"
-        label="Import Sample Templates"
+        label="Import Sample Template"
         onClick={importSampleTemplates}
       />
       <ImporterJsonMenuItem />
