@@ -1,17 +1,33 @@
 import React from "react";
 import MenuItem from "./MenuItem";
 
-const ImporterMenu = (props: ImporterMenuProps) => {
+class ImporterMenu extends React.Component<ImporterMenuProps, ImporterMenuState> {
+  constructor(props:ImporterMenuProps) {
+    super(props);
+    this.state = {
+      opened: false
+    };
+  }
+
+  handleClick() {
+    this.setState(prevState => ({ opened: !prevState.opened }));
+  }
+
+  handleClose() {
+    this.setState({ opened: false });
+  }
+
   const importJson = (evt: React.MouseEvent) => {
-    props.onClick(evt);
+    this.props.onClick(evt);
   };
 
   const importSampleTemplate = async (evt: React.MouseEvent) => {
-    props.onClick(evt);
+    this.props.onClick(evt);
+    openDialog();
   };
 
   const importOtherTemplates = async (evt: React.MouseEvent) => {
-    props.onClick(evt);
+    this.props.onClick(evt);
   };
 
   return (
@@ -35,9 +51,14 @@ const ImporterMenu = (props: ImporterMenuProps) => {
   );
 };
 
-export interface ImporterMenuProps {
+interface ImporterMenuProps {
   expanded: boolean;
   onClick: (evt: React.MouseEvent) => void;
 }
+
+interface ImporterMenuState {
+  opened: boolean;
+}
+
 
 export default ImporterMenu;

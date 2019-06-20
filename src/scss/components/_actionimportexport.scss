@@ -1,14 +1,6 @@
 @import '../lib/chromeExtensionUrl';
 @import '../lib/text-button';
 
-.action-import-label {
-  @extend %button-normal;
-  height: $header-button-height;
-  line-height: $header-button-height;
-  margin-left: 8px;
-  min-width: $header-button-width;
-}
-
 .action-export {
   @extend %button-normal;
   height: $header-button-height;
@@ -19,4 +11,24 @@
 
 .action-export-wrapper {
   position: relative;
+}
+
+.action-import-wrapper {
+  position: relative;
+}
+
+.action-import {
+  @extend %button-normal;
+  height: $header-button-height;
+  line-height: $header-button-height;
+  margin-left: 8px;
+  min-width: $header-button-width;
+}
+
+.action-import-label {
+  @extend %button-normal;
+  height: $header-button-height;
+  line-height: $header-button-height;
+  margin-left: 8px;
+  min-width: $header-button-width;
 }

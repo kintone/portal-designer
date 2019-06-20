@@ -1,44 +1,64 @@
-import React, { useContext, useEffect } from "react";
-import { EditorContext } from "../EditorContext";
-import { convertTextToStateFragment } from "../domain/TextConverter";
+import React from "react";
+import ImporterButton from "./ImporterButton";
+import ImporterMenu from "./ImporterMenu";
 
-const Importer = (props: ImporterProps) => {
-  const { dispatch } = useContext(EditorContext);
+class Importer extends React.Component<{}, ImporterState> {
+  constructor(props: {}) {
+    super(props);
+    this.state = {
+      expanded: false
+    };
+    this.handleWindowClick = this.handleWindowClick.bind(this);
+  }
 
-  const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
-    props.reader.readAsText(evt.target.files![0]);
-  };
+  componentDidMount() {
+    window.addEventListener("click", this.handleWindowClick);
+  }
 
-  const handleLoadFile = (evt: any) => {
-    const state = convertTextToStateFragment(evt.target.result);
-    dispatch({ type: "IMPORT_JSON", state });
-  };
+  componentWillUnmount() {
+    window.removeEventListener("click", this.handleWindowClick);
+  }
 
-  useEffect(() => {
-    props.reader.addEventListener("load", handleLoadFile);
-  }, []);
+  private toggleMenu() {
+    this.setState(prevState => ({ expanded: !prevState.expanded }));
+  }
 
-  return (
-    <label className="action-import-label" htmlFor="action-import-label">
-      Import
-      <input
-        type="file"
-        accept=".json"
-        className="action-import visually-hidden"
-        value=""
-        onChange={handleChange}
-        id="action-import-label"
-      />
-    </label>
-  );
-};
+  private closeMenu() {
+    this.setState({ expanded: false });
+  }
 
-interface ImporterProps {
-  reader: FileReader;
+  private handleButtonClick(evt: React.MouseEvent) {
+    evt.stopPropagation();
+    this.toggleMenu();
+  }
+
+  private handleMenuClick(evt: React.MouseEvent) {
+    evt.stopPropagation();
+    this.closeMenu();
+  }
+
+  private handleWindowClick() {
+    this.closeMenu();
+  }
+
+  render() {
+    return (
+      <div className="action-import-wrapper">
+        <ImporterButton
+          expanded={this.state.expanded}
+          onClick={evt => this.handleButtonClick(evt)}
+        />
+        <ImporterMenu
+          expanded={this.state.expanded}
+          onClick={evt => this.handleMenuClick(evt)}
+        />
+      </div>
+    );
+  }
 }
 
-Importer.defaultProps = {
-  reader: new FileReader()
-};
+export interface ImporterState {
+  expanded: boolean;
+}
 
 export default Importer;
