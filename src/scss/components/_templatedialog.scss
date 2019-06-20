@@ -1,0 +1,64 @@
+@import '../lib/button';
+
+$header-height: 64px;
+$footer-height: 48px;
+$content-height: 70vh;
+$content-top-base: calc(100vh - $content-height / 2);
+
+.template-dialog {
+  border: 0;
+  box-sizing: border-box;
+  padding: 0;
+  top: calc($content-top-base - #{$header-height} - #{$footer-height});
+  width: 50rem;
+  z-index: 1;
+
+  &::backdrop {
+    background-color: $color-black;
+    opacity: .6;
+  }
+
+  &-header {
+    height: $header-height;
+    padding-left: 24px;
+  }
+
+  &-header-text {
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 2;
+    margin: 0;
+  }
+
+  &-content {
+    background-color: $bg-button;
+    border-top: $color-border solid 1px;
+    height: $content-height;
+    overflow: auto;
+  }
+
+  &-footer {
+    border-top: $color-border solid 1px;
+    display: flex;
+    height: $footer-height;
+    padding: 24px;
+  }
+
+  &-footer-left {
+    flex: 1;
+    text-align: left;
+  }
+
+  &-footer-right {
+    flex: 1;
+    text-align: right;
+  }
+
+  &-button-cancel {
+    @extend %button-normal;
+  }
+
+  &-button-ok {
+    @extend %button-default;
+  }
+}
