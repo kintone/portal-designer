@@ -1,6 +1,6 @@
 .activator {
 
-  $activator-width: 8rem;
+  $activator-width: 9rem;
   $activator-height: 32px;
   $activator-margin: ($header-button-height - $activator-height) / 2;
   $toggle-border: 2px;
@@ -9,6 +9,7 @@
   border: 0;
   border-radius: $activator-height / 2;
   cursor: pointer;
+  font-size: .8rem;
   height: $activator-height;
   margin: $activator-margin 0;
   position: relative;
