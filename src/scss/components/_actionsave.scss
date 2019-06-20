@@ -2,7 +2,10 @@
 
 .action-save {
   @extend %button-default;
+  height: $header-button-height;
+  line-height: $header-button-height;
   margin-left: 8px;
+  min-width: $header-button-width;
 }
 
 .action-cancel {

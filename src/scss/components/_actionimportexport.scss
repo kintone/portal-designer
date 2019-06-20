@@ -2,15 +2,21 @@
 @import '../lib/text-button';
 
 .action-import-label {
-  @extend %text-button;
-  background: 0 4px / 30px no-repeat chrome-extension-img-url('import.svg');
+  @extend %button-normal;
+  //background: 0 4px / 30px no-repeat chrome-extension-img-url('import.svg');
+  height: $header-button-height;
+  line-height: $header-button-height;
   margin-left: 8px;
+  min-width: $header-button-width;
 }
 
 .action-export {
-  @extend %text-button;
-  background: 0 4px / 30px no-repeat chrome-extension-img-url('export.svg');
+  @extend %button-normal;
+  //background: 0 4px / 30px no-repeat chrome-extension-img-url('export.svg');
+  height: $header-button-height;
+  line-height: $header-button-height;
   margin-left: 8px;
+  min-width: $header-button-width;
 }
 
 .action-export-wrapper {

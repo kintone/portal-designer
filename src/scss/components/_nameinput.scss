@@ -4,7 +4,8 @@
   @extend %form-text;
   flex: 1;
   font-size: 1rem;
-  height: 48px;
+  height: $header-button-height;
+  line-height: $header-button-height;
   padding: 8px;
   vertical-align: top;
 }
