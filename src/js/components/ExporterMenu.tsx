@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
 import FileExporter from "../domain/FileExporter";
+import ExporterMenuItem from "./ExporterMenuItem";
 
 const ExporterMenu = (props: ExporterMenuProps) => {
   const { state } = useContext(EditorContext);
@@ -22,30 +23,15 @@ const ExporterMenu = (props: ExporterMenuProps) => {
 
   return (
     <div role="menu" className="file-format-menu" hidden={!props.expanded}>
-      <button
-        type="button"
-        role="menuitem"
-        className="file-format-menu-item"
-        onClick={exportAsJson}
-      >
-        Export as JSON
-      </button>
-      <button
-        type="button"
-        role="menuitem"
-        className="file-format-menu-item"
+      <ExporterMenuItem label="Export as JSON" onClick={exportAsJson} />
+      <ExporterMenuItem
+        label="Export as JavaScript (Desktop)"
         onClick={exportAsDesktopJS}
-      >
-        Export as JavaScript (Desktop)
-      </button>
-      <button
-        type="button"
-        role="menuitem"
-        className="file-format-menu-item"
+      />
+      <ExporterMenuItem
+        label="Export as JavaScript (Mobile)"
         onClick={exportAsMobileJS}
-      >
-        Export as JavaScript (Mobile)
-      </button>
+      />
     </div>
   );
 };
