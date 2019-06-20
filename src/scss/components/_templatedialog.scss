@@ -19,8 +19,20 @@ $content-top-base: calc(100vh - $content-height / 2);
   }
 
   &-header {
+    display: flex;
     height: $header-height;
     padding-left: 24px;
+    padding-right: 6px;
+  }
+
+  &-header-left {
+    flex: 1;
+    text-align: left;
+  }
+
+  &-header-right {
+    flex: 1;
+    text-align: right;
   }
 
   &-header-text {
@@ -28,6 +40,20 @@ $content-top-base: calc(100vh - $content-height / 2);
     font-weight: normal;
     line-height: 2;
     margin: 0;
+  }
+
+  &-close {
+    border: 0;
+    cursor: pointer;
+    height: 48px;
+    margin: 8px;
+    outline: none;
+    padding: 0;
+    width: 48px;
+
+    &:focus {
+      outline: 1px solid $color-active;
+    }
   }
 
   &-content {

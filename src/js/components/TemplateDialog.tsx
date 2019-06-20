@@ -9,6 +9,10 @@ const TemplateDialog = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const templateModels = TemplateDownloader.getModels();
 
+  const handleClose = () => {
+    dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
+  };
+
   const handleCancel = () => {
     dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
   };
@@ -69,7 +73,19 @@ const TemplateDialog = () => {
   return (
     <dialog ref={dialogRef} className="template-dialog">
       <div className="template-dialog-header">
-        <h1 className="template-dialog-header-text">Sample Template</h1>
+        <div className="template-dialog-header-left">
+          <h1 className="template-dialog-header-text">Sample Template</h1>
+        </div>
+        <div className="template-dialog-header-right">
+          <button
+            className="template-dialog-close"
+            type="button"
+            onClick={handleClose}
+            title="Close Dialog"
+          >
+            <img src="../../img/dialog-close.png" alt="Close Dialog" />
+          </button>
+        </div>
       </div>
       <div className="template-dialog-content">
         <p className="template-dialog-description">Choose template.</p>
