@@ -40,6 +40,48 @@
       });
   }
 
+  function addImportantCssRule(selector, property, value) {
+    const styleEl = document.createElement("style");
+    styleEl.innerHTML = `${selector} { ${property}: ${value} !important; }`;
+    const headEl = document.querySelector("head");
+    headEl.appendChild(styleEl);
+  }
+
+  function updateHeaderColor() {
+    const headerColor = renderingModel.headerColor;
+    if (!headerColor) {
+      return;
+    }
+    addImportantCssRule(".gaia-header-header", "background", headerColor);
+  }
+
+  function updateToolbarColor() {
+    const toolbarColor = renderingModel.toolbarColor;
+    if (!toolbarColor) {
+      return;
+    }
+    addImportantCssRule(".gaia-header-toolbar", "background", toolbarColor);
+  }
+
+  function hiddenPortalHeader() {
+    if (!renderingModel.hiddenPortalHeader) {
+      return;
+    }
+    addImportantCssRule(".ocean-portal-index-header", "display", "none");
+  }
+
+  function updatePortalHeaderColor() {
+    const portalHeaderColor = renderingModel.portalHeaderColor;
+    if (!portalHeaderColor) {
+      return;
+    }
+    addImportantCssRule(
+      ".ocean-portal-index-header-img",
+      "background",
+      portalHeaderColor
+    );
+  }
+
   kintone.events.on("portal.show", function() {
     removeCustomizedContent();
     addCustomizedContentTo(
@@ -47,4 +89,9 @@
       kintone.portal.getContentSpaceElement()
     );
   });
+
+  updateHeaderColor();
+  updateToolbarColor();
+  hiddenPortalHeader();
+  updatePortalHeaderColor();
 })();

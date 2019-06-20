@@ -1,24 +1,23 @@
 import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
 import FileExporter from "../domain/FileExporter";
-import { convertStateToText } from "../domain/TextConverter";
 
 const ExporterMenu = (props: ExporterMenuProps) => {
   const { state } = useContext(EditorContext);
 
   const exportAsJson = (evt: React.MouseEvent) => {
     props.onClick(evt);
-    FileExporter.exportAsJson(convertStateToText(state), state.name);
+    FileExporter.exportAsJson(state);
   };
 
   const exportAsDesktopJS = async (evt: React.MouseEvent) => {
     props.onClick(evt);
-    FileExporter.exportAsDesktopJS(convertStateToText(state), state.name);
+    FileExporter.exportAsDesktopJS(state);
   };
 
   const exportAsMobileJS = async (evt: React.MouseEvent) => {
     props.onClick(evt);
-    FileExporter.exportAsMobileJS(convertStateToText(state), state.name);
+    FileExporter.exportAsMobileJS(state);
   };
 
   return (

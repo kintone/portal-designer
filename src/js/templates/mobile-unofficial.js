@@ -40,11 +40,11 @@
       });
   }
 
-  kintone.events.on("portal.show", function() {
+  kintone.events.on("mobile.portal.show", function() {
     removeCustomizedContent();
     addCustomizedContentTo(
       renderingModel,
-      kintone.portal.getContentSpaceElement()
+      kintone.mobile.portal.getContentSpaceElement()
     );
   });
 })();
