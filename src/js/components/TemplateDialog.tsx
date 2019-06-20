@@ -1,43 +1,13 @@
 import React, { useRef, useContext, useEffect } from "react";
 import { EditorContext } from "../EditorContext";
 import { convertTextToStateFragment } from "../domain/TextConverter";
-import axios from "axios";
+import TemplateDownloader from "../domain/TemplateDownloader";
 
 const TemplateDialog = (props: TemplateDialogProps) => {
   const { dispatch } = useContext(EditorContext);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
-
-  const baseURL =
-    "https://raw.githubusercontent.com/kintone/portal-design-templates/master";
-
-  const templateModels = [
-    {
-      name: "basic-1column",
-      thumbnail: baseURL + "/basic/1column/basic-1column.png",
-      json: baseURL + "/basic/1column/basic-1column.json"
-    },
-    {
-      name: "basic-1column-photo",
-      thumbnail: baseURL + "/basic/1column/basic-1column-photo.png",
-      json: baseURL + "/basic/1column/basic-1column-photo.json"
-    },
-    {
-      name: "classic",
-      thumbnail: baseURL + "/classic/classic.png",
-      json: baseURL + "/classic/classic.json"
-    },
-    {
-      name: "classic-all",
-      thumbnail: baseURL + "/classic/classic-all.png",
-      json: baseURL + "/classic/classic-all.json"
-    },
-    {
-      name: "advanced-3tabs",
-      thumbnail: baseURL + "/advanced/3tabs/advanced-3tabs.png",
-      json: baseURL + "/advanced/3tabs/advanced-3tabs.json"
-    }
-  ];
+  const templateModels = TemplateDownloader.getModels();
 
   const handleCancel = () => {
     props.onClose();
@@ -45,11 +15,15 @@ const TemplateDialog = (props: TemplateDialogProps) => {
 
   const handleConfirm = () => {
     const templateIndex = formRef.current!.radios!.value;
-    const URL = templateModels[templateIndex].json;
-    axios.get(URL).then((response: any) => {
-      const state = convertTextToStateFragment(JSON.stringify(response.data));
-      dispatch({ type: "IMPORT_JSON", state });
-    });
+    TemplateDownloader.download(templateIndex)
+      .then((rawText: string) => {
+        const state = convertTextToStateFragment(rawText);
+        dispatch({ type: "IMPORT_JSON", state });
+      })
+      .catch(error => {
+        // TODO: Notifierを出す
+        console.log(error);
+      });
     props.onClose();
   };
 

@@ -61,7 +61,10 @@ $content-top-base: calc(100vh - $content-height / 2);
   }
 
   &-thumbnail {
+    background-color: $bg-form;
     border: 2px solid $bg-button;
+    min-height: 100px;
+    min-width: 200px;
     padding: 10px;
     width: 200px;
 
