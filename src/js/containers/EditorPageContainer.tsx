@@ -15,6 +15,11 @@ const EditorPageContainer = () => {
 
   useEffect(() => {
     loadStorage();
+    Storage.getAll().then(values => {
+      if (Object.keys(values).length === 0) {
+        dispatch({ type: "OPEN_TEMPLATES_DIALOG" });
+      }
+    });
   }, []);
 
   return <EditorPage />;
