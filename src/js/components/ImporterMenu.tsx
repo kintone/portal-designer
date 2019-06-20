@@ -1,52 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import MenuItem from "./MenuItem";
+import ImporterJsonMenuItem from "./ImporterJsonMenuItem";
+import { EditorContext } from "../EditorContext";
 
-class ImporterMenu extends React.Component<ImporterMenuProps, ImporterMenuState> {
-  constructor(props:ImporterMenuProps) {
-    super(props);
-    this.state = {
-      opened: false
-    };
-  }
+const ImporterMenu = (props: ImporterMenuProps) => {
+  const { dispatch } = useContext(EditorContext);
 
-  handleClick() {
-    this.setState(prevState => ({ opened: !prevState.opened }));
-  }
-
-  handleClose() {
-    this.setState({ opened: false });
-  }
-
-  const importJson = (evt: React.MouseEvent) => {
-    this.props.onClick(evt);
-  };
-
-  const importSampleTemplate = async (evt: React.MouseEvent) => {
-    this.props.onClick(evt);
-    openDialog();
-  };
-
-  const importOtherTemplates = async (evt: React.MouseEvent) => {
-    this.props.onClick(evt);
+  const importSampleTemplates = (evt: React.MouseEvent) => {
+    props.onClick(evt);
+    dispatch({ type: "OPEN_TEMPLATES_DIALOG" });
   };
 
   return (
     <div role="menu" className="file-format-menu" hidden={!props.expanded}>
       <MenuItem
         className="file-format-menu-item"
-        label="Import JSON"
-        onClick={importJson}
+        label="Import Sample Templates"
+        onClick={importSampleTemplates}
       />
-      <MenuItem
-        className="file-format-menu-item"
-        label="Import sample template"
-        onClick={importSampleTemplate}
-      />
-      <MenuItem
-        className="file-format-menu-item"
-        label="Import other templates..."
-        onClick={importOtherTemplates}
-      />
+      <ImporterJsonMenuItem />
     </div>
   );
 };
@@ -55,10 +27,5 @@ interface ImporterMenuProps {
   expanded: boolean;
   onClick: (evt: React.MouseEvent) => void;
 }
-
-interface ImporterMenuState {
-  opened: boolean;
-}
-
 
 export default ImporterMenu;

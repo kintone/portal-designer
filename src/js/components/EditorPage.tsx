@@ -4,10 +4,10 @@ import KeyShortcutCapture from "../containers/KeyShortcutCapture";
 import SaveNotifier from "../containers/SaveNotifier";
 import SaveButton from "./SaveButton";
 import NameInput from "../containers/NameInput";
-import TemplateDialogOpener from "./TemplateDialogOpener";
 import Importer from "./Importer";
 import Exporter from "./Exporter";
 import Tabs from "./Tabs";
+import TemplateDialog from "./TemplateDialog";
 
 const EditorPage = () => (
   <>
@@ -18,13 +18,13 @@ const EditorPage = () => (
           <Activator />
         </div>
         <NameInput />
-        <TemplateDialogOpener />
         <Importer />
         <Exporter />
         <SaveButton />
       </div>
       <Tabs />
     </KeyShortcutCapture>
+    <TemplateDialog />
   </>
 );
 

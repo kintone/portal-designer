@@ -1,46 +1,22 @@
-import React from "react";
-import TemplateDialog from "./TemplateDialog";
+import React, { useContext } from "react";
+import { EditorContext } from "../EditorContext";
 
-class TemplateDialogOpener extends React.Component<
-  {},
-  TemplateDialogOpenerState
-> {
-  constructor(props: {}) {
-    super(props);
+const TemplateDialogOpener = () => {
+  const { dispatch } = useContext(EditorContext);
 
-    this.state = {
-      opened: false
-    };
-  }
+  const openTemplateDialog = () => {
+    dispatch({ type: "OPEN_TEMPLATES_DIALOG" });
+  };
 
-  handleClick() {
-    this.setState(prevState => ({ opened: !prevState.opened }));
-  }
+  return (
+    <button
+      type="button"
+      className="action-export"
+      onClick={openTemplateDialog}
+    >
+      Templates
+    </button>
+  );
+};
 
-  handleClose() {
-    this.setState({ opened: false });
-  }
-
-  render() {
-    return (
-      <>
-        <button
-          type="button"
-          className="action-export"
-          onClick={() => this.handleClick()}
-        >
-          Templates
-        </button>
-        <TemplateDialog
-          opened={this.state.opened}
-          onClose={() => this.handleClose()}
-        />
-      </>
-    );
-  }
-}
-
-export interface TemplateDialogOpenerState {
-  opened: boolean;
-}
 export default TemplateDialogOpener;

@@ -39,6 +39,7 @@ const download = (templateIndex: number): Promise<string> => {
     .get(url)
     .then((response: any) => {
       // axiosは、responseTypeにtextを指定してもjsonファイルを返すので、テキストに変換する。
+      response.enabled = false;
       return JSON.stringify(response.data);
     })
     .catch((error: Error) => {

@@ -4,7 +4,8 @@ const editorReducer = (state: EditorState, action: any): any => {
       return { ...action.state };
     }
     case "IMPORT_JSON": {
-      return { ...action.state, enabled: state.enabled };
+      const newState = { ...action.state, enabled: state.enabled };
+      return newState;
     }
     case "CUSTOMIZE_ENABLE_CHANGE": {
       return { ...state, enabled: action.enabled };
@@ -15,43 +16,93 @@ const editorReducer = (state: EditorState, action: any): any => {
     case "HTML_VALUE_CHANGE": {
       const { editor } = state;
       const { html } = editor;
-      html.value = action.html;
-      return { ...state, editor };
+      return {
+        ...state,
+        editor: {
+          ...editor,
+          html: {
+            ...html,
+            value: action.html
+          }
+        }
+      };
     }
     case "CSS_VALUE_CHANGE": {
       const { editor } = state;
       const { css } = editor;
-      css.value = action.css;
-      return { ...state, editor };
+      return {
+        ...state,
+        editor: {
+          ...editor,
+          css: {
+            ...css,
+            value: action.css
+          }
+        }
+      };
     }
     case "JS_VALUE_CHANGE": {
       const { editor } = state;
       const { js } = editor;
-      js.value = action.js;
-      return { ...state, editor };
+      return {
+        ...state,
+        editor: {
+          ...editor,
+          js: {
+            ...js,
+            value: action.js
+          }
+        }
+      };
     }
     case "HEADER_COLOR_CHANGE": {
-      const newState = { ...state };
-      newState.editor.headerColor = action.headerColor;
-      return newState;
+      const { editor } = state;
+      return {
+        ...state,
+        editor: {
+          ...editor,
+          headerColor: action.headerColor
+        }
+      };
     }
     case "TOOLBAR_COLOR_CHANGE": {
-      const newState = { ...state };
-      newState.editor.toolbarColor = action.toolbarColor;
-      return newState;
+      const { editor } = state;
+      return {
+        ...state,
+        editor: {
+          ...editor,
+          toolbarColor: action.toolbarColor
+        }
+      };
     }
     case "PORTAL_HEADER_HIDER_CHANGE": {
-      const newState = { ...state };
-      newState.editor.hiddenPortalHeader = action.hiddenPortalHeader;
-      return newState;
+      const { editor } = state;
+      return {
+        ...state,
+        editor: {
+          ...editor,
+          hiddenPortalHeader: action.hiddenPortalHeader
+        }
+      };
     }
     case "PORTAL_HEADER_COLOR_CHANGE": {
-      const newState = { ...state };
-      newState.editor.portalHeaderColor = action.portalHeaderColor;
-      return newState;
+      const { editor } = state;
+      return {
+        ...state,
+        editor: {
+          ...editor,
+          portalHeaderColor: action.portalHeaderColor
+        }
+      };
     }
     case "NOTIFY_SAVED": {
       return { ...state, notifySaved: action.notifySaved };
+    }
+    case "OPEN_TEMPLATES_DIALOG": {
+      return { ...state, templateDialogOpened: true };
+    }
+    case "CLOSE_TEMPLATES_DIALOG": {
+      return { ...state, templateDialogOpened: false };
     }
     default: {
       throw new Error("unknown action type");

@@ -3,40 +3,40 @@ import { EditorContext } from "../EditorContext";
 import { convertTextToStateFragment } from "../domain/TextConverter";
 import TemplateDownloader from "../domain/TemplateDownloader";
 
-const TemplateDialog = (props: TemplateDialogProps) => {
-  const { dispatch } = useContext(EditorContext);
+const TemplateDialog = () => {
+  const { state, dispatch } = useContext(EditorContext);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const templateModels = TemplateDownloader.getModels();
 
   const handleCancel = () => {
-    props.onClose();
+    dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
   };
 
   const handleConfirm = () => {
     const templateIndex = formRef.current!.radios!.value;
     TemplateDownloader.download(templateIndex)
       .then((rawText: string) => {
-        const state = convertTextToStateFragment(rawText);
-        dispatch({ type: "IMPORT_JSON", state });
+        const newState = convertTextToStateFragment(rawText);
+        dispatch({ type: "IMPORT_JSON", state: newState });
+        dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
       })
       .catch(error => {
         // TODO: Notifierを出す
         console.log(error);
       });
-    props.onClose();
   };
 
   useEffect(() => {
     if (!dialogRef || !dialogRef.current) {
       return;
     }
-    if (props.opened) {
+    if (state.templateDialogOpened) {
       dialogRef.current!.showModal();
     } else {
       dialogRef.current!.close();
     }
-  }, [props.opened]);
+  }, [state.templateDialogOpened]);
 
   const renderContent = (models: any[]) => {
     const templatesView = [];
@@ -80,7 +80,7 @@ const TemplateDialog = (props: TemplateDialogProps) => {
           <button
             type="button"
             className="template-dialog-button-cancel"
-            onClick={() => handleCancel()}
+            onClick={handleCancel}
           >
             Cancel
           </button>
@@ -89,7 +89,7 @@ const TemplateDialog = (props: TemplateDialogProps) => {
           <button
             type="button"
             className="template-dialog-button-ok"
-            onClick={() => handleConfirm()}
+            onClick={handleConfirm}
           >
             Import
           </button>
@@ -98,10 +98,5 @@ const TemplateDialog = (props: TemplateDialogProps) => {
     </dialog>
   );
 };
-
-interface TemplateDialogProps {
-  onClose: Function;
-  opened: boolean;
-}
 
 export default TemplateDialog;

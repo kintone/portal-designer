@@ -20,6 +20,7 @@ interface EditorImportableState {
 interface EditorState extends EditorImportableState {
   enabled: boolean;
   notifySaved: boolean;
+  templateDialogOpened: boolean;
 }
 
 interface ICustomize {

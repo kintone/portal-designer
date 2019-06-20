@@ -8,6 +8,7 @@ export const EditorProvider = ({ children }: any) => {
   const initialState: EditorState = {
     enabled: false,
     notifySaved: false,
+    templateDialogOpened: false,
     name: "",
     editor: {
       html: {
