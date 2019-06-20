@@ -1,5 +1,6 @@
 import React from "react";
 import TemplateDialog from "./TemplateDialog";
+
 class TemplateDialogOpener extends React.Component<
   {},
   TemplateDialogOpenerState

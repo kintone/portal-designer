@@ -56,14 +56,26 @@ $content-top-base: calc(100vh - $content-height / 2);
     width: 200px;
   }
 
-  &-thumbnail {
-    width: 200px;
+  &-listitem-select {
+    cursor: pointer;
   }
 
-  &-filename {
+  &-thumbnail {
+    border: 2px solid $bg-button;
+    padding: 10px;
+    width: 200px;
+
+    *:focus + & {
+      border: 2px solid $color-active;
+    }
+  }
+
+  &-name {
+    box-sizing: border-box;
     display: block;
     padding: 8px;
     text-align: center;
+    width: 224px;
   }
 
   &-footer {

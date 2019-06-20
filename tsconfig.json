@@ -2,11 +2,13 @@
   "compilerOptions": {
     "target": "ES2015",
     "module": "ES2015",
-    "jsx": "react",
+    "jsx": "React",
     "sourceMap": true,
     "outDir": "./dist/",
     "strict": true,
     "noImplicitAny": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
   }
 }
