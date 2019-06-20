@@ -2,7 +2,7 @@
 
 $header-height: 64px;
 $footer-height: 48px;
-$content-height: 70vh;
+$content-height: 50vh;
 $content-top-base: calc(100vh - $content-height / 2);
 
 .template-dialog {
@@ -10,7 +10,7 @@ $content-top-base: calc(100vh - $content-height / 2);
   box-sizing: border-box;
   padding: 0;
   top: calc($content-top-base - #{$header-height} - #{$footer-height});
-  width: 50rem;
+  width: 800px;
   z-index: 1;
 
   &::backdrop {
@@ -35,6 +35,35 @@ $content-top-base: calc(100vh - $content-height / 2);
     border-top: $color-border solid 1px;
     height: $content-height;
     overflow: auto;
+    padding: 16px;
+  }
+
+  &-description {
+    font-size: 1rem;
+    margin-left: 36px;
+  }
+
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0 36px;
+  }
+
+  &-listitem {
+    padding: 16px;
+    width: 200px;
+  }
+
+  &-thumbnail {
+    width: 200px;
+  }
+
+  &-filename {
+    display: block;
+    padding: 8px;
+    text-align: center;
   }
 
   &-footer {
