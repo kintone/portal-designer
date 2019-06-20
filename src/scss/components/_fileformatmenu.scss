@@ -28,6 +28,7 @@
   width: 100%;
 
   &:focus,
+  &:focus-within,
   &:hover {
     background-color: $bg-form-focus;
   }
