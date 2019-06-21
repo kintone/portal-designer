@@ -131,5 +131,6 @@ $content-top-base: calc((100vh - 50vh) / 2);
 
   &-button-ok {
     @extend %button-default;
+    position: relative;
   }
 }

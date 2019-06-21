@@ -1,11 +1,12 @@
 @import 'lib/colors';
-@import '/lib/variables';
+@import 'lib/variables';
 @import 'lib/visually-hidden';
 @import 'components/actionsave';
 @import 'components/actionimportexport';
 @import 'components/activator';
 @import 'components/portalheaderhider';
 @import 'components/group';
+@import 'components/loading';
 @import 'components/nameinput';
 @import 'components/savenotifier';
 @import 'components/tablist';

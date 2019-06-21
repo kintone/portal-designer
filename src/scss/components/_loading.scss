@@ -1,0 +1,15 @@
+.kpd-loading {
+  $loading-size: 48px;
+
+  height: $loading-size;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: $loading-size;
+
+  &-img {
+    height: $loading-size;
+    width: $loading-size;
+  }
+}

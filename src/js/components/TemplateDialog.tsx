@@ -1,12 +1,14 @@
-import React, { useRef, useContext, useEffect } from "react";
+import React, { useRef, useContext, useEffect, useState } from "react";
 import { EditorContext } from "../EditorContext";
 import { convertTextToStateFragment } from "../domain/TextConverter";
 import TemplateDownloader from "../domain/TemplateDownloader";
+import Loading from "./Loading";
 
 const TemplateDialog = () => {
   const { state, dispatch } = useContext(EditorContext);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const [importing, setImporting] = useState(false);
   const templateModels = TemplateDownloader.getModels();
 
   const handleClose = () => {
@@ -18,6 +20,8 @@ const TemplateDialog = () => {
   };
 
   const handleConfirm = () => {
+    setImporting(true);
+
     const templateIndex = formRef.current!.radios!.value;
     TemplateDownloader.download(templateIndex)
       .then((rawText: string) => {
@@ -29,6 +33,9 @@ const TemplateDialog = () => {
         alert(
           "Unable to download sample template. Please confirm you can access https://raw.githubusercontent.com"
         );
+      })
+      .finally(() => {
+        setImporting(false);
       });
   };
 
@@ -107,8 +114,10 @@ const TemplateDialog = () => {
             type="button"
             className="template-dialog-button-ok"
             onClick={handleConfirm}
+            disabled={importing}
           >
             Import
+            <Loading enabled={importing} />
           </button>
         </div>
       </div>
