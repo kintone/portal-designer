@@ -95,8 +95,12 @@ const editorReducer = (state: EditorState, action: any): any => {
         }
       };
     }
-    case "NOTIFY_SAVED": {
-      return { ...state, notifySaved: action.notifySaved };
+    case "NOTIFY_REMOVE": {
+      return { ...state, notifying: false, messageNotified: "" };
+    }
+    case "NOTIFY_SEND": {
+      const messageNotified = action.messageNotified;
+      return { ...state, notifying: true, messageNotified };
     }
     case "OPEN_TEMPLATES_DIALOG": {
       return { ...state, templateDialogOpened: true };

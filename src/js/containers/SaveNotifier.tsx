@@ -5,17 +5,17 @@ const SaveNotifier = () => {
   const { state, dispatch } = useContext(EditorContext);
 
   const handleAnimationEnd = () => {
-    dispatch({ type: "NOTIFY_SAVED", notifySaved: false });
+    dispatch({ type: "NOTIFY_REMOVE" });
   };
 
   return (
     <div
       role="status"
       className="save-notifier"
-      hidden={!state.notifySaved}
+      hidden={!state.notifying}
       onAnimationEnd={handleAnimationEnd}
     >
-      Saved
+      {state.messageNotified}
     </div>
   );
 };

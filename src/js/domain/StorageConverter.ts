@@ -20,7 +20,8 @@ export const convertStateToStorage = (state: EditorState): EditorStorage => ({
 });
 
 export const convertStorageToState = (storage: EditorStorage): EditorState => ({
-  notifySaved: false,
+  notifying: false,
+  messageNotified: "",
   templateDialogOpened: false,
   enabled: convertStorageToType(storage.type) === TYPE_CUSTOMIZE,
   name: storage.name || "",

@@ -5,6 +5,6 @@ import { convertStateToStorage } from "../domain/StorageConverter";
 export default async (context: React.Context) => {
   await Storage.set(convertStateToStorage(context.state));
   // 一旦Notifierを消す
-  context.dispatch({ type: "NOTIFY_SAVED", notifySaved: false });
-  context.dispatch({ type: "NOTIFY_SAVED", notifySaved: true });
+  context.dispatch({ type: "NOTIFY_REMOVE" });
+  context.dispatch({ type: "NOTIFY_SEND", messageNotified: "Saved" });
 };
