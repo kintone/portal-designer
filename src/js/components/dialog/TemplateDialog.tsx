@@ -1,6 +1,5 @@
 import React, { useRef, useContext, useState } from "react";
 import { EditorContext } from "../../EditorContext";
-import { convertTextToStateFragment } from "../../domain/TextConverter";
 import Dialog from "./Dialog";
 import TemplateDialogContent from "./TemplateDialogContent";
 import TemplateDownloader from "../../domain/TemplateDownloader";
@@ -18,24 +17,20 @@ const TemplateDialog = () => {
     dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
   };
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
     setImporting(true);
 
     const templateIndex = formRef.current!.radios!.value;
-    TemplateDownloader.download(templateIndex)
-      .then((rawText: string) => {
-        const newState = convertTextToStateFragment(rawText);
-        dispatch({ type: "IMPORT_JSON", state: newState });
-        dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
-      })
-      .catch(() => {
-        alert(
-          "Unable to download sample template. Please confirm you can access https://raw.githubusercontent.com"
-        );
-      })
-      .finally(() => {
-        setImporting(false);
-      });
+    try {
+      const newState = await TemplateDownloader.download(templateIndex);
+      dispatch({ type: "IMPORT_JSON", state: newState });
+      dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
+    } catch {
+      alert(
+        "Unable to download sample template. Please confirm you can access https://raw.githubusercontent.com"
+      );
+    }
+    setImporting(false);
   };
 
   return (

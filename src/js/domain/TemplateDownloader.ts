@@ -1,4 +1,5 @@
 import axios from "axios";
+import { convertTextToStateFragment } from "./TextConverter";
 
 const baseURL =
   "https://raw.githubusercontent.com/kintone/portal-design-templates/master";
@@ -33,14 +34,15 @@ const templateModels = [
 
 const getModels = () => templateModels;
 
-const download = (templateIndex: number): Promise<string> => {
+const download = async (templateIndex: number): Promise<EditorState> => {
   const url = templateModels[templateIndex].json;
   return axios
     .get(url)
     .then((response: any) => {
-      // axiosは、responseTypeにtextを指定してもjsonファイルを返すので、テキストに変換する。
-      response.enabled = false;
-      return JSON.stringify(response.data);
+      // axiosは、responseTypeにtextを指定してもjsonファイルを返す。
+      // 一旦テキストに変換してからStateに変換する。
+      const rawText = JSON.stringify(response.data);
+      return convertTextToStateFragment(rawText);
     })
     .catch((error: Error) => {
       throw error;
