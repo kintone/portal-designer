@@ -15,8 +15,8 @@ const NameInput = (props: {}) => {
       value={state.name}
       onChange={onChange}
       className="name-input"
-      placeholder="Input design portal name..."
-      label="Design portal name"
+      placeholder={chrome.i18n.getMessage("kpd_name_placeholder")}
+      label={chrome.i18n.getMessage("kpd_name_label")}
     />
   );
 };

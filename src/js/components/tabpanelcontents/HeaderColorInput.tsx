@@ -4,9 +4,11 @@ import ColorInput, { ColorInputProps } from "../ColorInput";
 const HeaderColorInput = (props: HeaderColorInputProps) => (
   <ColorInput
     {...props}
-    label="Header Color"
+    label={chrome.i18n.getMessage("kpd_unofficial_header_color")}
     className="config-tabpanel-color-input"
-    placeholder="Example: #ffcc00"
+    placeholder={chrome.i18n.getMessage(
+      "kpd_unofficial_header_color_placeholder"
+    )}
   />
 );
 

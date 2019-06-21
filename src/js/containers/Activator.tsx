@@ -9,7 +9,9 @@ const Activator = () => {
   };
 
   const getLabel = (enabled: boolean) => {
-    return enabled ? "Design Portal" : "Default Portal";
+    return enabled
+      ? chrome.i18n.getMessage("kpd_activator_design")
+      : chrome.i18n.getMessage("kpd_activator_default");
   };
 
   return (

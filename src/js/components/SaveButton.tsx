@@ -11,7 +11,7 @@ const SaveButton = () => {
 
   return (
     <button type="button" className="action-save" onClick={onClick}>
-      Save
+      {chrome.i18n.getMessage("kpd_save_button")}
     </button>
   );
 };

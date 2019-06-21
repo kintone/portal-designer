@@ -11,9 +11,12 @@ const DialogHeader = (props: DialogHeaderProps) => {
           className={`${props.baseClass}-header-close`}
           type="button"
           onClick={props.onClose}
-          title="Close Dialog"
+          title={chrome.i18n.getMessage("kpd_dialog_header_close")}
         >
-          <img src="../../img/dialog-close.png" alt="Close Dialog" />
+          <img
+            src="../../img/dialog-close.png"
+            alt={chrome.i18n.getMessage("kpd_dialog_header_close")}
+          />
         </button>
       </div>
     </div>

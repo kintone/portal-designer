@@ -8,11 +8,12 @@ const ConfigTabPanelContent = () => (
   <div>
     <details className="config-tabpanel-group" open>
       <summary className="config-tabpanel-group-label">
-        Unofficial Features
+        {chrome.i18n.getMessage("kpd_unofficial_label")}
       </summary>
       <div className="config-tabpanel-group-content">
         <p className="config-tabpanel-caution">
-          <strong>CAUTION</strong>: These features are not supported officially.
+          <strong>{chrome.i18n.getMessage("kpd_unofficial_caution")}</strong>:
+          {chrome.i18n.getMessage("kpd_unofficial_caution_description")}
         </p>
         <div className="config-tabpanel-row">
           <HeaderColorInput />

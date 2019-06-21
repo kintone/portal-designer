@@ -35,8 +35,12 @@ module.exports = {
         to: "html"
       },
       {
-        from: "src/_locales",
-        to: "_locales"
+        from: "src/_locales/en",
+        to: "_locales/en"
+      },
+      {
+        from: "src/_locales/en",
+        to: "_locales/ja"
       },
       {
         from: "src/js/templates",

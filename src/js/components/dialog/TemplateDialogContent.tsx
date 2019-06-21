@@ -34,7 +34,9 @@ const TemplateDialogContent = (props: TemplateDialogContentProps) => {
 
   return (
     <div className={`${props.baseClass}-content`}>
-      <p className={`${props.baseClass}-description`}>Choose template.</p>
+      <p className={`${props.baseClass}-description`}>
+        {chrome.i18n.getMessage("kpd_template_dialog_description")}
+      </p>
       <form ref={props.formRef}>
         {renderContent(templateModels, props.baseClass)}
       </form>

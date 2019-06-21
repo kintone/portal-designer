@@ -12,7 +12,7 @@ const PortalHeaderHider = (props: any) => {
   return (
     <Checkbox
       {...props}
-      label="Hide portal header"
+      label={chrome.i18n.getMessage("kpd_unofficial_hide_portal_header")}
       className="portal-header-hider"
       checked={state.editor.hiddenPortalHeader}
       onChange={onChange}

@@ -4,9 +4,11 @@ import ColorInput, { ColorInputProps } from "../ColorInput";
 const PortalHeaderColorInput = (props: PortalHeaderColorInputProps) => (
   <ColorInput
     {...props}
-    label="Portal Header Color"
+    label={chrome.i18n.getMessage("kpd_unofficial_portal_header_color")}
     className="config-tabpanel-color-input"
-    placeholder="Example: #ffcc00"
+    placeholder={chrome.i18n.getMessage(
+      "kpd_unofficial_portal_header_color_placeholder"
+    )}
   />
 );
 

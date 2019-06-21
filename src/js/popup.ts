@@ -1,14 +1,21 @@
 import Storage, { TYPE_CUSTOMIZE, TYPE_DEFAULT } from "./domain/Storage";
 import { convertStorageToType } from "./domain/StorageConverter";
+import setLanguage from "./domain/setLanguage";
 
 const getActivatorEl = () => {
   return document.querySelector(".activator") as HTMLInputElement;
 };
 
+const getOpenEditorEl = () => {
+  return document.querySelector(".popup-link-text") as HTMLInputElement;
+};
+
 const renderActivator = async (enabled: boolean) => {
   const activatorEl = getActivatorEl();
   activatorEl.setAttribute("aria-pressed", enabled.toString());
-  activatorEl.textContent = enabled ? "Design Portal" : "Default Portal";
+  activatorEl.textContent = enabled
+    ? chrome.i18n.getMessage("kpd_activator_design")
+    : chrome.i18n.getMessage("kpd_activator_default");
 };
 
 const loadEnabled = async () => {
@@ -16,6 +23,8 @@ const loadEnabled = async () => {
 };
 
 const initialize = async () => {
+  setLanguage();
+
   let enabled = await loadEnabled();
   renderActivator(enabled);
 
@@ -26,6 +35,10 @@ const initialize = async () => {
       type: enabled ? TYPE_CUSTOMIZE : TYPE_DEFAULT
     });
   });
+
+  getOpenEditorEl().textContent = chrome.i18n.getMessage(
+    "kpd_popup_open_editor"
+  );
 };
 
 initialize();

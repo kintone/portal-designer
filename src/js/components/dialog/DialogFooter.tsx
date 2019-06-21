@@ -10,7 +10,7 @@ const DialogFooter = (props: DialogFooterProps) => {
           className={`${props.baseClass}-button-cancel`}
           onClick={props.onCancel}
         >
-          Cancel
+          {chrome.i18n.getMessage("kpd_dialog_footer_cancel")}
         </button>
       </div>
       <div className={`${props.baseClass}-footer-right`}>

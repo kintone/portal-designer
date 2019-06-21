@@ -4,9 +4,11 @@ import ColorInput, { ColorInputProps } from "../ColorInput";
 const ToolbarColorInput = (props: ToolbarColorInputProps) => (
   <ColorInput
     {...props}
-    label="Toolbar Color"
+    label={chrome.i18n.getMessage("kpd_unofficial_toolbar_color")}
     className="config-tabpanel-color-input"
-    placeholder="Example: #4b4b4b"
+    placeholder={chrome.i18n.getMessage(
+      "kpd_unofficial_toolbar_color_placeholder"
+    )}
   />
 );
 

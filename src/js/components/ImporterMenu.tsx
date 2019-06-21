@@ -15,7 +15,7 @@ const ImporterMenu = (props: ImporterMenuProps) => {
     <div role="menu" className="kpd-menu" hidden={!props.expanded}>
       <MenuItem
         className="kpd-menu-item"
-        label="Import Sample Template"
+        label={chrome.i18n.getMessage("kpd_import_menuitem_sample")}
         onClick={importSampleTemplates}
       />
       <ImporterJsonMenuItem />

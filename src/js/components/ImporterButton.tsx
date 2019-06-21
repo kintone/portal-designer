@@ -8,7 +8,7 @@ const ImporterButton = (props: ImporterButtonProps) => {
       onClick={props.onClick}
       aria-expanded={props.expanded}
     >
-      Import
+      {chrome.i18n.getMessage("kpd_import_button")}
     </button>
   );
 };

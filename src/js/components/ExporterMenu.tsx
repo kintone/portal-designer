@@ -25,17 +25,17 @@ const ExporterMenu = (props: ExporterMenuProps) => {
     <div role="menu" className="kpd-menu" hidden={!props.expanded}>
       <MenuItem
         className="kpd-menu-item"
-        label="Export as JSON"
+        label={chrome.i18n.getMessage("kpd_export_menuitem_json")}
         onClick={exportAsJson}
       />
       <MenuItem
         className="kpd-menu-item"
-        label="Export as JavaScript (Desktop)"
+        label={chrome.i18n.getMessage("kpd_export_menuitem_js_desktop")}
         onClick={exportAsDesktopJS}
       />
       <MenuItem
         className="kpd-menu-item"
-        label="Export as JavaScript (Mobile)"
+        label={chrome.i18n.getMessage("kpd_export_menuitem_js_mobile")}
         onClick={exportAsMobileJS}
       />
     </div>

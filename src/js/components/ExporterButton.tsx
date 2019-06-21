@@ -8,7 +8,7 @@ const ExporterButton = (props: ExporterButtonProps) => {
       onClick={props.onClick}
       aria-expanded={props.expanded}
     >
-      Export
+      {chrome.i18n.getMessage("kpd_export_button")}
     </button>
   );
 };

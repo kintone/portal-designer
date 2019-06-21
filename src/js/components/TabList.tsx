@@ -4,25 +4,25 @@ import Tab from "./Tab";
 const TabList = (props: TabListProps) => (
   <div className="tablist" role="tablist">
     <Tab
-      text="HTML"
+      text={chrome.i18n.getMessage("kpd_tab_html")}
       name="html"
       selectedTab={props.selectedTab}
       setSelectedTab={props.setSelectedTab}
     />
     <Tab
-      text="CSS"
+      text={chrome.i18n.getMessage("kpd_tab_css")}
       name="css"
       selectedTab={props.selectedTab}
       setSelectedTab={props.setSelectedTab}
     />
     <Tab
-      text="JavaScript"
+      text={chrome.i18n.getMessage("kpd_tab_js")}
       name="js"
       selectedTab={props.selectedTab}
       setSelectedTab={props.setSelectedTab}
     />
     <Tab
-      text="Config"
+      text={chrome.i18n.getMessage("kpd_tab_config")}
       name="config"
       selectedTab={props.selectedTab}
       setSelectedTab={props.setSelectedTab}

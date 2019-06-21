@@ -12,7 +12,10 @@ const ImporterJsonMenuItem = (props: ImporterJsonMenuItemProps) => {
   const handleLoadFile = (evt: any) => {
     const state = convertTextToStateFragment(evt.target.result);
     dispatch({ type: "IMPORT_JSON", state });
-    dispatch({ type: "NOTIFY_SEND", messageNotified: "Imported!" });
+    dispatch({
+      type: "NOTIFY_SEND",
+      messageNotified: chrome.i18n.getMessage("kpd_import_notifier")
+    });
   };
 
   useEffect(() => {
@@ -21,7 +24,7 @@ const ImporterJsonMenuItem = (props: ImporterJsonMenuItemProps) => {
 
   return (
     <label className="kpd-menu-item" htmlFor="action-import-label">
-      Import JSON
+      {chrome.i18n.getMessage("kpd_import_menuitem_json")}
       <input
         type="file"
         accept=".json"

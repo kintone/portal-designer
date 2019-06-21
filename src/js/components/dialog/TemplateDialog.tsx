@@ -25,11 +25,12 @@ const TemplateDialog = () => {
       const newState = await TemplateDownloader.download(templateIndex);
       dispatch({ type: "IMPORT_JSON", state: newState });
       dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
-      dispatch({ type: "NOTIFY_SEND", messageNotified: "Imported!" });
+      dispatch({
+        type: "NOTIFY_SEND",
+        messageNotified: chrome.i18n.getMessage("kpd_import_notifier")
+      });
     } catch (err) {
-      alert(
-        "Unable to download sample template. Please confirm you can access https://raw.githubusercontent.com"
-      );
+      alert(chrome.i18n.getMessage("kpd_template_dialog_confirm_error"));
     }
     setImporting(false);
   };
@@ -41,8 +42,8 @@ const TemplateDialog = () => {
       onCancel={handleCancel}
       onConfirm={handleConfirm}
       confirming={importing}
-      confirmLabel="Import"
-      headerLabel="Sample Template"
+      confirmLabel={chrome.i18n.getMessage("kpd_template_dialog_confirm_label")}
+      headerLabel={chrome.i18n.getMessage("kpd_template_dialog_header")}
       baseClass="template-dialog"
     >
       <TemplateDialogContent formRef={formRef} baseClass="template-dialog" />
