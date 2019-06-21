@@ -34,7 +34,9 @@ const templateModels = [
 
 const getModels = () => templateModels;
 
-const download = async (templateIndex: number): Promise<EditorState> => {
+const download = async (
+  templateIndex: number
+): Promise<EditorImportableState> => {
   const url = templateModels[templateIndex].json;
   return axios
     .get(url)
