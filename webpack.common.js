@@ -4,7 +4,6 @@ const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 
 module.exports = {
@@ -53,9 +52,6 @@ module.exports = {
       }
     ])
   ],
-  optimization: {
-    minimizer: [new OptimizeCSSAssetsPlugin({})]
-  },
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
   },
