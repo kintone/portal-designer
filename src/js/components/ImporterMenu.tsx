@@ -12,9 +12,9 @@ const ImporterMenu = (props: ImporterMenuProps) => {
   };
 
   return (
-    <div role="menu" className="file-format-menu" hidden={!props.expanded}>
+    <div role="menu" className="kpd-menu" hidden={!props.expanded}>
       <MenuItem
-        className="file-format-menu-item"
+        className="kpd-menu-item"
         label="Import Sample Template"
         onClick={importSampleTemplates}
       />

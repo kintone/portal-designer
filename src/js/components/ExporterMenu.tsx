@@ -22,19 +22,19 @@ const ExporterMenu = (props: ExporterMenuProps) => {
   };
 
   return (
-    <div role="menu" className="file-format-menu" hidden={!props.expanded}>
+    <div role="menu" className="kpd-menu" hidden={!props.expanded}>
       <MenuItem
-        className="file-format-menu-item"
+        className="kpd-menu-item"
         label="Export as JSON"
         onClick={exportAsJson}
       />
       <MenuItem
-        className="file-format-menu-item"
+        className="kpd-menu-item"
         label="Export as JavaScript (Desktop)"
         onClick={exportAsDesktopJS}
       />
       <MenuItem
-        className="file-format-menu-item"
+        className="kpd-menu-item"
         label="Export as JavaScript (Mobile)"
         onClick={exportAsMobileJS}
       />

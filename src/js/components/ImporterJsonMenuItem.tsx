@@ -19,7 +19,7 @@ const ImporterJsonMenuItem = (props: ImporterJsonMenuItemProps) => {
   }, []);
 
   return (
-    <label className="file-format-menu-item" htmlFor="action-import-label">
+    <label className="kpd-menu-item" htmlFor="action-import-label">
       Import JSON
       <input
         type="file"
