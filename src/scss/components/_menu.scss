@@ -10,7 +10,7 @@
   position: absolute;
   right: 0;
   width: 15rem;
-  z-index: 1;
+  z-index: 11; //monaco-editorの検索ボックスより手前になるようにする
 
   &[hidden] {
     display: none;
