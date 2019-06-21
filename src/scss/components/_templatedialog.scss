@@ -3,13 +3,13 @@
 $header-height: 64px;
 $footer-height: 48px;
 $content-height: 50vh;
-$content-top-base: calc(100vh - $content-height / 2);
+$content-top-base: calc((100vh - 50vh) / 2);
 
 .template-dialog {
   border: 0;
   box-sizing: border-box;
   padding: 0;
-  top: calc($content-top-base - #{$header-height} - #{$footer-height});
+  top: calc(#{$content-top-base} - #{$header-height} - #{$footer-height});
   width: 800px;
   z-index: 1;
 
@@ -94,7 +94,7 @@ $content-top-base: calc(100vh - $content-height / 2);
     padding: 10px;
     width: 200px;
 
-    *:focus + & {
+    *:checked + & {
       border: 2px solid $color-active;
     }
   }
@@ -102,6 +102,7 @@ $content-top-base: calc(100vh - $content-height / 2);
   &-name {
     box-sizing: border-box;
     display: block;
+    font-size: 1rem;
     padding: 8px;
     text-align: center;
     width: 224px;
