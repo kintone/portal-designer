@@ -3,6 +3,7 @@ import { EditorContext } from "../../EditorContext";
 import { convertTextToStateFragment } from "../../domain/TextConverter";
 import DialogHeader from "./DialogHeader";
 import DialogFooter from "./DialogFooter";
+import TemplateDialogContent from "./TemplateDialogContent";
 import TemplateDownloader from "../../domain/TemplateDownloader";
 
 const TemplateDialog = () => {
@@ -10,7 +11,6 @@ const TemplateDialog = () => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const [importing, setImporting] = useState(false);
-  const templateModels = TemplateDownloader.getModels();
 
   const handleClose = () => {
     dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
@@ -51,34 +51,6 @@ const TemplateDialog = () => {
     }
   }, [state.templateDialogOpened]);
 
-  const renderContent = (models: any[]) => {
-    const templatesView = [];
-    for (let i = 0; i < models.length; i++) {
-      templatesView.push(
-        <li className="template-dialog-listitem" key={i}>
-          <label className="template-dialog-listitem-select">
-            <input
-              type="radio"
-              name="radios"
-              className="visually-hidden"
-              value={i}
-              defaultChecked={i === 0}
-            />
-            <img
-              className="template-dialog-thumbnail"
-              src={models[i].thumbnail}
-              alt=""
-            />
-            <span aria-hidden="true" className="template-dialog-name">
-              {models[i].name}
-            </span>
-          </label>
-        </li>
-      );
-    }
-    return <ul className="template-dialog-list">{templatesView}</ul>;
-  };
-
   return (
     <dialog ref={dialogRef} className="template-dialog">
       <DialogHeader
@@ -86,10 +58,7 @@ const TemplateDialog = () => {
         onClose={handleClose}
         baseClass="template-dialog"
       />
-      <div className="template-dialog-content">
-        <p className="template-dialog-description">Choose template.</p>
-        <form ref={formRef}>{renderContent(templateModels)}</form>
-      </div>
+      <TemplateDialogContent formRef={formRef} baseClass="template-dialog" />
       <DialogFooter
         onCancel={handleCancel}
         onConfirm={handleConfirm}
