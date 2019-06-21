@@ -25,9 +25,10 @@ const TemplateDialog = () => {
         dispatch({ type: "IMPORT_JSON", state: newState });
         dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
       })
-      .catch(error => {
-        // TODO: Notifierを出す
-        console.log(error);
+      .catch(() => {
+        alert(
+          "Unable to download sample template. Please confirm you can access https://raw.githubusercontent.com"
+        );
       });
   };
 
