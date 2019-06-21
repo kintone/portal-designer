@@ -9,14 +9,17 @@ class Importer extends React.Component<{}, ImporterState> {
       expanded: false
     };
     this.handleWindowClick = this.handleWindowClick.bind(this);
+    this.handleKeyup = this.handleKeyup.bind(this);
   }
 
   componentDidMount() {
     window.addEventListener("click", this.handleWindowClick);
+    window.addEventListener("keyup", this.handleKeyup);
   }
 
   componentWillUnmount() {
     window.removeEventListener("click", this.handleWindowClick);
+    window.removeEventListener("keyup", this.handleKeyup);
   }
 
   private toggleMenu() {
@@ -39,6 +42,14 @@ class Importer extends React.Component<{}, ImporterState> {
 
   private handleWindowClick() {
     this.closeMenu();
+  }
+
+  private handleKeyup(evt: any) {
+    console.log(evt.keyCode);
+    if (evt.keyCode === 27) {
+      // ESC key
+      this.closeMenu();
+    }
   }
 
   render() {
