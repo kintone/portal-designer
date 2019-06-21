@@ -1,64 +1,54 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ExporterButton from "./ExporterButton";
 import ExporterMenu from "./ExporterMenu";
 
-class Exporter extends React.Component<{}, ExporterState> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      expanded: false
+const Exporter = () => {
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("click", handleWindowClick);
+    window.addEventListener("keyup", handleKeyup);
+    return () => {
+      window.removeEventListener("click", handleWindowClick);
+      window.removeEventListener("keyup", handleKeyup);
     };
-    this.handleWindowClick = this.handleWindowClick.bind(this);
-  }
+  }, []);
 
-  componentDidMount() {
-    window.addEventListener("click", this.handleWindowClick);
-  }
+  const toggleMenu = () => {
+    setExpanded(prevExpanded => !prevExpanded);
+  };
 
-  componentWillUnmount() {
-    window.removeEventListener("click", this.handleWindowClick);
-  }
+  const closeMenu = () => {
+    setExpanded(false);
+  };
 
-  private toggleMenu() {
-    this.setState(prevState => ({ expanded: !prevState.expanded }));
-  }
-
-  private closeMenu() {
-    this.setState({ expanded: false });
-  }
-
-  private handleButtonClick(evt: React.MouseEvent) {
+  const handleButtonClick = (evt: React.MouseEvent) => {
     evt.stopPropagation();
-    this.toggleMenu();
-  }
+    toggleMenu();
+  };
 
-  private handleMenuClick(evt: React.MouseEvent) {
+  const handleMenuClick = (evt: React.MouseEvent) => {
     evt.stopPropagation();
-    this.closeMenu();
-  }
+    closeMenu();
+  };
 
-  private handleWindowClick() {
-    this.closeMenu();
-  }
+  const handleWindowClick = () => {
+    closeMenu();
+  };
 
-  render() {
-    return (
-      <div className="action-export-wrapper">
-        <ExporterButton
-          expanded={this.state.expanded}
-          onClick={evt => this.handleButtonClick(evt)}
-        />
-        <ExporterMenu
-          expanded={this.state.expanded}
-          onClick={evt => this.handleMenuClick(evt)}
-        />
-      </div>
-    );
-  }
-}
+  const handleKeyup = (evt: any) => {
+    if (evt.keyCode === 27) {
+      // ESC key
+      closeMenu();
+    }
+  };
 
-export interface ExporterState {
-  expanded: boolean;
-}
+  return (
+    <div className="action-export-wrapper">
+      <ExporterButton expanded={expanded} onClick={handleButtonClick} />
+      <ExporterMenu expanded={expanded} onClick={handleMenuClick} />
+    </div>
+  );
+};
 
 export default Exporter;
