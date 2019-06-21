@@ -1,8 +1,9 @@
 import React, { useRef, useContext, useEffect, useState } from "react";
 import { EditorContext } from "../../EditorContext";
 import { convertTextToStateFragment } from "../../domain/TextConverter";
+import DialogHeader from "./DialogHeader";
+import DialogFooter from "./DialogFooter";
 import TemplateDownloader from "../../domain/TemplateDownloader";
-import Loading from "../Loading";
 
 const TemplateDialog = () => {
   const { state, dispatch } = useContext(EditorContext);
@@ -80,47 +81,22 @@ const TemplateDialog = () => {
 
   return (
     <dialog ref={dialogRef} className="template-dialog">
-      <div className="template-dialog-header">
-        <div className="template-dialog-header-left">
-          <h1 className="template-dialog-header-text">Sample Template</h1>
-        </div>
-        <div className="template-dialog-header-right">
-          <button
-            className="template-dialog-close"
-            type="button"
-            onClick={handleClose}
-            title="Close Dialog"
-          >
-            <img src="../../img/dialog-close.png" alt="Close Dialog" />
-          </button>
-        </div>
-      </div>
+      <DialogHeader
+        label="Sample Template"
+        onClose={handleClose}
+        baseClass="template-dialog"
+      />
       <div className="template-dialog-content">
         <p className="template-dialog-description">Choose template.</p>
         <form ref={formRef}>{renderContent(templateModels)}</form>
       </div>
-      <div className="template-dialog-footer">
-        <div className="template-dialog-footer-left">
-          <button
-            type="button"
-            className="template-dialog-button-cancel"
-            onClick={handleCancel}
-          >
-            Cancel
-          </button>
-        </div>
-        <div className="template-dialog-footer-right">
-          <button
-            type="button"
-            className="template-dialog-button-ok"
-            onClick={handleConfirm}
-            disabled={importing}
-          >
-            Import
-            <Loading enabled={importing} />
-          </button>
-        </div>
-      </div>
+      <DialogFooter
+        onCancel={handleCancel}
+        onConfirm={handleConfirm}
+        confirming={importing}
+        confirmLabel="Import"
+        baseClass="template-dialog"
+      />
     </dialog>
   );
 };
