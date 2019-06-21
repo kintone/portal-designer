@@ -1,14 +1,12 @@
-import React, { useRef, useContext, useEffect, useState } from "react";
+import React, { useRef, useContext, useState } from "react";
 import { EditorContext } from "../../EditorContext";
 import { convertTextToStateFragment } from "../../domain/TextConverter";
-import DialogHeader from "./DialogHeader";
-import DialogFooter from "./DialogFooter";
+import Dialog from "./Dialog";
 import TemplateDialogContent from "./TemplateDialogContent";
 import TemplateDownloader from "../../domain/TemplateDownloader";
 
 const TemplateDialog = () => {
   const { state, dispatch } = useContext(EditorContext);
-  const dialogRef = useRef<HTMLDialogElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
   const [importing, setImporting] = useState(false);
 
@@ -40,33 +38,19 @@ const TemplateDialog = () => {
       });
   };
 
-  useEffect(() => {
-    if (!dialogRef || !dialogRef.current) {
-      return;
-    }
-    if (state.templateDialogOpened) {
-      dialogRef.current!.showModal();
-    } else {
-      dialogRef.current!.close();
-    }
-  }, [state.templateDialogOpened]);
-
   return (
-    <dialog ref={dialogRef} className="template-dialog">
-      <DialogHeader
-        label="Sample Template"
-        onClose={handleClose}
-        baseClass="template-dialog"
-      />
+    <Dialog
+      opened={state.templateDialogOpened}
+      onClose={handleClose}
+      onCancel={handleCancel}
+      onConfirm={handleConfirm}
+      confirming={importing}
+      confirmLabel="Import"
+      headerLabel="Sample Template"
+      baseClass="template-dialog"
+    >
       <TemplateDialogContent formRef={formRef} baseClass="template-dialog" />
-      <DialogFooter
-        onCancel={handleCancel}
-        onConfirm={handleConfirm}
-        confirming={importing}
-        confirmLabel="Import"
-        baseClass="template-dialog"
-      />
-    </dialog>
+    </Dialog>
   );
 };
 
