@@ -1,8 +1,8 @@
 import React, { useRef, useContext, useEffect, useState } from "react";
-import { EditorContext } from "../EditorContext";
-import { convertTextToStateFragment } from "../domain/TextConverter";
-import TemplateDownloader from "../domain/TemplateDownloader";
-import Loading from "./Loading";
+import { EditorContext } from "../../EditorContext";
+import { convertTextToStateFragment } from "../../domain/TextConverter";
+import TemplateDownloader from "../../domain/TemplateDownloader";
+import Loading from "../Loading";
 
 const TemplateDialog = () => {
   const { state, dispatch } = useContext(EditorContext);

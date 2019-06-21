@@ -7,7 +7,7 @@ import NameInput from "../containers/NameInput";
 import Importer from "./Importer";
 import Exporter from "./Exporter";
 import Tabs from "./Tabs";
-import TemplateDialog from "./TemplateDialog";
+import TemplateDialog from "./dialog/TemplateDialog";
 
 const EditorPage = () => (
   <>

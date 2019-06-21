@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { EditorContext } from "../EditorContext";
+import { EditorContext } from "../../EditorContext";
 
 const TemplateDialogOpener = () => {
   const { dispatch } = useContext(EditorContext);
