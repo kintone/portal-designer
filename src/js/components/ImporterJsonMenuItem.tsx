@@ -12,6 +12,7 @@ const ImporterJsonMenuItem = (props: ImporterJsonMenuItemProps) => {
   const handleLoadFile = (evt: any) => {
     const state = convertTextToStateFragment(evt.target.result);
     dispatch({ type: "IMPORT_JSON", state });
+    dispatch({ type: "NOTIFY_SEND", messageNotified: "Imported!" });
   };
 
   useEffect(() => {

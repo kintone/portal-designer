@@ -25,7 +25,8 @@ const TemplateDialog = () => {
       const newState = await TemplateDownloader.download(templateIndex);
       dispatch({ type: "IMPORT_JSON", state: newState });
       dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
-    } catch {
+      dispatch({ type: "NOTIFY_SEND", messageNotified: "Imported!" });
+    } catch (err) {
       alert(
         "Unable to download sample template. Please confirm you can access https://raw.githubusercontent.com"
       );

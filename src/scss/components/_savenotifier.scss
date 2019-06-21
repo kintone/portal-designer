@@ -21,11 +21,12 @@
 }
 
 .save-notifier {
-  animation: animate-notifier .75s ease forwards;
+  animation: animate-notifier 1.5s ease forwards;
   background-color: $color-active;
   border-radius: 0 0 8px 8px;
   box-sizing: border-box;
   color: $bg-form;
+  font-size: 1rem;
   height: 32px;
   left: 50%;
   line-height: 32px;
