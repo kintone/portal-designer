@@ -1,7 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
 
-const SaveNotifier = () => {
+const Notifier = () => {
   const { state, dispatch } = useContext(EditorContext);
 
   const handleAnimationEnd = () => {
@@ -20,4 +20,4 @@ const SaveNotifier = () => {
   );
 };
 
-export default SaveNotifier;
+export default Notifier;

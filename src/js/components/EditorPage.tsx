@@ -1,7 +1,7 @@
 import React from "react";
 import Activator from "../containers/Activator";
 import KeyShortcutCapture from "../containers/KeyShortcutCapture";
-import SaveNotifier from "../containers/SaveNotifier";
+import Notifier from "./Notifier";
 import SaveButton from "./SaveButton";
 import NameInput from "../containers/NameInput";
 import Importer from "./Importer";
@@ -12,7 +12,7 @@ import TemplateDialog from "./dialog/TemplateDialog";
 const EditorPage = () => (
   <>
     <KeyShortcutCapture>
-      <SaveNotifier />
+      <Notifier />
       <div className="global-nav">
         <div className="global-nav-name">
           <Activator />
