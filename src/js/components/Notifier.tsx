@@ -11,7 +11,7 @@ const Notifier = () => {
   return (
     <div
       role="status"
-      className="save-notifier"
+      className="kpd-notifier"
       hidden={!state.notifying}
       onAnimationEnd={handleAnimationEnd}
     >
