@@ -16,6 +16,20 @@ const Dialog = (props: DialogProps) => {
     }
   }, [props.opened]);
 
+  useEffect(() => {
+    window.addEventListener("keyup", handleKeyup);
+    return () => {
+      window.removeEventListener("keyup", handleKeyup);
+    };
+  }, []);
+
+  const handleKeyup = (evt: any) => {
+    if (evt.keyCode === 27) {
+      // ESC key
+      props.onClose();
+    }
+  };
+
   return (
     <dialog ref={dialogRef} className={props.baseClass}>
       <DialogHeader
