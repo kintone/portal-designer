@@ -2,7 +2,7 @@
 
 .name-input {
   @extend %form-text;
-  flex: 1;
+  flex: 0 0 15rem;
   font-size: 1rem;
   height: $header-button-height;
   line-height: $header-button-height;

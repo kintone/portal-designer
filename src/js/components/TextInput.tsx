@@ -11,6 +11,7 @@ const TextInput = (props: TextInputProps) => {
       type="text"
       placeholder={props.placeholder}
       aria-label={props.label}
+      title={props.label}
       value={props.value}
       onChange={handleChange}
     />
