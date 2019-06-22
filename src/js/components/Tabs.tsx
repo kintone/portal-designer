@@ -1,34 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import TabList from "./TabList";
 import TabPanelContainer from "./TabPanelContainer";
 
-class Tabs extends React.Component<{}, TabsState> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      selectedTab: "html"
-    };
-  }
+const Tabs = () => {
+  const [selectedTab, setSelectedTab] = useState<string>("html");
 
-  setSelectedTab(selectedTab: string) {
-    this.setState({ selectedTab });
-  }
-
-  render() {
-    return (
-      <div>
-        <TabList
-          selectedTab={this.state.selectedTab}
-          setSelectedTab={selectedTab => this.setSelectedTab(selectedTab)}
-        />
-        <TabPanelContainer selectedTab={this.state.selectedTab} />
-      </div>
-    );
-  }
-}
-
-interface TabsState {
-  selectedTab: string;
-}
+  return (
+    <div>
+      <TabList selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+      <TabPanelContainer selectedTab={selectedTab} />
+    </div>
+  );
+};
 
 export default Tabs;
