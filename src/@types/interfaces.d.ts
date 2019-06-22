@@ -19,6 +19,7 @@ interface EditorImportableState {
 
 interface EditorState extends EditorImportableState {
   enabled: boolean;
+  edited: boolean;
   notifying: boolean;
   messageNotified: string;
   templateDialogOpened: boolean;

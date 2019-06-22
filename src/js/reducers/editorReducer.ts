@@ -1,23 +1,28 @@
 const editorReducer = (state: EditorState, action: any): any => {
   switch (action.type) {
     case "LOAD_STORAGE": {
-      return { ...action.state };
+      return { ...action.state, edited: false };
     }
     case "IMPORT_JSON": {
-      const newState = { ...action.state, enabled: state.enabled };
+      const newState = {
+        ...action.state,
+        enabled: state.enabled,
+        edited: false
+      };
       return newState;
     }
     case "CUSTOMIZE_ENABLE_CHANGE": {
       return { ...state, enabled: action.enabled };
     }
     case "NAME_INPUT_CHANGE": {
-      return { ...state, name: action.name };
+      return { ...state, name: action.name, edited: true };
     }
     case "HTML_VALUE_CHANGE": {
       const { editor } = state;
       const { html } = editor;
       return {
         ...state,
+        edited: true,
         editor: {
           ...editor,
           html: {
@@ -32,6 +37,7 @@ const editorReducer = (state: EditorState, action: any): any => {
       const { css } = editor;
       return {
         ...state,
+        edited: true,
         editor: {
           ...editor,
           css: {
@@ -46,6 +52,7 @@ const editorReducer = (state: EditorState, action: any): any => {
       const { js } = editor;
       return {
         ...state,
+        edited: true,
         editor: {
           ...editor,
           js: {
@@ -59,6 +66,7 @@ const editorReducer = (state: EditorState, action: any): any => {
       const { editor } = state;
       return {
         ...state,
+        edited: true,
         editor: {
           ...editor,
           headerColor: action.headerColor
@@ -69,6 +77,7 @@ const editorReducer = (state: EditorState, action: any): any => {
       const { editor } = state;
       return {
         ...state,
+        edited: true,
         editor: {
           ...editor,
           toolbarColor: action.toolbarColor
@@ -79,6 +88,7 @@ const editorReducer = (state: EditorState, action: any): any => {
       const { editor } = state;
       return {
         ...state,
+        edited: true,
         editor: {
           ...editor,
           hiddenPortalHeader: action.hiddenPortalHeader
@@ -89,6 +99,7 @@ const editorReducer = (state: EditorState, action: any): any => {
       const { editor } = state;
       return {
         ...state,
+        edited: true,
         editor: {
           ...editor,
           portalHeaderColor: action.portalHeaderColor
@@ -107,6 +118,9 @@ const editorReducer = (state: EditorState, action: any): any => {
     }
     case "CLOSE_TEMPLATES_DIALOG": {
       return { ...state, templateDialogOpened: false };
+    }
+    case "SAVE_EDITOR": {
+      return { ...state, edited: false };
     }
     default: {
       throw new Error("unknown action type");

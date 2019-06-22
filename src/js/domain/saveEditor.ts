@@ -4,6 +4,7 @@ import { convertStateToStorage } from "../domain/StorageConverter";
 // @ts-ignore
 export default async (context: React.Context) => {
   await Storage.set(convertStateToStorage(context.state));
+  context.dispatch({ type: "SAVE_EDITOR" });
   // 一旦Notifierを消す
   context.dispatch({ type: "NOTIFY_REMOVE" });
   context.dispatch({

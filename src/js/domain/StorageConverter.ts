@@ -24,6 +24,7 @@ export const convertStorageToState = (storage: EditorStorage): EditorState => ({
   messageNotified: "",
   templateDialogOpened: false,
   enabled: convertStorageToType(storage.type) === TYPE_CUSTOMIZE,
+  edited: false,
   name: storage.name || "",
   editor: {
     html: {

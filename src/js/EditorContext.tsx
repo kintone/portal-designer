@@ -7,6 +7,7 @@ export const EditorContext = React.createContext();
 export const EditorProvider = ({ children }: any) => {
   const initialState: EditorState = {
     enabled: false,
+    edited: false,
     notifying: false,
     messageNotified: "",
     templateDialogOpened: false,
