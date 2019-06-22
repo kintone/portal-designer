@@ -27,11 +27,13 @@ $content-top-base: calc((100vh - 50vh) / 2);
 
   &-header-left {
     flex: 1;
+    min-width: 0;
+    overflow: hidden;
     text-align: left;
   }
 
   &-header-right {
-    flex: 1;
+    flex: 0;
     text-align: right;
   }
 
@@ -40,6 +42,7 @@ $content-top-base: calc((100vh - 50vh) / 2);
     font-weight: normal;
     line-height: 2;
     margin: 0;
+    white-space: nowrap;
   }
 
   &-header-close {

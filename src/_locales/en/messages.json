@@ -10,7 +10,7 @@
   "kpd_export_menuitem_js_mobile": { "message": "Export as JavaScript (Mobile)" },
   "kpd_dialog_header_close": { "message": "Close Dialog" },
   "kpd_dialog_footer_cancel": { "message": "Cancel" },
-  "kpd_template_dialog_header": { "message": "Sample Templates" },
+  "kpd_template_dialog_header": { "message": "Kintone Portal Designer Templates" },
   "kpd_template_dialog_description": { "message": "Choose template." },
   "kpd_template_dialog_confirm_label": { "message": "Import" },
   "kpd_template_dialog_confirm_error": { "message": "Unable to download sample template. Please confirm you can access https://raw.githubusercontent.com" },
