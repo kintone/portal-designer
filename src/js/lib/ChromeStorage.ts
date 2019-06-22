@@ -11,7 +11,15 @@ const ChromeStorage = {
       chrome.storage.local.set(items, () => {
         resolve();
       });
-    })
+    }),
+
+  clear: () => {
+    new Promise<{}>(resolve => {
+      chrome.storage.local.clear(() => {
+        resolve();
+      });
+    });
+  }
 };
 
 export default ChromeStorage;

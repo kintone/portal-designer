@@ -21,6 +21,7 @@ const Storage = {
   get: (keys: string[]) => ChromeStorage.get<EditorStorage>(keys),
   set: (storage: any) => ChromeStorage.set(storage),
   getAll: () => ChromeStorage.get<EditorStorage>(ALL_KEYS),
+  clear: () => ChromeStorage.clear(),
   isCustomizeType
 };
 
