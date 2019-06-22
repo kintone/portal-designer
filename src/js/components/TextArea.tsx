@@ -54,9 +54,7 @@ class TextArea extends React.Component<TextAreaProps> {
       }
     });
 
-    window.addEventListener("resize", () => {
-      this.handleResize();
-    });
+    window.addEventListener("resize", this.handleResize);
   }
 
   componentDidUpdate() {
