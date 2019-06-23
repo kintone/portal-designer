@@ -21,9 +21,7 @@ const TemplateDialogContent = (props: TemplateDialogContentProps) => {
             src={model.thumbnail}
             alt=""
           />
-          <span aria-hidden="true" className={`${baseClass}-name`}>
-            {model.name}
-          </span>
+          <span className={`${baseClass}-name`}>{model.name}</span>
         </label>
       </li>
     );
