@@ -1,10 +1,10 @@
 {
   "kpd_popup_open_editor": { "message": "エディタを開く" },
-  "kpd_import_button": { "message": "読み込み" },
+  "kpd_import_button": { "message": "読み込む" },
   "kpd_import_menuitem_sample": { "message": "サンプルテンプレート" },
   "kpd_import_menuitem_json": { "message": "JSON" },
   "kpd_import_notifier": { "message": "読み込みました" },
-  "kpd_export_button": { "message": "書き出し" },
+  "kpd_export_button": { "message": "書き出す" },
   "kpd_export_menuitem_json": { "message": "JSON" },
   "kpd_export_menuitem_js_desktop": { "message": "JavaScript（デスクトップ）" },
   "kpd_export_menuitem_js_mobile": { "message": "JavaScript（モバイル）" },
