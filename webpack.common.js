@@ -43,8 +43,8 @@ module.exports = {
         to: "_locales/ja"
       },
       {
-        from: "src/js/templates",
-        to: "js/templates"
+        from: "src/js/boilerplates",
+        to: "js/boilerplates"
       },
       {
         from: "src/manifest.json",

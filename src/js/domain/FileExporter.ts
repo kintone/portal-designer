@@ -24,32 +24,33 @@ const exportAsJson = (state: EditorState) => {
 };
 
 const exportAsDesktopJS = async (state: EditorState) => {
-  const template = await loadDesktopTemplate(state);
+  const boilerplate = await loadDesktopBoilerplate(state);
   const jsonString = convertStateToText(state);
-  const fileBody = template.replace("${renderingModel}", jsonString);
+  const fileBody = boilerplate.replace("${renderingModel}", jsonString);
   const fileName = generateFileName(state.name || "design", "_desktop", "js");
   exportFile(fileBody, fileName);
 };
 
 const exportAsMobileJS = async (state: EditorState) => {
-  const template = await loadMobileTemplate(state);
+  const boilerplate = await loadMobileBoilerplate(state);
   const jsonString = convertStateToText(state);
-  const fileBody = template.replace("${renderingModel}", jsonString);
+  const fileBody = boilerplate.replace("${renderingModel}", jsonString);
   const fileName = generateFileName(state.name || "design", "_mobile", "js");
   exportFile(fileBody, fileName);
 };
 
-const loadDesktopTemplate = async (state: EditorState) => {
+const loadDesktopBoilerplate = async (state: EditorState) => {
   const path = isOfficialCustomization(state)
-    ? "js/templates/desktop.js"
-    : "js/templates/desktop-unofficial.js";
+    ? "js/boilerplates/desktop.js"
+    : "js/boilerplates/desktop-unofficial.js";
   return (await fetch(chrome.runtime.getURL(path))).text();
 };
 
-const loadMobileTemplate = async (state: EditorState) => {
+const loadMobileBoilerplate = async (state: EditorState) => {
+  debugger;
   const path = isOfficialCustomization(state)
-    ? "js/templates/mobile.js"
-    : "js/templates/desktop-unofficial.js";
+    ? "js/boilerplates/mobile.js"
+    : "js/boilerplates/desktop-unofficial.js";
   return (await fetch(chrome.runtime.getURL(path))).text();
 };
 
