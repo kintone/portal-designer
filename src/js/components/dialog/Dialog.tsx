@@ -41,6 +41,7 @@ const Dialog = (props: DialogProps) => {
       <DialogFooter
         onCancel={props.onCancel}
         onConfirm={props.onConfirm}
+        canConfirm={props.canConfirm}
         confirming={props.confirming}
         confirmLabel={props.confirmLabel}
         baseClass={props.baseClass}
@@ -54,6 +55,7 @@ interface DialogProps {
   onClose: () => any;
   onCancel: () => any;
   onConfirm: () => any;
+  canConfirm: boolean;
   confirming: boolean;
   confirmLabel: string;
   headerLabel: string;

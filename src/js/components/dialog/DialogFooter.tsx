@@ -18,7 +18,7 @@ const DialogFooter = (props: DialogFooterProps) => {
           type="button"
           className={`${props.baseClass}-button-ok`}
           onClick={props.onConfirm}
-          disabled={props.confirming}
+          disabled={props.confirming || !props.canConfirm}
         >
           {props.confirmLabel}
           <Loading enabled={props.confirming} />
@@ -31,6 +31,7 @@ const DialogFooter = (props: DialogFooterProps) => {
 interface DialogFooterProps {
   onCancel: () => any;
   onConfirm: () => any;
+  canConfirm: boolean;
   confirming: boolean;
   confirmLabel: string;
   baseClass: string;

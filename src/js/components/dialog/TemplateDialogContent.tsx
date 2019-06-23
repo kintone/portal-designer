@@ -1,13 +1,6 @@
-import React, { useState, useEffect } from "react";
-import TemplateDownloader from "../../domain/TemplateDownloader";
+import React from "react";
 
 const TemplateDialogContent = (props: TemplateDialogContentProps) => {
-  const [templateModels, setTemplateModels] = useState<TemplateModel[]>([]);
-
-  useEffect(() => {
-    TemplateDownloader.getModels().then(setTemplateModels);
-  }, []);
-
   const renderTemplate = (
     baseClass: string,
     model: TemplateModel,
@@ -49,7 +42,7 @@ const TemplateDialogContent = (props: TemplateDialogContentProps) => {
         {chrome.i18n.getMessage("kpd_template_dialog_description")}
       </p>
       <form ref={props.formRef}>
-        {renderTemplates(props.baseClass, templateModels)}
+        {renderTemplates(props.baseClass, props.templateModels)}
       </form>
     </div>
   );
@@ -58,6 +51,7 @@ const TemplateDialogContent = (props: TemplateDialogContentProps) => {
 interface TemplateDialogContentProps {
   formRef: React.RefObject<HTMLFormElement>;
   baseClass: string;
+  templateModels: TemplateModel[];
 }
 
 export default TemplateDialogContent;
