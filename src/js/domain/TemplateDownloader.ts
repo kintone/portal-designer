@@ -32,7 +32,7 @@ const templateModels = [
   }
 ] as TemplateModel[];
 
-const getModels = () => templateModels;
+const getModels = async () => templateModels;
 
 const download = async (
   templateIndex: number

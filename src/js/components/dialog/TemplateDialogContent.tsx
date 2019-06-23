@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import TemplateDownloader from "../../domain/TemplateDownloader";
 
 const TemplateDialogContent = (props: TemplateDialogContentProps) => {
-  const templateModels = TemplateDownloader.getModels();
+  const [templateModels, setTemplateModels] = useState<TemplateModel[]>([]);
+
+  useEffect(() => {
+    TemplateDownloader.getModels().then(setTemplateModels);
+  }, []);
 
   const renderTemplate = (
     baseClass: string,
