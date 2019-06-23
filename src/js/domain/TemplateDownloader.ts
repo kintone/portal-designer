@@ -38,17 +38,15 @@ const download = async (
   templateIndex: number
 ): Promise<EditorImportableState> => {
   const url = templateModels[templateIndex].json;
-  return axios
-    .get(url)
-    .then((response: any) => {
-      // axiosは、responseTypeにtextを指定してもjsonファイルを返す。
-      // 一旦テキストに変換してからStateに変換する。
-      const rawText = JSON.stringify(response.data);
-      return convertTextToStateFragment(rawText);
-    })
-    .catch((error: Error) => {
-      throw error;
-    });
+  try {
+    const response = await axios.get(url);
+    // axiosは、responseTypeにtextを指定してもjsonファイルを返す。
+    // 一旦テキストに変換してからStateに変換する。
+    const rawText = JSON.stringify(response.data);
+    return convertTextToStateFragment(rawText);
+  } catch (error) {
+    throw error;
+  }
 };
 
 const preloadImages = () => {
