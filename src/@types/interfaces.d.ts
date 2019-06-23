@@ -40,3 +40,9 @@ interface ICustomize {
 interface EditorStorage extends ICustomize {}
 
 interface RenderingModel extends ICustomize {}
+
+interface TemplateModel {
+  name: string;
+  thumbnail: string;
+  json: string;
+}

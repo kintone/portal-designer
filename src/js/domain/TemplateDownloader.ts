@@ -56,12 +56,6 @@ const preloadImages = () => {
   }
 };
 
-interface TemplateModel {
-  name: string;
-  thumbnail: string;
-  json: string;
-}
-
 export default {
   download,
   getModels,

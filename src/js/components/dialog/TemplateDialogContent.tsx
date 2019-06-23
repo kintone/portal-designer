@@ -4,31 +4,38 @@ import TemplateDownloader from "../../domain/TemplateDownloader";
 const TemplateDialogContent = (props: TemplateDialogContentProps) => {
   const templateModels = TemplateDownloader.getModels();
 
-  const renderContent = (models: any[], baseClass: string) => {
-    const templatesView = [];
-    for (let i = 0; i < models.length; i++) {
-      templatesView.push(
-        <li className={`${baseClass}-listitem`} key={i}>
-          <label className={`${baseClass}-listitem-select`}>
-            <input
-              type="radio"
-              name="radios"
-              className="visually-hidden"
-              value={i}
-              defaultChecked={i === 0}
-            />
-            <img
-              className={`${baseClass}-thumbnail`}
-              src={models[i].thumbnail}
-              alt=""
-            />
-            <span aria-hidden="true" className={`${baseClass}-name`}>
-              {models[i].name}
-            </span>
-          </label>
-        </li>
-      );
-    }
+  const renderTemplate = (
+    baseClass: string,
+    model: TemplateModel,
+    i: number
+  ) => {
+    return (
+      <li className={`${baseClass}-listitem`} key={i}>
+        <label className={`${baseClass}-listitem-select`}>
+          <input
+            type="radio"
+            name="radios"
+            className="visually-hidden"
+            value={i}
+            defaultChecked={i === 0}
+          />
+          <img
+            className={`${baseClass}-thumbnail`}
+            src={model.thumbnail}
+            alt=""
+          />
+          <span aria-hidden="true" className={`${baseClass}-name`}>
+            {model.name}
+          </span>
+        </label>
+      </li>
+    );
+  };
+
+  const renderTemplates = (baseClass: string, models: TemplateModel[]) => {
+    const templatesView = models.map((model, i) => {
+      return renderTemplate(baseClass, model, i);
+    });
     return <ul className="template-dialog-list">{templatesView}</ul>;
   };
 
@@ -38,7 +45,7 @@ const TemplateDialogContent = (props: TemplateDialogContentProps) => {
         {chrome.i18n.getMessage("kpd_template_dialog_description")}
       </p>
       <form ref={props.formRef}>
-        {renderContent(templateModels, props.baseClass)}
+        {renderTemplates(props.baseClass, templateModels)}
       </form>
     </div>
   );
