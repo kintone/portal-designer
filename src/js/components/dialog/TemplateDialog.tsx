@@ -10,11 +10,15 @@ const TemplateDialog = () => {
   const [importing, setImporting] = useState(false);
   const [templateModels, setTemplateModels] = useState<TemplateModel[]>([]);
 
+  const baseClass = "template-dialog";
+
   useEffect(() => {
     if (!state.templateDialogOpened) {
       return;
     }
-    TemplateDownloader.getModels().then(setTemplateModels);
+    TemplateDownloader.getModels()
+      .then(setTemplateModels)
+      .catch(() => {});
   }, [state.templateDialogOpened]);
 
   const handleClose = () => {
@@ -39,10 +43,28 @@ const TemplateDialog = () => {
         messageNotified: chrome.i18n.getMessage("kpd_import_notifier")
       });
     } catch (err) {
-      alert(chrome.i18n.getMessage("kpd_template_dialog_confirm_error"));
+      notifyError();
       dispatch({ type: "CLOSE_TEMPLATES_DIALOG" });
     }
     setImporting(false);
+  };
+
+  const notifyError = () => {
+    alert(chrome.i18n.getMessage("kpd_template_dialog_confirm_error"));
+  };
+
+  const renderContent = () => {
+    return (
+      <TemplateDialogContent
+        formRef={formRef}
+        baseClass="template-dialog"
+        templateModels={templateModels}
+      />
+    );
+  };
+
+  const renderEmptyContent = () => {
+    return <div className={`${baseClass}-content`} />;
   };
 
   return (
@@ -55,13 +77,9 @@ const TemplateDialog = () => {
       confirming={importing}
       confirmLabel={chrome.i18n.getMessage("kpd_template_dialog_confirm_label")}
       headerLabel={chrome.i18n.getMessage("kpd_template_dialog_header")}
-      baseClass="template-dialog"
+      baseClass={baseClass}
     >
-      <TemplateDialogContent
-        formRef={formRef}
-        baseClass="template-dialog"
-        templateModels={templateModels}
-      />
+      {templateModels.length !== 0 ? renderContent() : renderEmptyContent()}
     </Dialog>
   );
 };

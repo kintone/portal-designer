@@ -13,7 +13,7 @@
   "kpd_template_dialog_header": { "message": "サンプルテンプレート" },
   "kpd_template_dialog_description": { "message": "テンプレートを選びましょう" },
   "kpd_template_dialog_confirm_label": { "message": "読み込み" },
-  "kpd_template_dialog_confirm_error": { "message": "サンプルテンプレートを読み込めませんでした。次のURLにアクセスできることを確認してください： https://raw.githubusercontent.com" },
+  "kpd_template_dialog_confirm_error": { "message": "サンプルテンプレートを読み込めません. \nネットワークの状態を確認してください. \nしばらく待ってから再度お試しください." },
   "kpd_save_button": { "message": "保存" },
   "kpd_save_notifier": { "message": "保存しました" },
   "kpd_activator_default": { "message": "通常のポータル"},

@@ -13,7 +13,7 @@
   "kpd_template_dialog_header": { "message": "Kintone Portal Designer Templates" },
   "kpd_template_dialog_description": { "message": "Choose template." },
   "kpd_template_dialog_confirm_label": { "message": "Import" },
-  "kpd_template_dialog_confirm_error": { "message": "Unable to download sample template. Please confirm you can access https://raw.githubusercontent.com" },
+  "kpd_template_dialog_confirm_error": { "message": "Unable to download sample template.\nPlease check your internet connection and try again." },
   "kpd_save_button": { "message": "Save" },
   "kpd_save_notifier": { "message": "Saved!" },
   "kpd_activator_default": { "message": "Default Portal"},
