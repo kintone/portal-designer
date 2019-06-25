@@ -33,7 +33,6 @@
   },
   "permissions": [
     "storage",
-    "webRequest",
     "https://*.cybozu.com/k/*",
     "https://*.cybozu-dev.com/k/*",
     "https://*.kintone.com/k/*",
