@@ -1,11 +1,15 @@
 import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
+import Storage from "../domain/Storage";
+import { convertEnabledToType } from "../domain/StorageConverter";
 
 const Activator = () => {
   const { state, dispatch } = useContext(EditorContext);
 
   const handleClick = () => {
-    dispatch({ type: "CUSTOMIZE_ENABLE_CHANGE", enabled: !state.enabled });
+    const newEnabled = !state.enabled;
+    dispatch({ type: "CUSTOMIZE_ENABLE_CHANGE", enabled: newEnabled });
+    Storage.set({ type: convertEnabledToType(newEnabled) });
   };
 
   const getLabel = (enabled: boolean) => {

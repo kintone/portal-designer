@@ -7,8 +7,12 @@ export const convertStorageToType = (type?: string) => {
   return TYPE_DEFAULT;
 };
 
+export const convertEnabledToType = (enabled: boolean) => {
+  return enabled ? TYPE_CUSTOMIZE : TYPE_DEFAULT;
+};
+
 export const convertStateToStorage = (state: EditorState): EditorStorage => ({
-  type: state.enabled ? TYPE_CUSTOMIZE : TYPE_DEFAULT,
+  type: convertEnabledToType(state.enabled),
   name: state.name || "",
   html: state.editor.html.value || "",
   css: state.editor.css.value || "",
