@@ -20,7 +20,7 @@ $content-top-base: calc((100vh - 50vh) / 2);
 
   &-header {
     display: flex;
-    height: $header-height;
+    min-height: $header-height;
     padding-left: 24px;
     padding-right: 6px;
   }
@@ -33,6 +33,8 @@ $content-top-base: calc((100vh - 50vh) / 2);
   }
 
   &-header-right {
+    align-items: center;
+    display: flex;
     flex: 0;
     text-align: right;
   }
