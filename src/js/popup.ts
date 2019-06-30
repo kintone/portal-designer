@@ -1,5 +1,8 @@
 import Storage, { TYPE_CUSTOMIZE, TYPE_DEFAULT } from "./domain/Storage";
-import { convertStorageToType } from "./domain/StorageConverter";
+import {
+  convertStorageToType,
+  convertEnabledToType
+} from "./domain/StorageConverter";
 import setLanguage from "./domain/setLanguage";
 
 const getActivatorEl = () => {
@@ -22,6 +25,10 @@ const loadEnabled = async () => {
   return convertStorageToType((await Storage.getAll()).type) === TYPE_CUSTOMIZE;
 };
 
+const saveEnabled = async (enabled: boolean) => {
+  return Storage.set({ type: convertEnabledToType(enabled) });
+};
+
 const initialize = async () => {
   setLanguage();
 
@@ -31,9 +38,7 @@ const initialize = async () => {
   getActivatorEl().addEventListener("click", () => {
     enabled = !enabled;
     renderActivator(enabled);
-    Storage.set({
-      type: enabled ? TYPE_CUSTOMIZE : TYPE_DEFAULT
-    });
+    saveEnabled(enabled);
   });
 
   getOpenEditorEl().textContent = chrome.i18n.getMessage(
