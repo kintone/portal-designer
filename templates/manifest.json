@@ -1,0 +1,30 @@
+{
+  "baseUrl": "https://raw.githubusercontent.com/kintone/portal-design-templates/master/",
+  "models": [
+    {
+      "name": "basic-1column",
+      "thumbnail": "basic/1column/basic-1column.png",
+      "json": "basic/1column/basic-1column.json"
+    },
+    {
+      "name": "basic-1column-photo",
+      "thumbnail": "basic/1column/basic-1column-photo.png",
+      "json": "basic/1column/basic-1column-photo.json"
+    },
+    {
+      "name": "classic",
+      "thumbnail": "classic/classic.png",
+      "json": "classic/classic.json"
+    },
+    {
+      "name": "classic-all",
+      "thumbnail": "classic/classic-all.png",
+      "json": "classic/classic-all.json"
+    },
+    {
+      "name": "advanced-3tabs",
+      "thumbnail": "advanced/3tabs/advanced-3tabs.png",
+      "json": "advanced/3tabs/advanced-3tabs.json"
+    }
+  ]
+}

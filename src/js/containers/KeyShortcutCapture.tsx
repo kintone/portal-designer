@@ -2,7 +2,9 @@ import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
 import saveEditor from "../domain/saveEditor";
 
-const KeyShortcutCapture = (props: KeyShortcutCaptureProps) => {
+const KeyShortcutCapture: React.FC<KeyShortcutCaptureProps> = (
+  props: KeyShortcutCaptureProps
+) => {
   const { state, dispatch } = useContext(EditorContext);
 
   const handleKeyDown = async (evt: React.KeyboardEvent<HTMLDivElement>) => {
