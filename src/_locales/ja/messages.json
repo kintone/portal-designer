@@ -11,7 +11,6 @@
   "kpd_dialog_header_close": { "message": "ダイアログを閉じる" },
   "kpd_dialog_footer_cancel": { "message": "キャンセル" },
   "kpd_template_dialog_header": { "message": "サンプルテンプレート" },
-  "kpd_template_dialog_description": { "message": "テンプレートを選びましょう" },
   "kpd_template_dialog_confirm_label": { "message": "読み込み" },
   "kpd_template_dialog_confirm_error": { "message": "サンプルテンプレートを読み込めません. \nネットワークの状態を確認してください. \nしばらく待ってから再度お試しください." },
   "kpd_save_button": { "message": "保存" },

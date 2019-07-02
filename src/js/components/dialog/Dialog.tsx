@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import DialogHeader from "./DialogHeader";
+import DialogHeaderCentering from "./DialogHeaderCentering";
 import DialogFooter from "./DialogFooter";
 
 const Dialog = (props: DialogProps) => {
@@ -32,7 +32,7 @@ const Dialog = (props: DialogProps) => {
 
   return (
     <dialog ref={dialogRef} className={props.baseClass}>
-      <DialogHeader
+      <DialogHeaderCentering
         label={props.headerLabel}
         onClose={props.onClose}
         baseClass={props.baseClass}

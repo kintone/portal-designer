@@ -48,6 +48,7 @@ $content-top-base: calc((100vh - 50vh) / 2);
   }
 
   &-header-close {
+    background: transparent;
     border: 0;
     cursor: pointer;
     height: 48px;
@@ -61,11 +62,37 @@ $content-top-base: calc((100vh - 50vh) / 2);
     }
   }
 
+  &-header-centering {
+    display: flex;
+    min-height: $header-height;
+    padding: 0 72px;
+  }
+
+  &-header-centering-text {
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 2;
+    margin: 0;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  &-header-centering-right {
+    margin-right: 8px;
+    position: absolute;
+    right: 0;
+  }
+
   &-content {
     background-color: $bg-button;
     border-top: $color-border solid 1px;
     height: $content-height;
     overflow: auto;
+    padding: 16px;
+  }
+
+  &-content-form {
     padding: 16px;
   }
 
