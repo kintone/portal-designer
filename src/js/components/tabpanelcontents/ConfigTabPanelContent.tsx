@@ -12,7 +12,7 @@ const ConfigTabPanelContent = () => (
       </summary>
       <div className="config-tabpanel-group-content">
         <p className="config-tabpanel-caution">
-          <strong>{chrome.i18n.getMessage("kpd_unofficial_caution")}</strong>:
+          <strong>{chrome.i18n.getMessage("kpd_unofficial_caution")}: </strong>
           {chrome.i18n.getMessage("kpd_unofficial_caution_description")}
         </p>
         <div className="config-tabpanel-row">
