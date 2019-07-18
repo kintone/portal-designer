@@ -42,7 +42,10 @@
 
   function addImportantCssRule(selector, property, value) {
     const styleEl = document.createElement("style");
-    styleEl.innerHTML = `${selector} { ${property}: ${value} !important; }`;
+    styleEl.innerHTML = ""
+      .concat(selector, " { ")
+      .concat(property, ": ")
+      .concat(value, " !important;}");
     const headEl = document.querySelector("head");
     headEl.appendChild(styleEl);
   }
