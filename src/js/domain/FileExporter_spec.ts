@@ -2,6 +2,7 @@
 
 import * as chai from "chai";
 import FileExporter from "./FileExporter";
+import { generateEditorState } from "../test/TestHelper";
 
 describe("FileExporter", () => {
   context("generateFileName", () => {
@@ -25,6 +26,48 @@ describe("FileExporter", () => {
       chai
         .expect(FileExporter.generateFileName("original", "_desktop", "js"))
         .eql("original_desktop.js");
+    });
+  });
+
+  context("getPathOfDesktop", () => {
+    it("公式のBoilderplateが返る", () => {
+      // Setup
+      const editorState = generateEditorState();
+      // Exercise
+      const path = FileExporter.getPathOfDesktop(editorState);
+      // Verify
+      chai.expect(path).eql("js/boilerplates/desktop.js");
+    });
+
+    it("非公式のBoilderplateが返る", () => {
+      // Setup
+      const editorState = generateEditorState();
+      editorState.editor.hiddenPortalHeader = true;
+      // Exercise
+      const path = FileExporter.getPathOfDesktop(editorState);
+      // Verify
+      chai.expect(path).eql("js/boilerplates/desktop-unofficial.js");
+    });
+  });
+
+  context("getPathOfMobile", () => {
+    it("公式のBoilderplateが返る", () => {
+      // Setup
+      const editorState = generateEditorState();
+      // Exercise
+      const path = FileExporter.getPathOfMobile(editorState);
+      // Verify
+      chai.expect(path).eql("js/boilerplates/mobile.js");
+    });
+
+    it("非公式のBoilderplateが返る", () => {
+      // Setup
+      const editorState = generateEditorState();
+      editorState.editor.hiddenPortalHeader = true;
+      // Exercise
+      const path = FileExporter.getPathOfMobile(editorState);
+      // Verify
+      chai.expect(path).eql("js/boilerplates/mobile-unofficial.js");
     });
   });
 });

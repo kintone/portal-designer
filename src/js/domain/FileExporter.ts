@@ -24,7 +24,7 @@ const exportAsJson = (state: EditorState) => {
 };
 
 const exportAsDesktopJS = async (state: EditorState) => {
-  const boilerplate = await loadDesktopBoilerplate(state);
+  const boilerplate = await loadBoilerplate(getPathOfDesktop(state));
   const jsonString = convertStateToText(state);
   const fileBody = boilerplate.replace("${renderingModel}", jsonString);
   const fileName = generateFileName(state.name || "design", "_desktop", "js");
@@ -32,26 +32,27 @@ const exportAsDesktopJS = async (state: EditorState) => {
 };
 
 const exportAsMobileJS = async (state: EditorState) => {
-  const boilerplate = await loadMobileBoilerplate(state);
+  const boilerplate = await loadBoilerplate(getPathOfMobile(state));
   const jsonString = convertStateToText(state);
   const fileBody = boilerplate.replace("${renderingModel}", jsonString);
   const fileName = generateFileName(state.name || "design", "_mobile", "js");
   exportFile(fileBody, fileName);
 };
 
-const loadDesktopBoilerplate = async (state: EditorState) => {
-  const path = isOfficialCustomization(state)
-    ? "js/boilerplates/desktop.js"
-    : "js/boilerplates/desktop-unofficial.js";
+const loadBoilerplate = async (path: string) => {
   return (await fetch(chrome.runtime.getURL(path))).text();
 };
 
-const loadMobileBoilerplate = async (state: EditorState) => {
-  debugger;
-  const path = isOfficialCustomization(state)
-    ? "js/boilerplates/mobile.js"
+const getPathOfDesktop = (state: EditorState) => {
+  return isOfficialCustomization(state)
+    ? "js/boilerplates/desktop.js"
     : "js/boilerplates/desktop-unofficial.js";
-  return (await fetch(chrome.runtime.getURL(path))).text();
+};
+
+const getPathOfMobile = (state: EditorState) => {
+  return isOfficialCustomization(state)
+    ? "js/boilerplates/mobile.js"
+    : "js/boilerplates/mobile-unofficial.js";
 };
 
 const isOfficialCustomization = (state: EditorState) => {
@@ -67,5 +68,7 @@ export default {
   exportAsJson,
   exportAsDesktopJS,
   exportAsMobileJS,
-  generateFileName
+  generateFileName,
+  getPathOfDesktop,
+  getPathOfMobile
 };
