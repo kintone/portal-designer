@@ -22,14 +22,14 @@
       "json": "classic/classic-all.json"
     },
     {
+      "name": "classic-app",
+      "thumbnail": "classic/classic-days2020.png",
+      "json": "classic/classic-days2020.json"
+    },
+    {
       "name": "advanced-3tabs",
       "thumbnail": "advanced/3tabs/advanced-3tabs.png",
       "json": "advanced/3tabs/advanced-3tabs.json"
-    },
-    {
-      "name": "classic-days2020",
-      "thumbnail": "classic/classic-days2020.png",
-      "json": "classic/classic-days2020.json"
     }
   ]
 }
