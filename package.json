@@ -15,7 +15,7 @@
     "mini-css-extract-plugin": "^0.5.0",
     "monaco-editor": "^0.17.0",
     "monaco-editor-webpack-plugin": "^1.7.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
