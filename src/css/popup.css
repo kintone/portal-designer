@@ -1,0 +1,64 @@
+.portal-designer-popup {
+    --bg-disabled: #dbdcdd;
+    --bg-button: #f7f9fa;
+    --bg-dark: #d4d7d7;
+    --bg-form: #fff;
+    --bg-notifier: #508b25;
+    --bg-form-focus: #e2f2fe;
+    --color-black: #000;
+    --color-border: #e3e7e8;
+    --color-border-form: #c4c7c7;
+    --color-shadow: #f5f5f5;
+    --color-shadow-bg: rgba(0, 0, 0, .1);
+    --border-popup: #f0f0f0;
+    --color-active: #3498db;
+    --color-text: #333;
+    --color-text-sub: #888;
+    --toolbar-button-hover: #434343;
+}
+
+.portal-designer-popup {
+    margin: 0;
+    width: 13rem;
+}
+
+.portal-designer-popup-header {
+    border-bottom: 1px solid var(--bg-dark);
+    margin: 16px 16px 0;
+    padding-bottom: 8px;
+}
+
+.portal-designer-popup-content {
+    margin: 0 16px;
+    padding: 16px 0;
+    text-align: center;
+}
+
+.portal-designer-popup-link {
+    background-color: var(--toolbar-button-hover);
+    display: flex;
+    padding: 0 32px;
+}
+
+.portal-designer-popup-link:focus,.portal-designer-popup-link:hover {
+    background-color: darken(var(--toolbar-button-hover), 10%);
+}
+
+.portal-designer-popup-link-wrapper {
+    color: --bg-form;
+    cursor: pointer;
+    display: flex;
+    font-size: .8rem;
+    height: 48px;
+    line-height: 48px;
+    outline: none;
+    overflow: hidden;
+    text-decoration: underline;
+    width: 100%;
+}
+.portal-designer-popup-link-wrapper::before {
+    background-image: url(chrome-extension://__MSG_@@extension_id__/img/kintone-icon.svg);
+    content: ' ';
+    height: 48px;
+    width: 48px;
+}
