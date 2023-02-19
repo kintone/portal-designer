@@ -1,15 +1,14 @@
 import React from "react";
+import { Button } from "./Button";
 
 const ExporterButton = (props: ExporterButtonProps) => {
   return (
-    <button
-      type="button"
-      className="action-export"
+    <Button
+      variant="normal"
+      label={chrome.i18n.getMessage("kpd_export_button")}
       onClick={props.onClick}
-      aria-expanded={props.expanded}
-    >
-      {chrome.i18n.getMessage("kpd_export_button")}
-    </button>
+      ariaExpanded={props.expanded}
+    />
   );
 };
 

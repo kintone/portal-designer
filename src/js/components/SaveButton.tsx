@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
 import saveEditor from "../domain/saveEditor";
+import { Button } from "./Button";
 
-const SaveButton = () => {
+const Component = ({ className }: PropsForStyled) => {
   const context = useContext(EditorContext);
 
   const onClick = async () => {
@@ -10,10 +11,12 @@ const SaveButton = () => {
   };
 
   return (
-    <button type="button" className="action-save" onClick={onClick}>
-      {chrome.i18n.getMessage("kpd_save_button")}
-    </button>
+    <Button
+      variant="primary"
+      label={chrome.i18n.getMessage("kpd_save_button")}
+      onClick={onClick}
+    />
   );
 };
 
-export default SaveButton;
+export const SaveButton = Component;

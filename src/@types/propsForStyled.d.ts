@@ -1,0 +1,3 @@
+interface PropsForStyled {
+  className?: string;
+}
