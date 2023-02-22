@@ -3,11 +3,13 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
     "js/index": "./src/js/index.ts",
     "js/editor": "./src/js/Editor.tsx",
+    "css/editor": "./src/scss/editor.scss",
     "js/popup": "./src/js/popup.ts"
   },
   output: {
@@ -15,6 +17,7 @@ module.exports = {
   },
   plugins: [
     new MonacoWebpackPlugin(),
+    new MiniCssExtractPlugin(),
     new CopyWebpackPlugin({
       patterns: [
         {
@@ -57,6 +60,10 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+      },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
