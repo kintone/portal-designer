@@ -58,6 +58,14 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.ttf$/,
+        use: ["file-loader"]
+      },
+      {
         test: /\.(ts|tsx)$/,
         use: [
           {
