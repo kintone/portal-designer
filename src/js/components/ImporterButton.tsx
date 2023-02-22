@@ -1,14 +1,15 @@
 import React from "react";
-import { Button } from "./Button";
 
 const ImporterButton = (props: ImporterButtonProps) => {
   return (
-    <Button
-      variant="normal"
-      label={chrome.i18n.getMessage("kpd_import_button")}
+    <button
+      type="button"
+      className="action-import"
       onClick={props.onClick}
-      ariaExpanded={props.expanded}
-    />
+      aria-expanded={props.expanded}
+    >
+      {chrome.i18n.getMessage("kpd_import_button")}
+    </button>
   );
 };
 
