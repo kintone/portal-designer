@@ -14,3 +14,33 @@
 @import 'components/colorinput';
 @import 'components/menu';
 @import 'components/templatedialog';
+
+html {
+  font-size: 1em;
+}
+
+body {
+  background: $bg-button;
+}
+
+.portaldesigner-main {
+  margin: 16px;
+}
+
+.local-nav {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.config-tabpanel-row {
+  font-size: 1rem;
+
+  &:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+}
+
+.config-tabpanel-caution {
+  font-size: 1.1rem;
+  padding: 8px 0;
+}

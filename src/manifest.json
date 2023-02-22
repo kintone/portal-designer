@@ -5,7 +5,7 @@
   "description": "Kintone Portal Designer",
   "content_scripts": [
     {
-      "css": ["css/index.css", "css/popup.css", "css/editor.css"],
+      "css": ["css/index.css"],
       "js": ["js/index.js"],
       "matches": [
         "https://*.cybozu.com/k/*",
