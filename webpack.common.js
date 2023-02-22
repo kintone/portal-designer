@@ -15,40 +15,42 @@ module.exports = {
   },
   plugins: [
     new MonacoWebpackPlugin(),
-    new CopyWebpackPlugin([
-      {
-        from: "src/img",
-        to: "img"
-      },
-      {
-        from: "src/html",
-        to: "html"
-      },
-      {
-        from: "src/css",
-        to: "css"
-      },
-      {
-        from: "src/_locales/en",
-        to: "_locales/en"
-      },
-      {
-        from: "src/_locales/en",
-        to: "_locales/ja"
-      },
-      {
-        from: "src/js/boilerplates",
-        to: "js/boilerplates"
-      },
-      {
-        from: "src/manifest.json",
-        to: "manifest.json"
-      },
-      {
-        from: "src/editor.html",
-        to: "editor.html"
-      }
-    ])
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "src/img",
+          to: "img"
+        },
+        {
+          from: "src/html",
+          to: "html"
+        },
+        {
+          from: "src/css",
+          to: "css"
+        },
+        {
+          from: "src/_locales/en",
+          to: "_locales/en"
+        },
+        {
+          from: "src/_locales/en",
+          to: "_locales/ja"
+        },
+        {
+          from: "src/js/boilerplates",
+          to: "js/boilerplates"
+        },
+        {
+          from: "src/manifest.json",
+          to: "manifest.json"
+        },
+        {
+          from: "src/editor.html",
+          to: "editor.html"
+        }
+      ]
+    })
   ],
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
