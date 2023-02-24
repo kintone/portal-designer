@@ -2,15 +2,17 @@
 
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
-const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 
 module.exports = {
   entry: {
     "js/index": "./src/js/index.ts",
     "js/editor": "./src/js/Editor.tsx",
+    "js/popup": "./src/js/popup.ts",
+    "css/index": "./src/scss/index.scss",
     "css/editor": "./src/scss/editor.scss",
-    "js/popup": "./src/js/popup.ts"
+    "css/popup": "./src/scss/popup.scss"
   },
   output: {
     path: path.join(__dirname, "dist")
@@ -61,12 +63,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
-      },
-      {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       },
       {
         test: /\.ttf$/,
