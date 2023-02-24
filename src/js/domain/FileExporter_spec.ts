@@ -36,7 +36,7 @@ describe("FileExporter", () => {
       // Exercise
       const path = FileExporter.getPathOfDesktop(editorState);
       // Verify
-      chai.expect(path).eql("js/boilerplates/desktop.js");
+      chai.expect(path).eql("js/boilerplates/desktop.boilerplate");
     });
 
     it("非公式のBoilderplateが返る", () => {
@@ -46,7 +46,7 @@ describe("FileExporter", () => {
       // Exercise
       const path = FileExporter.getPathOfDesktop(editorState);
       // Verify
-      chai.expect(path).eql("js/boilerplates/desktop-unofficial.js");
+      chai.expect(path).eql("js/boilerplates/desktop-unofficial.boilerplate");
     });
   });
 
@@ -57,7 +57,7 @@ describe("FileExporter", () => {
       // Exercise
       const path = FileExporter.getPathOfMobile(editorState);
       // Verify
-      chai.expect(path).eql("js/boilerplates/mobile.js");
+      chai.expect(path).eql("js/boilerplates/mobile.boilerplate");
     });
 
     it("非公式のBoilderplateが返る", () => {
@@ -67,7 +67,7 @@ describe("FileExporter", () => {
       // Exercise
       const path = FileExporter.getPathOfMobile(editorState);
       // Verify
-      chai.expect(path).eql("js/boilerplates/mobile-unofficial.js");
+      chai.expect(path).eql("js/boilerplates/mobile-unofficial.boilerplate");
     });
   });
 });

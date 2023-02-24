@@ -45,14 +45,14 @@ const loadBoilerplate = async (path: string) => {
 
 const getPathOfDesktop = (state: EditorState) => {
   return isOfficialCustomization(state)
-    ? "js/boilerplates/desktop.js"
-    : "js/boilerplates/desktop-unofficial.js";
+    ? "js/boilerplates/desktop.boilerplate"
+    : "js/boilerplates/desktop-unofficial.boilerplate";
 };
 
 const getPathOfMobile = (state: EditorState) => {
   return isOfficialCustomization(state)
-    ? "js/boilerplates/mobile.js"
-    : "js/boilerplates/mobile-unofficial.js";
+    ? "js/boilerplates/mobile.boilerplate"
+    : "js/boilerplates/mobile-unofficial.boilerplate";
 };
 
 const isOfficialCustomization = (state: EditorState) => {
