@@ -1,0 +1,16 @@
+.customize-portal {
+    background-image: url(chrome-extension://__MSG_@@extension_id__/img/kintone-icon.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0;
+    height: 48px;
+    padding: 0;
+    width: 48px;
+  }
+
+body:not(.kintone-portal-customizer-ready) :is(.gaia-header-header, .gaia-header-toolbar, .ocean-portal-body, .ocean-portal-index-header) {
+    visibility: hidden;
+}

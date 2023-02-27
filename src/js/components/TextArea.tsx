@@ -2,7 +2,7 @@
 
 import React from "react";
 // import * as monaco from "monaco-editor";
-import * as monaco from "../../../node_modules/monaco-editor/esm/vs/editor/editor.api";
+import * as monaco from "monaco-editor";
 
 class TextArea extends React.Component<TextAreaProps> {
   containerRef: React.RefObject<HTMLDivElement>;

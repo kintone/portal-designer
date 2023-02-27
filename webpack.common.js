@@ -3,7 +3,6 @@
 const path = require("path");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 
 module.exports = {
@@ -20,41 +19,43 @@ module.exports = {
   },
   plugins: [
     new MonacoWebpackPlugin(),
-    new FixStyleOnlyEntriesPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
-    }),
-    new CopyWebpackPlugin([
-      {
-        from: "src/img",
-        to: "img"
-      },
-      {
-        from: "src/html",
-        to: "html"
-      },
-      {
-        from: "src/_locales/en",
-        to: "_locales/en"
-      },
-      {
-        from: "src/_locales/en",
-        to: "_locales/ja"
-      },
-      {
-        from: "src/js/boilerplates",
-        to: "js/boilerplates"
-      },
-      {
-        from: "src/manifest.json",
-        to: "manifest.json"
-      },
-      {
-        from: "src/editor.html",
-        to: "editor.html"
-      }
-    ])
+    new MiniCssExtractPlugin(),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "src/img",
+          to: "img"
+        },
+        {
+          from: "src/html",
+          to: "html"
+        },
+        {
+          from: "src/css",
+          to: "css"
+        },
+        {
+          from: "src/_locales/en",
+          to: "_locales/en"
+        },
+        {
+          from: "src/_locales/en",
+          to: "_locales/ja"
+        },
+        {
+          from: "src/js/boilerplates",
+          to: "js/boilerplates"
+        },
+        {
+          from: "src/manifest.json",
+          to: "manifest.json"
+        },
+        {
+          from: "src/editor.html",
+          to: "editor.html"
+        }
+      ]
+    })
   ],
   resolve: {
     extensions: [".ts", ".tsx", ".js"]
@@ -68,6 +69,10 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
+      },
+      {
+        test: /\.ttf$/,
+        use: ["file-loader"]
       },
       {
         test: /\.(ts|tsx)$/,
