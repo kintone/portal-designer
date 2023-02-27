@@ -40,7 +40,7 @@
     "enzyme-adapter-react-16": "^1.12.1",
     "eslint": "^5.16.0",
     "mini-css-extract-plugin": "^2.7.2",
-    "mocha": "^8.2.1",
+    "mocha": "^10.2.0",
     "prettier": "^1.17.0",
     "sass": "^1.58.3",
     "sass-loader": "^13.2.0",
