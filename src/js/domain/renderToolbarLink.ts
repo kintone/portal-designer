@@ -1,3 +1,5 @@
+import KintonePortalElements from "../lib/KintonePortalElements";
+
 const renderToolbarLink = () => {
   const anchorEl = document.createElement("a");
   anchorEl.className = "customize-portal";
@@ -6,10 +8,7 @@ const renderToolbarLink = () => {
   anchorEl.setAttribute("aria-label", "Kintone Portal Designer");
   anchorEl.setAttribute("title", "Kintone Portal Designer");
 
-  const linksEl = document.querySelector(".gaia-header-toolbar-links");
-  if (linksEl) {
-    linksEl.appendChild(anchorEl);
-  }
+  KintonePortalElements.addLinkToGlobalNavigation(anchorEl);
 };
 
 export default renderToolbarLink;

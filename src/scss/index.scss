@@ -7,7 +7,7 @@
   background-repeat: no-repeat;
   border: 0;
   cursor: pointer;
-  display: inline-block;
+  display: block;
   font-size: 0;
   height: 48px;
   padding: 0;
@@ -16,6 +16,10 @@
   &:hover {
     background-color: $toolbar-button-hover;
   }
+}
+
+.customize-portal-wrapper-old {
+  display: inline-block;
 }
 
 body:not(.kintone-portal-customizer-ready) {

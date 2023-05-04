@@ -19,6 +19,30 @@ const getPortalWidgetElements = (): NodeListOf<HTMLElement> =>
 const getMobilePortalIndexElement = (): HTMLElement | null =>
   document.querySelector(".gaia-mobile-v2-portal-index");
 
+const getGlobalNavigationLinksElement = (): Element | null =>
+  document.querySelectorAll("#appshell-global-navigation ul")[1];
+
+const getOldGlobalNavigationLinksElement = (): HTMLElement | null =>
+  document.querySelector(".gaia-header-toolbar-links");
+
+const addLinkToGlobalNavigation = (anchorEl: HTMLElement) => {
+  const linksEl = getGlobalNavigationLinksElement();
+  if (linksEl) {
+    const wrapperEl = document.createElement("li");
+    wrapperEl.appendChild(anchorEl);
+    linksEl.appendChild(wrapperEl);
+    return;
+  }
+
+  const oldLinksEl = getOldGlobalNavigationLinksElement();
+  if (oldLinksEl) {
+    const wrapperEl = document.createElement("div");
+    wrapperEl.classList.add("customize-portal-wrapper-old");
+    wrapperEl.appendChild(anchorEl);
+    oldLinksEl.appendChild(wrapperEl);
+  }
+};
+
 // TODO: ポータルのAPIが実装されたタイミングでおきかえる
 const getPortalCustomizeElement = (): HTMLElement => {
   const entryPointEl = document.querySelector(".kintone-portal-customize");
@@ -61,7 +85,8 @@ const KintonePortalElements = {
   getPortalBodyElement,
   getPortalWidgetElements,
   getPortalCustomizeElement,
-  getMobilePortalCustomizeElement
+  getMobilePortalCustomizeElement,
+  addLinkToGlobalNavigation
 };
 
 export default KintonePortalElements;
