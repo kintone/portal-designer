@@ -20,7 +20,7 @@ const getMobilePortalIndexElement = (): HTMLElement | null =>
   document.querySelector(".gaia-mobile-v2-portal-index");
 
 const getGlobalNavigationLinksElement = (): Element | null =>
-  document.querySelectorAll("#appshell-global-navigation ul")[1];
+  document.querySelectorAll("#header-global-navigation-root nav ul")[1];
 
 const getOldGlobalNavigationLinksElement = (): HTMLElement | null =>
   document.querySelector(".gaia-header-toolbar-links");
