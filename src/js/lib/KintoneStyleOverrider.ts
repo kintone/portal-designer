@@ -16,14 +16,28 @@ const updateHeaderColor = ({ headerColor }: RenderingModel) => {
   if (!headerColor) {
     return;
   }
+  // 旧ヘッダー
   addImportantCssRule(".gaia-header-header", "background", headerColor);
+  // 新ヘッダー
+  addImportantCssRule(
+    "#header-global-navigation-root header",
+    "background",
+    headerColor
+  );
 };
 
 const updateToolbarColor = ({ toolbarColor }: RenderingModel) => {
   if (!toolbarColor) {
     return;
   }
+  // 旧ヘッダー
   addImportantCssRule(".gaia-header-toolbar", "background", toolbarColor);
+  // 新ヘッダー
+  addImportantCssRule(
+    "#header-global-navigation-root nav",
+    "background",
+    toolbarColor
+  );
 };
 
 const updatePortalHeaderColor = ({ portalHeaderColor }: RenderingModel) => {
