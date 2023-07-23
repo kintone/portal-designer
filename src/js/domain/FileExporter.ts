@@ -8,7 +8,11 @@ const generateFileName = (designName: string, suffix: string, ext: string) => {
 
 const exportFile = (fileBody: string, fileName: string) => {
   const element = document.createElement("a");
-  element.setAttribute("href", `data:text/plain;charset=utf-8,${fileBody}`);
+  const fileBodyEncoded = fileBody.replace(/#/g, "%23");
+  element.setAttribute(
+    "href",
+    `data:text/plain;charset=utf-8,${fileBodyEncoded}`
+  );
   element.setAttribute("download", fileName);
   element.setAttribute("hidden", "hidden");
 
