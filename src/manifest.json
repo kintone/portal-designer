@@ -1,6 +1,6 @@
 {
   "name": "Kintone Portal Designer",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "default_locale": "en",
   "description": "Kintone Portal Designer",
   "content_scripts": [
