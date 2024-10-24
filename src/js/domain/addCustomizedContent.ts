@@ -35,7 +35,18 @@ const removeCustomizedContent = () => {
   customizedEls.filter(el => !!el).forEach(el => el.remove());
 };
 
+const execUserScriptSample = () => {
+  chrome.userScripts.register([
+    {
+      id: "test",
+      matches: ["*://*/*"],
+      js: [{ code: 'alert("Hi!")' }]
+    }
+  ]);
+};
+
 export default (model: RenderingModel, entryPointEl: Element) => {
-  removeCustomizedContent();
-  addCustomizedContentTo(model, entryPointEl);
+  execUserScriptSample();
+  // removeCustomizedContent();
+  // addCustomizedContentTo(model, entryPointEl);
 };

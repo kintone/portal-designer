@@ -32,7 +32,8 @@
     "default_popup": "html/popup.html"
   },
   "permissions": [
-    "storage"
+    "storage",
+    "userScripts"
   ],
   "host_permissions": [
     "https://*.cybozu.com/k/*",
