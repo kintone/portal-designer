@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
-    "@types/chrome": "0.0.83",
+    "@types/chrome": "^0.0.279",
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
     "@types/sanitize-filename": "^1.1.28",
