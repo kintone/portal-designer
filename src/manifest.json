@@ -32,16 +32,16 @@
     "default_popup": "html/popup.html"
   },
   "permissions": [
-    "storage",
-    "userScripts"
+    "userScripts",
+    "storage"
   ],
   "host_permissions": [
-    "https://*.cybozu.com/k/*",
-    "https://*.cybozu-dev.com/k/*",
-    "https://*.kintone.com/k/*",
-    "https://*.kintone-dev.com/k/*",
-    "https://*.cybozu.cn/k/*",
-    "https://*.cybozu-dev.cn/k/*"
+    "https://*.cybozu.com/*",
+    "https://*.cybozu-dev.com/*",
+    "https://*.kintone.com/*",
+    "https://*.kintone-dev.com/*",
+    "https://*.cybozu.cn/*",
+    "https://*.cybozu-dev.cn/*"
   ],
   "web_accessible_resources": [
     {
@@ -62,5 +62,6 @@
       ]
     }
   ],
+  "minimum_chrome_version": "120",
   "manifest_version": 3
 }
