@@ -6,17 +6,17 @@ const ChromeStorage = {
       });
     }),
 
-  set: <T>(items: T) =>
+  set: <T extends object>(items: T) =>
     new Promise<{}>(resolve => {
       chrome.storage.local.set(items, () => {
-        resolve();
+        resolve({});
       });
     }),
 
   clear: () => {
     new Promise<{}>(resolve => {
       chrome.storage.local.clear(() => {
-        resolve();
+        resolve({});
       });
     });
   }
