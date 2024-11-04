@@ -5,6 +5,7 @@ import { convertStorageToState } from "../domain/StorageConverter";
 import EditorPage from "../components/EditorPage";
 
 const EditorPageContainer = () => {
+  // @ts-ignore
   const { dispatch } = useContext(EditorContext);
 
   const loadStorage = async () => {

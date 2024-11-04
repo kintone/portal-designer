@@ -4,6 +4,7 @@ import Storage from "../domain/Storage";
 import { convertEnabledToType } from "../domain/StorageConverter";
 
 const Activator = () => {
+  // @ts-ignore
   const { state, dispatch } = useContext(EditorContext);
 
   const handleClick = () => {

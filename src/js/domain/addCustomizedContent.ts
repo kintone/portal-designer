@@ -36,9 +36,11 @@ const KINTONE_PORTAL_CUSTOMIZE_JS = "kintone-portal-customize-js";
 // };
 
 const execUserScriptSample = async () => {
+  // @ts-ignore
   chrome.userScripts.configureWorld({
     csp: "script-src 'self'"
   });
+  // @ts-ignore
   chrome.userScripts.register([
     {
       id: "test",

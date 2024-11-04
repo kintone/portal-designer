@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { EditorContext } from "../EditorContext";
 
 const BeforeUnloadHandler = () => {
+  // @ts-ignore
   const { state } = useContext(EditorContext);
 
   const handleOnBeforeUnload = (evt: BeforeUnloadEvent) => {

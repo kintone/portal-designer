@@ -3,6 +3,7 @@ import { EditorContext } from "../../EditorContext";
 import PortalHeaderColorInput from "../../components/tabpanelcontents/PortalHeaderColorInput";
 
 export default (props: any) => {
+  // @ts-ignore
   const { state, dispatch } = useContext(EditorContext);
 
   const onChange = (portalHeaderColor: string) => {

@@ -3,6 +3,7 @@ import { EditorContext } from "../EditorContext";
 import TextInput from "../components/TextInput";
 
 const NameInput = (props: {}) => {
+  // @ts-ignore
   const { state, dispatch } = useContext(EditorContext);
 
   const onChange = (name: string) => {
