@@ -3,6 +3,7 @@ import { EditorContext } from "../../EditorContext";
 import HeaderColorInput from "../../components/tabpanelcontents/HeaderColorInput";
 
 export default (props: any) => {
+  // @ts-ignore
   const { state, dispatch } = useContext(EditorContext);
 
   const onChange = (headerColor: string) => {

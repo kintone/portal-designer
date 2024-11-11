@@ -1,6 +1,6 @@
 {
   "name": "Kintone Portal Designer",
-  "version": "1.9.3",
+  "version": "1.9.5",
   "default_locale": "en",
   "description": "Kintone Portal Designer",
   "content_scripts": [
@@ -22,7 +22,7 @@
     "48": "img/chrome_extension_icon_64x64.png",
     "128": "img/chrome_extension_icon_128x128.png"
   },
-  "browser_action": {
+  "action": {
     "default_icon": {
       "16": "img/chrome_extension_icon_16x16.png",
       "48": "img/chrome_extension_icon_64x64.png",
@@ -32,14 +32,36 @@
     "default_popup": "html/popup.html"
   },
   "permissions": [
-    "storage",
-    "https://*.cybozu.com/k/*",
-    "https://*.cybozu-dev.com/k/*",
-    "https://*.kintone.com/k/*",
-    "https://*.kintone-dev.com/k/*",
-    "https://*.cybozu.cn/k/*",
-    "https://*.cybozu-dev.cn/k/*"
+    "userScripts",
+    "storage"
   ],
-  "web_accessible_resources": ["img/*", "html/*", "css/*", "js/templates/*", "editor.html"],
-  "manifest_version": 2
+  "host_permissions": [
+    "https://*.cybozu.com/*",
+    "https://*.cybozu-dev.com/*",
+    "https://*.kintone.com/*",
+    "https://*.kintone-dev.com/*",
+    "https://*.cybozu.cn/*",
+    "https://*.cybozu-dev.cn/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "img/*",
+        "html/*",
+        "css/*",
+        "js/templates/*",
+        "editor.html"
+      ],
+      "matches": [
+        "https://*.cybozu.com/*",
+        "https://*.cybozu-dev.com/*",
+        "https://*.kintone.com/*",
+        "https://*.kintone-dev.com/*",
+        "https://*.cybozu.cn/*",
+        "https://*.cybozu-dev.cn/*"
+      ]
+    }
+  ],
+  "minimum_chrome_version": "120",
+  "manifest_version": 3
 }

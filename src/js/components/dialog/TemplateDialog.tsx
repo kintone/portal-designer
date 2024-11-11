@@ -5,6 +5,7 @@ import TemplateDialogContent from "./TemplateDialogContent";
 import TemplateDownloader from "../../domain/TemplateDownloader";
 
 const TemplateDialog = () => {
+  // @ts-ignore
   const { state, dispatch } = useContext(EditorContext);
   const formRef = useRef<HTMLFormElement>(null);
   const [importing, setImporting] = useState(false);

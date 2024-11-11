@@ -8,7 +8,6 @@ const addCustomizedContentTo = (
   model: RenderingModel,
   entryPointEl: Element
 ) => {
-  const headEl = document.querySelector("head")!;
   const styleEl = document.createElement("style");
   styleEl.innerHTML = model.css;
   styleEl.classList.add(KINTONE_PORTAL_CUSTOMIZE_CSS);
@@ -19,11 +18,8 @@ const addCustomizedContentTo = (
   innerEl.classList.add(KINTONE_PORTAL_CUSTOMIZE_HTML);
   entryPointEl.appendChild(innerEl);
 
-  const scriptEl = document.createElement("script");
-  scriptEl.innerHTML = model.js;
-  scriptEl.classList.add(KINTONE_PORTAL_CUSTOMIZE_JS);
-
-  entryPointEl.appendChild(scriptEl);
+  const event = new Event("customPortalContentLoaded");
+  window.dispatchEvent(event);
 };
 
 const removeCustomizedContent = () => {

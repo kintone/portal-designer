@@ -4,6 +4,7 @@ import ImporterJsonMenuItem from "./ImporterJsonMenuItem";
 import { EditorContext } from "../EditorContext";
 
 const ImporterMenu = (props: ImporterMenuProps) => {
+  // @ts-ignore
   const { dispatch } = useContext(EditorContext);
 
   const importSampleTemplates = (evt: React.MouseEvent) => {

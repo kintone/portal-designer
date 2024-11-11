@@ -3,6 +3,7 @@ import { EditorContext } from "../../EditorContext";
 import TextArea from "../../components/TextArea";
 
 const HtmlTabPanelContent = () => {
+  // @ts-ignore
   const { state, dispatch } = useContext(EditorContext);
 
   const onChange = (html: string) => {

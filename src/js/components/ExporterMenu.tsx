@@ -4,6 +4,7 @@ import FileExporter from "../domain/FileExporter";
 import MenuItem from "./MenuItem";
 
 const ExporterMenu = (props: ExporterMenuProps) => {
+  // @ts-ignore
   const { state } = useContext(EditorContext);
 
   const exportAsJson = (evt: React.MouseEvent) => {

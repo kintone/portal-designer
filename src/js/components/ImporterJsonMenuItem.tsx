@@ -3,6 +3,7 @@ import { EditorContext } from "../EditorContext";
 import { convertTextToStateFragment } from "../domain/TextConverter";
 
 const ImporterJsonMenuItem = (props: ImporterJsonMenuItemProps) => {
+  // @ts-ignore
   const { dispatch } = useContext(EditorContext);
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>) => {

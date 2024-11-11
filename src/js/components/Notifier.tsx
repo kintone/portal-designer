@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { EditorContext } from "../EditorContext";
 
 const Notifier = () => {
+  // @ts-ignore
   const { state, dispatch } = useContext(EditorContext);
 
   const handleAnimationEnd = () => {

@@ -3,6 +3,7 @@ import { EditorContext } from "../../EditorContext";
 import Checkbox from "../../components/Checkbox";
 
 const PortalHeaderHider = (props: any) => {
+  // @ts-ignore
   const { state, dispatch } = useContext(EditorContext);
 
   const onChange = (hiddenPortalHeader: boolean) => {

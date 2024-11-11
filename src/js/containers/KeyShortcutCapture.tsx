@@ -5,6 +5,7 @@ import saveEditor from "../domain/saveEditor";
 const KeyShortcutCapture: React.FC<KeyShortcutCaptureProps> = (
   props: KeyShortcutCaptureProps
 ) => {
+  // @ts-ignore
   const { state, dispatch } = useContext(EditorContext);
 
   const handleKeyDown = async (evt: React.KeyboardEvent<HTMLDivElement>) => {
