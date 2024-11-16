@@ -55,7 +55,7 @@
     if (!headerColor) {
       return;
     }
-    addImportantCssRule(".gaia-header-header", "background", headerColor);
+    addImportantCssRule("#header-global-navigation-root header", "background", headerColor);
   }
 
   function updateToolbarColor() {
@@ -63,7 +63,7 @@
     if (!toolbarColor) {
       return;
     }
-    addImportantCssRule(".gaia-header-toolbar", "background", toolbarColor);
+    addImportantCssRule("#header-global-navigation-root nav", "background", toolbarColor);
   }
 
   function hiddenPortalHeader() {

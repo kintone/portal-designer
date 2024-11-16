@@ -16,14 +16,14 @@ const updateHeaderColor = ({ headerColor }: RenderingModel) => {
   if (!headerColor) {
     return;
   }
-  addImportantCssRule(".gaia-header-header", "background", headerColor);
+  addImportantCssRule("#header-global-navigation-root header", "background", headerColor);
 };
 
 const updateToolbarColor = ({ toolbarColor }: RenderingModel) => {
   if (!toolbarColor) {
     return;
   }
-  addImportantCssRule(".gaia-header-toolbar", "background", toolbarColor);
+  addImportantCssRule("#header-global-navigation-root nav", "background", toolbarColor);
 };
 
 const updatePortalHeaderColor = ({ portalHeaderColor }: RenderingModel) => {
