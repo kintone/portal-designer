@@ -12,7 +12,8 @@ const registerUserScript = async (code: string) => {
         {
         id: USER_SCRIPT_ID,
         matches: ['*://*/*'],
-        js: [{ code }]
+        js: [{ code }],
+        world: "MAIN"
         }
     ]);
   } else {
@@ -21,7 +22,8 @@ const registerUserScript = async (code: string) => {
         {
         id: USER_SCRIPT_ID,
         matches: ['*://*/*'],
-        js: [{ code }]
+        js: [{ code }],
+        world: "MAIN"
         }
     ]);
   }
